@@ -1,0 +1,60 @@
+/wp-content/plugins/elementor/assets/css/conditionals/apple-webkit.min.css?ver=3.33.5
+/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.33.5
+/wp-content/plugins/elementor/assets/css/widget-accordion.min.css?ver=3.33.5
+/wp-content/plugins/elementor/assets/css/widget-divider.min.css?ver=3.33.5
+/wp-content/plugins/elementor/assets/css/widget-google_maps.min.css?ver=3.33.5
+/wp-content/plugins/elementor/assets/css/widget-heading.min.css?ver=3.33.5
+/wp-content/plugins/elementor/assets/css/widget-image.min.css?ver=3.33.5
+/wp-content/plugins/elementor/assets/css/widget-image-box.min.css?ver=3.33.5
+/wp-content/plugins/elementor/assets/css/widget-social-icons.min.css?ver=3.33.5
+/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.33.5
+/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.33.5
+/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.33.5
+/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-grow.min.css?ver=3.33.5
+/wp-content/plugins/elementor/assets/lib/animations/styles/e-animation-pop.min.css?ver=3.33.5
+/wp-content/plugins/elementor/assets/lib/animations/styles/zoomIn.min.css?ver=3.33.5
+/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.33.5
+/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.33.5
+/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.33.5
+/wp-content/plugins/ocean-extra/assets/css/widgets.css?ver=6.9
+/wp-content/plugins/ocean-extra/includes/widgets/js/flickr.min.js?ver=6.9
+/wp-content/plugins/sticky-menu-or-anything-on-scroll/assets/js/jq-sticky-anything.min.js?ver=2.1.1
+/wp-content/plugins/sticky-menu-or-anything-on-scroll/assets/js/stickThis.js?ver=2.1.1
+/wp-content/themes/oceanwp/assets/css/style.min.css?ver=1.0
+/wp-content/themes/oceanwp/assets/css/third/simple-line-icons.min.css?ver=2.4.0
+/wp-content/themes/oceanwp/assets/fonts/fontawesome/css/all.min.css?ver=6.7.2
+/wp-content/themes/oceanwp/assets/js/header-replace-search.min.js?ver=1.0
+/wp-content/themes/oceanwp/assets/js/ow-lightbox.min.js?ver=1.0
+/wp-content/themes/oceanwp/assets/js/ow-slider.min.js?ver=1.0
+/wp-content/themes/oceanwp/assets/js/scroll-effect.min.js?ver=1.0
+/wp-content/themes/oceanwp/assets/js/select.min.js?ver=1.0
+/wp-content/themes/oceanwp/assets/js/sidebar-mobile-menu.min.js?ver=1.0
+/wp-content/themes/oceanwp/assets/js/theme.min.js?ver=1.0
+/wp-content/themes/oceanwp/assets/js/vendors/flickity.pkgd.min.js?ver=1.0
+/wp-content/themes/oceanwp/assets/js/vendors/magnific-popup.min.js?ver=1.0
+/wp-content/themes/oceanwp/assets/js/vendors/sidr.js?ver=1.0
+/wp-content/themes/oceanwp-child-theme-master/style.css?ver=6.9
+/wp-content/uploads/2018/04/customer-complaint-form.pdf
+/wp-content/uploads/2019/12/KMD-Logo_Transparent_72ppi_Medium.png 450w, /wp-content/uploads/2019/12/KMD-Logo_Transparent_72ppi_Medium-150x150.png 150w, /wp-content/uploads/2019/12/KMD-Logo_Transparent_72ppi_Medium-300x300.png 300w
+/wp-content/uploads/aboutus.png 624w, /wp-content/uploads/aboutus-300x192.png 300w
+/wp-content/uploads/achievements.png 606w, /wp-content/uploads/achievements-300x198.png 300w
+/wp-content/uploads/aviation-banner-768x495.png 768w, /wp-content/uploads/aviation-banner-300x193.png 300w, /wp-content/uploads/aviation-banner.png 776w
+/wp-content/uploads/claims-banner-768x495.png 768w, /wp-content/uploads/claims-banner-300x193.png 300w, /wp-content/uploads/claims-banner.png 776w
+/wp-content/uploads/construction-banner-768x495.png 768w, /wp-content/uploads/construction-banner-300x193.png 300w, /wp-content/uploads/construction-banner.png 776w
+/wp-content/uploads/csr-KMD.png 256w, /wp-content/uploads/csr-KMD-150x150.png 150w
+/wp-content/uploads/directinsurance-banner-768x495.png 768w, /wp-content/uploads/directinsurance-banner-300x194.png 300w, /wp-content/uploads/directinsurance-banner.png 775w
+/wp-content/uploads/employeebenefits-banner-768x495.png 768w, /wp-content/uploads/employeebenefits-banner-300x194.png 300w, /wp-content/uploads/employeebenefits-banner.png 775w
+/wp-content/uploads/energy-banner-768x495.png 768w, /wp-content/uploads/energy-banner-300x193.png 300w, /wp-content/uploads/energy-banner.png 776w
+/wp-content/uploads/facultativeexpertise-banner-768x495.png 768w, /wp-content/uploads/facultativeexpertise-banner-300x193.png 300w, /wp-content/uploads/facultativeexpertise-banner.png 776w
+/wp-content/uploads/health-banner-768x495.png 768w, /wp-content/uploads/health-banner-300x193.png 300w, /wp-content/uploads/health-banner.png 774w
+/wp-content/uploads/india-map.png 650w, /wp-content/uploads/india-map-270x300.png 270w
+/wp-content/uploads/KMD_CSR%20Policy_website.pdf
+/wp-content/uploads/liability-banner-768x495.png 768w, /wp-content/uploads/liability-banner-300x194.png 300w, /wp-content/uploads/liability-banner.png 775w
+/wp-content/uploads/marine-cargo-banner-768x495.png 768w, /wp-content/uploads/marine-cargo-banner-300x193.png 300w, /wp-content/uploads/marine-cargo-banner.png 776w
+/wp-content/uploads/marine-hull-banner-768x495.png 768w, /wp-content/uploads/marine-hull-banner-300x193.png 300w, /wp-content/uploads/marine-hull-banner.png 776w
+/wp-content/uploads/news01.png 620w, /wp-content/uploads/news01-300x194.png 300w
+/wp-content/uploads/personallines-banner-768x495.png 768w, /wp-content/uploads/personallines-banner-300x194.png 300w, /wp-content/uploads/personallines-banner.png 775w
+/wp-content/uploads/rural-banner-768x495.png 768w, /wp-content/uploads/rural-banner-300x194.png 300w, /wp-content/uploads/rural-banner.png 775w
+/wp-content/uploads/srs-768x520.png 768w, /wp-content/uploads/srs-300x203.png 300w, /wp-content/uploads/srs.png 775w
+/wp-content/uploads/statement.png 558w, /wp-content/uploads/statement-209x300.png 209w
+/wp-content/uploads/treaty-banner-768x495.png 768w, /wp-content/uploads/treaty-banner-300x193.png 300w, /wp-content/uploads/treaty-banner.png 776w
