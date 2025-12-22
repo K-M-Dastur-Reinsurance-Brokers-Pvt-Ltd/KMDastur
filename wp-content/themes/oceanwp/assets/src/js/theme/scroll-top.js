@@ -1,4 +1,4 @@
-﻿import { fadeIn, fadeOut } from "../lib/utils";
+import { fadeIn, fadeOut } from "../lib/utils";
 
 class ScrollTop {
   #elements;
@@ -13,7 +13,7 @@ class ScrollTop {
     this.#elements = {
       scrollTop: document.querySelector("#scroll-top"),
       goTop: document.querySelector('a[href="#go-top"]'),
-      goTopSlash: document.querySelector('body.home a[href="/#go-top"]'),
+      goTopSlash: document.querySelector('body.home a[href="/KMDastur/#go-top"]'),
       html: document.querySelector("html"),
     };
   };
