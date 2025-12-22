@@ -1,4 +1,4 @@
-(function($) {
+﻿(function($) {
 	$(function() {
 
 		function showRegistrationModal(id, message) {
@@ -147,3 +147,4 @@
 
 	});
 })(jQuery);
+

@@ -1,4 +1,4 @@
-import ResponsiveAutoHeight from "responsive-auto-height";
+﻿import ResponsiveAutoHeight from "responsive-auto-height";
 
 class OWLoadMore {
   #elements = {
@@ -149,3 +149,4 @@ window.oceanwp = window.oceanwp || {};
 document.addEventListener("DOMContentLoaded", () => {
   oceanwp.owLoadMore = new OWLoadMore();
 });
+

@@ -1,4 +1,4 @@
-// Document Ready
+﻿// Document Ready
 jQuery(document).ready(function ($) {
 
 	var owp_notification = {

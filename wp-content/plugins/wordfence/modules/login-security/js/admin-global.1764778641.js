@@ -1,4 +1,4 @@
-(function($) {
+﻿(function($) {
 	window['GWFLS'] = {
 		init: function() {
 			this.register_create_user_events();
@@ -87,4 +87,5 @@
 		GWFLS.init();
 	});
 })(jQuery);
+
 

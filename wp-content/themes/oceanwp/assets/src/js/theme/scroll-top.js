@@ -1,4 +1,4 @@
-import { fadeIn, fadeOut } from "../lib/utils";
+﻿import { fadeIn, fadeOut } from "../lib/utils";
 
 class ScrollTop {
   #elements;
@@ -65,3 +65,4 @@ class ScrollTop {
 ("use script");
 window.oceanwp = window.oceanwp || {};
 oceanwp.scrollTop = new ScrollTop();
+

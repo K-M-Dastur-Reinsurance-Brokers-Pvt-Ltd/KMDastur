@@ -1,4 +1,4 @@
-/******/ (() => { // webpackBootstrap
+﻿/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "../modules/atomic-opt-in/assets/js/panel-chip/app-manager.js":
@@ -182,7 +182,7 @@ var popoverData = {
   image: 'https://assets.elementor.com/v4-promotion/v1/images/v4_chip.png',
   image_alt: (0, _i18n.__)('Elementor V4', 'elementor'),
   title: (0, _i18n.__)('Elementor V4', 'elementor'),
-  description: [(0, _i18n.__)('You’ve got powerful new tools with Editor V4. But, keep in mind that this is an early release, so don’t use it on live sites yet.', 'elementor')],
+  description: [(0, _i18n.__)('Youâ€™ve got powerful new tools with Editor V4. But, keep in mind that this is an early release, so donâ€™t use it on live sites yet.', 'elementor')],
   upgrade_text: (0, _i18n.__)('Learn more', 'elementor'),
   upgrade_url: 'https://go.elementor.com/wp-dash-opt-in-v4-help-center/'
 };

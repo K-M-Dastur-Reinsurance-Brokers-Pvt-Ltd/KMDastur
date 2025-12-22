@@ -1,1 +1,2 @@
-export const options = oceanwpLocalize;
+﻿export const options = oceanwpLocalize;
+

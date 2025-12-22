@@ -1,4 +1,4 @@
-import { options } from "../../constants";
+﻿import { options } from "../../constants";
 import { slideDown, slideUp } from "../../lib/utils";
 
 class VerticalHeader {
@@ -172,3 +172,4 @@ class VerticalHeader {
 ("use script");
 window.oceanwp = window.oceanwp || {};
 oceanwp.verticalHeader = new VerticalHeader();
+

@@ -1,4 +1,4 @@
-(function($) {
+﻿(function($) {
 	function __(string) {
 		return WFLS_LOGIN_TRANSLATIONS[string] || string;
 	}
@@ -485,3 +485,4 @@
 		}
 	});
 })(jQuery);
+

@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 (self["webpackChunkelementorFrontend"] = self["webpackChunkelementorFrontend"] || []).push([["tabs"],{
 
 /***/ "../assets/dev/js/frontend/handlers/base-tabs.js":

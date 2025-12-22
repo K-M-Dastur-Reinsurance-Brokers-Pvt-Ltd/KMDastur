@@ -1,4 +1,4 @@
-import { options } from "../constants";
+﻿import { options } from "../constants";
 
 class BlogMasonry {
   #elements;
@@ -32,3 +32,4 @@ class BlogMasonry {
 ("use script");
 window.oceanwp = window.oceanwp || {};
 oceanwp.blogMasonry = new BlogMasonry();
+

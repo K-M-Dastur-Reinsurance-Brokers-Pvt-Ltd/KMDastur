@@ -1,4 +1,4 @@
-.wp-block-navigation.items-justified-space-between .wp-block-page-list,.wp-block-navigation.items-justified-space-between .wp-block-page-list>div{
+﻿.wp-block-navigation.items-justified-space-between .wp-block-page-list,.wp-block-navigation.items-justified-space-between .wp-block-page-list>div{
   display:contents;
   flex:1;
 }

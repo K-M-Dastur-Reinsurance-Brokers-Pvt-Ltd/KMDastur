@@ -1,4 +1,4 @@
-class WooThumbnails {
+﻿class WooThumbnails {
   #elements = {
     thumbsVerticalLayout: document.querySelector(".owp-thumbs-layout-vertical"),
   };
@@ -40,3 +40,4 @@ class WooThumbnails {
 }
 
 new WooThumbnails();
+

@@ -1,4 +1,4 @@
-import delegate from "delegate";
+﻿import delegate from "delegate";
 import { slideUp, slideDown, fadeIn, fadeOut, visible } from "../../lib/utils";
 
 class FullScreenMobileMenu {
@@ -254,3 +254,4 @@ class FullScreenMobileMenu {
 ("use script");
 window.oceanwp = window.oceanwp || {};
 oceanwp.fullScreenMobileMenu = new FullScreenMobileMenu();
+

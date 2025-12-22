@@ -1,4 +1,4 @@
-import { options } from "../../constants";
+﻿import { options } from "../../constants";
 import SearchBase from "./base";
 
 class HeaderReplaceSearch extends SearchBase {
@@ -108,3 +108,4 @@ class HeaderReplaceSearch extends SearchBase {
 ("use script");
 window.oceanwp = window.oceanwp || {};
 oceanwp.headerReplaceSearch = new HeaderReplaceSearch();
+

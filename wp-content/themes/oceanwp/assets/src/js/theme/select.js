@@ -1,4 +1,4 @@
-import { options } from "../constants";
+﻿import { options } from "../constants";
 
 export default class Select {
   #elements;
@@ -97,3 +97,4 @@ export default class Select {
 ("use script");
 window.oceanwp = window.oceanwp || {};
 oceanwp.select = new Select();
+

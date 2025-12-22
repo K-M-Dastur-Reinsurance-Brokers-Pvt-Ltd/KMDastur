@@ -1,4 +1,4 @@
-/******/ (() => { // webpackBootstrap
+﻿/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "../assets/dev/js/editor/regions/responsive-bar/responsive-bar.js":

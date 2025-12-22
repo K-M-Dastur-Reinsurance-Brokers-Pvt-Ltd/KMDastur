@@ -1,4 +1,4 @@
-class EddAjaxCart {
+﻿class EddAjaxCart {
   #elements;
 
   constructor() {
@@ -44,3 +44,4 @@ class EddAjaxCart {
 }
 
 new EddAjaxCart();
+

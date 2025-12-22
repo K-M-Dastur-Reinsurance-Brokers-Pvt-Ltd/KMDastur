@@ -1,4 +1,4 @@
-/**
+﻿/**
 * @preserve Sticky Anything 2.1.1 | (c) WebFactory Ltd | GPL2 Licensed
 */
 
@@ -21,3 +21,4 @@
 
 	});
 }(jQuery));
+

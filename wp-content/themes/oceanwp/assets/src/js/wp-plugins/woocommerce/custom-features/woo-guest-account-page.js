@@ -1,4 +1,4 @@
-import { fadeIn, fadeOut, getSiblings } from "../../../lib/utils";
+﻿import { fadeIn, fadeOut, getSiblings } from "../../../lib/utils";
 
 class WooGuestAccountPage {
   #elements = {
@@ -81,3 +81,4 @@ class WooGuestAccountPage {
 }
 
 export default WooGuestAccountPage;
+

@@ -1,4 +1,4 @@
-import { options } from "../../constants";
+﻿import { options } from "../../constants";
 import { fadeIn, fadeOut, slideDown, slideUp, visible } from "../../lib/utils";
 
 class WooMultiStepCheckout {
@@ -323,3 +323,4 @@ class WooMultiStepCheckout {
 }
 
 new WooMultiStepCheckout();
+

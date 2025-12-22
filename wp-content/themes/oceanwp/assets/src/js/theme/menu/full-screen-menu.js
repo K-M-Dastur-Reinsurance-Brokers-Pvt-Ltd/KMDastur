@@ -1,4 +1,4 @@
-import { fadeIn, fadeOut, slideDown, slideUp } from "../../lib/utils";
+﻿import { fadeIn, fadeOut, slideDown, slideUp } from "../../lib/utils";
 
 class FullScreenMenu {
   #elements = {
@@ -189,3 +189,4 @@ class FullScreenMenu {
 ("use script");
 window.oceanwp = window.oceanwp || {};
 oceanwp.fullScreenMenu = new FullScreenMenu();
+

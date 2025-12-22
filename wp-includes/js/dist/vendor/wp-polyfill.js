@@ -1,6 +1,6 @@
-/**
+﻿/**
  * core-js 3.39.0
- * © 2014-2024 Denis Pushkarev (zloirock.ru)
+ * Â© 2014-2024 Denis Pushkarev (zloirock.ru)
  * license: https://github.com/zloirock/core-js/blob/v3.39.0/LICENSE
  * source: https://github.com/zloirock/core-js
  */
@@ -426,7 +426,7 @@ var store = module.exports = globalThis[SHARED] || defineGlobalProperty(SHARED, 
 (store.versions || (store.versions = [])).push({
   version: '3.39.0',
   mode: IS_PURE ? 'pure' : 'global',
-  copyright: '© 2014-2024 Denis Pushkarev (zloirock.ru)',
+  copyright: 'Â© 2014-2024 Denis Pushkarev (zloirock.ru)',
   license: 'https://github.com/zloirock/core-js/blob/v3.39.0/LICENSE',
   source: 'https://github.com/zloirock/core-js'
 });
@@ -3532,9 +3532,9 @@ module.exports = !fails(function () {
     || new URL('https://a@b').username !== 'a'
     || new URLSearchParams(new URLSearchParams('a=b')).get('a') !== 'b'
     // not punycoded in Edge
-    || new URL('https://тест').host !== 'xn--e1aybc'
+    || new URL('https://Ñ‚ÐµÑÑ‚').host !== 'xn--e1aybc'
     // not escaped in Chrome 62-
-    || new URL('https://a#б').hash !== '#%D0%B1'
+    || new URL('https://a#Ð±').hash !== '#%D0%B1'
     // fails in Chrome 66-
     || result !== 'a1c3'
     // throws in Safari
@@ -3693,3 +3693,4 @@ if (DESCRIPTORS && !('size' in URLSearchParamsPrototype)) {
 
 /***/ })
 /******/ ]); }();
+

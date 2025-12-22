@@ -1,4 +1,4 @@
-(function($) {
+﻿(function($) {
 	var __ = window.wfi18n.__;
 	var sprintf = window.wfi18n.sprintf;
 
@@ -922,3 +922,4 @@
 	});
 })
 (jQuery);
+

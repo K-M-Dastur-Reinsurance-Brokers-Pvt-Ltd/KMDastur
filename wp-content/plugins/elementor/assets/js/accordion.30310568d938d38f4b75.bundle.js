@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 (self["webpackChunkelementorFrontend"] = self["webpackChunkelementorFrontend"] || []).push([["accordion"],{
 
 /***/ "../assets/dev/js/frontend/handlers/accordion.js":

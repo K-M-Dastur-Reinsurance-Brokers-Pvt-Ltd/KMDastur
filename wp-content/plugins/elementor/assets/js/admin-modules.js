@@ -1,4 +1,4 @@
-/******/ (() => { // webpackBootstrap
+﻿/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "../assets/dev/js/admin/menu-handler.js":

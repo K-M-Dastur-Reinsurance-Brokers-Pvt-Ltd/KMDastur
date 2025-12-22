@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 (self["webpackChunkelementorFrontend"] = self["webpackChunkelementorFrontend"] || []).push([["section-editor-handlers"],{
 
 /***/ "../assets/dev/js/frontend/handlers/section/shapes.js":

@@ -1,4 +1,4 @@
-class Carousel {
+﻿class Carousel {
   #elements;
 
   constructor(context) {
@@ -46,3 +46,4 @@ class Carousel {
 }
 
 new Carousel();
+

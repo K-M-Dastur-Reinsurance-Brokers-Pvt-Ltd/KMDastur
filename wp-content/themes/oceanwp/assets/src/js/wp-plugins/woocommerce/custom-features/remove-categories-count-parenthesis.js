@@ -1,4 +1,4 @@
-class WooRemoveCategoriesCountParenthesis {
+﻿class WooRemoveCategoriesCountParenthesis {
     constructor() {
         this.#start();
     }
@@ -14,3 +14,4 @@ class WooRemoveCategoriesCountParenthesis {
 }
 
 export default WooRemoveCategoriesCountParenthesis;
+

@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
 
 	window.wfi18n = {
 		__: function(text) {

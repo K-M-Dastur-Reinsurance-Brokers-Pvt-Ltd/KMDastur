@@ -1,4 +1,4 @@
-import Cookies from "js-cookie";
+﻿import Cookies from "js-cookie";
 import { fadeIn, fadeOut } from "../../../lib/utils";
 
 class WooGridList {
@@ -131,3 +131,4 @@ class WooGridList {
 }
 
 export default WooGridList;
+

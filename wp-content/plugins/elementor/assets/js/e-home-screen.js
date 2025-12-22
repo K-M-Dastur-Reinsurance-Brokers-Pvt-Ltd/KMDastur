@@ -1,4 +1,4 @@
-/******/ (() => { // webpackBootstrap
+﻿/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "../app/assets/js/event-track/dashboard/action-controls.js":

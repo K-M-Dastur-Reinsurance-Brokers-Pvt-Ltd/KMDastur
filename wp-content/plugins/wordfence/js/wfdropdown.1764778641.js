@@ -1,4 +1,4 @@
-/* ========================================================================
+﻿/* ========================================================================
  * Bootstrap: dropdown.js v3.4.1 (adapted to WF prefix)
  * https://getbootstrap.com/docs/3.4/javascript/#dropdowns
  * ========================================================================
@@ -163,3 +163,4 @@
 		.on('keydown.bs.wf-dropdown.data-api', '.wf-dropdown-menu', WFDropdown.prototype.keydown)
 
 }(jQuery);
+

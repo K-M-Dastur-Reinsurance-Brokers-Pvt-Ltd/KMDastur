@@ -1,4 +1,4 @@
-if (!window['WFDash']) {
+﻿if (!window['WFDash']) {
 	window['WFDash'] = {
 		updateNotificationCount: function(count) {
 			(function($) {
@@ -13,3 +13,4 @@ if (!window['WFDash']) {
 		}
 	}
 }
+

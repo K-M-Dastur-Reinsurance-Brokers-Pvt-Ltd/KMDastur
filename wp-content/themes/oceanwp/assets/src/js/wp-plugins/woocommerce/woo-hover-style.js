@@ -1,4 +1,4 @@
-import delegate from "delegate";
+﻿import delegate from "delegate";
 import { getSiblings } from "../../lib/utils";
 
 class WooHoverStyle {
@@ -115,3 +115,4 @@ class WooHoverStyle {
 }
 
 new WooHoverStyle();
+

@@ -1,4 +1,4 @@
-class OWSlider {
+﻿class OWSlider {
   flickity;
 
   constructor() {
@@ -38,3 +38,4 @@ window.oceanwp = window.oceanwp || {};
 window.oceanwp.theme = window.oceanwp.theme || {};
 oceanwp.owSlider = new OWSlider();
 oceanwp.theme.owSlider = oceanwp.owSlider;
+

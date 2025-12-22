@@ -1,4 +1,4 @@
-import { options } from "../../constants";
+﻿import { options } from "../../constants";
 import { fadeIn, fadeOut } from "../../lib/utils";
 import SearchBase from "./base";
 
@@ -112,3 +112,4 @@ class MobileSearchIcon extends SearchBase {
 ("use script");
 window.oceanwp = window.oceanwp || {};
 oceanwp.mobileSearchIcon = new MobileSearchIcon();
+

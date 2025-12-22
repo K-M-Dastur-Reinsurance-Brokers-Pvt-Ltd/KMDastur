@@ -1,4 +1,4 @@
-import { options } from "../../constants";
+﻿import { options } from "../../constants";
 import SearchBase from "./base";
 
 class DropDownSearch extends SearchBase {
@@ -53,3 +53,4 @@ class DropDownSearch extends SearchBase {
 ("use script");
 window.oceanwp = window.oceanwp || {};
 oceanwp.dropDownSearch = new DropDownSearch();
+

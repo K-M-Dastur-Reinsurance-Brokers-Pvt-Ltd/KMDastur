@@ -1,4 +1,4 @@
-class WooResetVariations {
+﻿class WooResetVariations {
   #elements = {
     resetVariations: document.querySelector(".reset_variations"),
   };
@@ -27,3 +27,4 @@ class WooResetVariations {
 }
 
 export default WooResetVariations;
+

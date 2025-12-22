@@ -1,4 +1,4 @@
-var __webpack_exports__ = {};
+﻿var __webpack_exports__ = {};
 let formSettings;
 try {
   formSettings = JSON.parse(
@@ -43,4 +43,5 @@ document.querySelectorAll("form.wp-block-form").forEach(function(form) {
     }
   });
 });
+
 

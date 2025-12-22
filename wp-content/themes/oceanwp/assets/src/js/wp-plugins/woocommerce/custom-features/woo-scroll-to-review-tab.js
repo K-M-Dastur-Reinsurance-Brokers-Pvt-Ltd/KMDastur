@@ -1,4 +1,4 @@
-import { offset } from "../../../lib/utils";
+﻿import { offset } from "../../../lib/utils";
 
 class WooScrollToReviewTab {
   #elements = {
@@ -73,3 +73,4 @@ class WooScrollToReviewTab {
 }
 
 export default WooScrollToReviewTab;
+

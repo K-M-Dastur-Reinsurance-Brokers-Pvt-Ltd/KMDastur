@@ -1,4 +1,4 @@
-(function($) {
+﻿(function($) {
 	var __, sprintf;
 
 	if (!window['wordfenceExt']) {
@@ -291,3 +291,4 @@ else return;f.random.addEntropy(c,1024,"crypto['getRandomValues']")}}catch(g){"u
 		null!=d[3]?b[d[2]]=parseInt(d[3],10):null!=d[4]?b[d[2]]=d[2].match(/^(ct|adata|salt|iv)$/)?f.codec.base64.toBits(d[4]):unescape(d[4]):null!=d[5]&&(b[d[2]]="true"===d[5])}return b},g:function(a,b,c){void 0===a&&(a={});if(void 0===b)return a;for(var d in b)if(b.hasOwnProperty(d)){if(c&&void 0!==a[d]&&a[d]!==b[d])throw new f.exception.invalid("required parameter overridden");a[d]=b[d]}return a},Ba:function(a,b){var c={},d;for(d in a)a.hasOwnProperty(d)&&a[d]!==b[d]&&(c[d]=a[d]);return c},Aa:function(a,
 																																																																																																																															  b){var c={},d;for(d=0;d<b.length;d++)void 0!==a[b[d]]&&(c[b[d]]=a[b[d]]);return c}};f.encrypt=f.json.encrypt;f.decrypt=f.json.decrypt;f.misc.wa={};f.misc.cachedPbkdf2=function(a,b){var c=f.misc.wa,d;b=b||{};d=b.iter||1E3;c=c[a]=c[a]||{};d=c[d]=c[d]||{firstSalt:b.salt&&b.salt.length?b.salt.slice(0):f.random.randomWords(2,0)};c=void 0===b.salt?d.firstSalt:b.salt;d[c]=d[c]||f.misc.pbkdf2(a,c,b.iter);return{key:d[c].slice(0),salt:c.slice(0)}};"undefined"!==typeof module&&module.exports&&(module.exports=
 	f);"function"===typeof define&&define([],function(){return f})})(sjcl);
+

@@ -1,4 +1,4 @@
-import Menu from "./menu/menu";
+﻿import Menu from "./menu/menu";
 import MegaMenu from "./menu/mega-menu";
 import Search from "./search/search";
 import Footer from "./footer";
@@ -39,3 +39,4 @@ class Theme {
 ("use script");
 window.oceanwp = window.oceanwp || {};
 oceanwp.theme = new Theme();
+

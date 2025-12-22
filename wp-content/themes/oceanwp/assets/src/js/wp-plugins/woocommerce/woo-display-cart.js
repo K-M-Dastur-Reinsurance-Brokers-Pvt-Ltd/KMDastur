@@ -1,4 +1,4 @@
-import { fadeIn, fadeOut, visible } from "../../lib/utils";
+﻿import { fadeIn, fadeOut, visible } from "../../lib/utils";
 
 class WooDisplayCart {
   #elements;
@@ -79,3 +79,4 @@ class WooDisplayCart {
 }
 
 new WooDisplayCart();
+

@@ -1,4 +1,4 @@
-import { options } from "../../constants";
+﻿import { options } from "../../constants";
 import delegate from "delegate";
 
 class WooAjaxAddToCart {

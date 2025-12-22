@@ -1,4 +1,4 @@
-import { isSelectorValid, offset } from "../lib/utils";
+﻿import { isSelectorValid, offset } from "../lib/utils";
 
 class ScrollEffect {
   #elements = {
@@ -173,3 +173,4 @@ class ScrollEffect {
 ("use script");
 window.oceanwp = window.oceanwp || {};
 oceanwp.scrollEffect = new ScrollEffect();
+

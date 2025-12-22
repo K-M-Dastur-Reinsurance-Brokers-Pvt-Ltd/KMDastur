@@ -1,4 +1,4 @@
-import { slideDown, slideUp } from "../../lib/utils";
+﻿import { slideDown, slideUp } from "../../lib/utils";
 
 class WooCatWidget {
   #elements;
@@ -69,3 +69,4 @@ class WooCatWidget {
 }
 
 new WooCatWidget();
+

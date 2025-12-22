@@ -1,4 +1,4 @@
-import delegate from "delegate";
+﻿import delegate from "delegate";
 import { options } from "../../constants";
 import { slideUp, slideDown, slideToggle } from "../../lib/utils";
 
@@ -227,3 +227,4 @@ class DropDownMobileMenu {
 ("use script");
 window.oceanwp = window.oceanwp || {};
 oceanwp.dropDownMobileMenu = new DropDownMobileMenu();
+

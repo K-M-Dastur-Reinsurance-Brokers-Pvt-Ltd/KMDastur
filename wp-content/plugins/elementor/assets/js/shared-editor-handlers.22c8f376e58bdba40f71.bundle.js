@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 (self["webpackChunkelementorFrontend"] = self["webpackChunkelementorFrontend"] || []).push([["shared-editor-handlers"],{
 
 /***/ "../assets/dev/js/frontend/handlers/handles-position.js":

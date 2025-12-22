@@ -1,4 +1,4 @@
-/******/ (() => { // webpackBootstrap
+﻿/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
@@ -64,15 +64,15 @@ __webpack_require__.d(__webpack_exports__, {
  * via Mathias Bynens:
  *
  * >An identifier must start with $, _, or any character in the Unicode
- * >categories “Uppercase letter (Lu)”, “Lowercase letter (Ll)”, “Titlecase
- * >letter (Lt)”, “Modifier letter (Lm)”, “Other letter (Lo)”, or “Letter
- * >number (Nl)”.
+ * >categories â€œUppercase letter (Lu)â€, â€œLowercase letter (Ll)â€, â€œTitlecase
+ * >letter (Lt)â€, â€œModifier letter (Lm)â€, â€œOther letter (Lo)â€, or â€œLetter
+ * >number (Nl)â€.
  * >
  * >The rest of the string can contain the same characters, plus any U+200C zero
  * >width non-joiner characters, U+200D zero width joiner characters, and
- * >characters in the Unicode categories “Non-spacing mark (Mn)”, “Spacing
- * >combining mark (Mc)”, “Decimal digit number (Nd)”, or “Connector
- * >punctuation (Pc)”.
+ * >characters in the Unicode categories â€œNon-spacing mark (Mn)â€, â€œSpacing
+ * >combining mark (Mc)â€, â€œDecimal digit number (Nd)â€, or â€œConnector
+ * >punctuation (Pc)â€.
  *
  * If browser support is constrained to those supporting ES2015, this could be
  * made more accurate using the `u` flag:
@@ -88,12 +88,12 @@ __webpack_require__.d(__webpack_exports__, {
  */
 var PATTERN =
 	/%(((\d+)\$)|(\(([$_a-zA-Z][$_a-zA-Z0-9]*)\)))?[ +0#-]*\d*(\.(\d+|\*))?(ll|[lhqL])?([cduxXefgsp%])/g;
-//               ▲         ▲                    ▲       ▲  ▲            ▲           ▲ type
-//               │         │                    │       │  │            └ Length (unsupported)
-//               │         │                    │       │  └ Precision / max width
-//               │         │                    │       └ Min width (unsupported)
-//               │         │                    └ Flags (unsupported)
-//               └ Index   └ Name (for named arguments)
+//               â–²         â–²                    â–²       â–²  â–²            â–²           â–² type
+//               â”‚         â”‚                    â”‚       â”‚  â”‚            â”” Length (unsupported)
+//               â”‚         â”‚                    â”‚       â”‚  â”” Precision / max width
+//               â”‚         â”‚                    â”‚       â”” Min width (unsupported)
+//               â”‚         â”‚                    â”” Flags (unsupported)
+//               â”” Index   â”” Name (for named arguments)
 /**
  * Given a format string, returns string with arguments interpolatation.
  * Arguments can either be provided directly via function arguments spread, or
@@ -107,7 +107,7 @@ var PATTERN =
  * import sprintf from '@tannin/sprintf';
  *
  * sprintf( 'Hello %s!', 'world' );
- * // ⇒ 'Hello world!'
+ * // â‡’ 'Hello world!'
  * ```
  * @template {string} T
  * @overload
@@ -130,7 +130,7 @@ var PATTERN =
  * import sprintf from '@tannin/sprintf';
  *
  * sprintf( 'Hello %s!', 'world' );
- * // ⇒ 'Hello world!'
+ * // â‡’ 'Hello world!'
  * ```
  * @template {string} T
  * @overload
@@ -153,7 +153,7 @@ var PATTERN =
  * import sprintf from '@tannin/sprintf';
  *
  * sprintf( 'Hello %s!', 'world' );
- * // ⇒ 'Hello world!'
+ * // â‡’ 'Hello world!'
  * ```
  * @template {string} T
  * @param {T} string - string printf format string
@@ -313,7 +313,7 @@ postfix_PATTERN = /<=|>=|==|!=|&&|\|\||\?:|\(|!|\*|\/|%|\+|-|<|>|\?|\)|:/;
  * import postfix from '@tannin/postfix';
  *
  * postfix( 'n > 1' );
- * // ⇒ [ 'n', '1', '>' ]
+ * // â‡’ [ 'n', '1', '>' ]
  * ```
  *
  * @param {string} expression C expression.
@@ -440,11 +440,11 @@ var OPERATORS = {
  * ```js
  * import evaluate from '@tannin/evaluate';
  *
- * // 3 + 4 * 5 / 6 ⇒ '3 4 5 * 6 / +'
+ * // 3 + 4 * 5 / 6 â‡’ '3 4 5 * 6 / +'
  * const terms = [ '3', '4', '5', '*', '6', '/', '+' ];
  *
  * evaluate( terms, {} );
- * // ⇒ 6.333333333333334
+ * // â‡’ 6.333333333333334
  * ```
  *
  * @param {string[]} postfix   Postfix terms.
@@ -501,7 +501,7 @@ function evaluate( postfix, variables ) {
  * const evaluate = compile( 'n > 1' );
  *
  * evaluate( { n: 2 } );
- * // ⇒ true
+ * // â‡’ true
  * ```
  *
  * @param {string} expression C expression.

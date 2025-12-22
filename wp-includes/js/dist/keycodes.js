@@ -1,4 +1,4 @@
-/******/ (() => { // webpackBootstrap
+﻿/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
@@ -145,7 +145,7 @@ const displayShortcutList = /* @__PURE__ */ mapValues(
       const replacementKeyMap = {
         [ALT]: isApple ? "\u2325" : "Alt",
         [CTRL]: isApple ? "\u2303" : "Ctrl",
-        // Make sure ⌃ is the U+2303 UP ARROWHEAD unicode character and not the caret character.
+        // Make sure âŒƒ is the U+2303 UP ARROWHEAD unicode character and not the caret character.
         [COMMAND]: "\u2318",
         [SHIFT]: isApple ? "\u21E7" : "Shift"
       };

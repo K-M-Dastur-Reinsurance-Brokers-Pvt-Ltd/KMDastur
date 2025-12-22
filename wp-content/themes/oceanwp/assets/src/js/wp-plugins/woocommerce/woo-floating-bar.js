@@ -1,4 +1,4 @@
-import { options } from "../../constants";
+﻿import { options } from "../../constants";
 import { offset } from "../../lib/utils";
 import delegate from "delegate";
 import axios from "axios";
@@ -210,3 +210,4 @@ class WooFloatingBar {
 document.addEventListener("DOMContentLoaded", () => {
   new WooFloatingBar();
 });
+

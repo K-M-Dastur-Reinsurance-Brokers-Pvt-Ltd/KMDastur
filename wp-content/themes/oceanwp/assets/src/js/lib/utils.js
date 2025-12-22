@@ -1,4 +1,4 @@
-export const wrap = (element, wrapper = document.createElement("div")) => {
+﻿export const wrap = (element, wrapper = document.createElement("div")) => {
   if (element.nextSibling) {
     element.parentNode.insertBefore(wrapper, element.nextSibling);
   } else {

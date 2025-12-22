@@ -1,4 +1,4 @@
-import { options } from "../../constants";
+﻿import { options } from "../../constants";
 import { fadeIn, fadeOut, slideDown, slideUp } from "../../lib/utils";
 
 class SidebarMobileMenu {
@@ -388,3 +388,4 @@ class SidebarMobileMenu {
 ("use script");
 window.oceanwp = window.oceanwp || {};
 oceanwp.sidebarMobileMenu = new SidebarMobileMenu();
+

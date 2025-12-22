@@ -1,4 +1,4 @@
-class OWLightbox {
+﻿class OWLightbox {
   constructor() {
     this.start();
   }
@@ -122,3 +122,4 @@ class OWLightbox {
 ("use script");
 window.oceanwp = window.oceanwp || {};
 oceanwp.owLightbox = new OWLightbox();
+

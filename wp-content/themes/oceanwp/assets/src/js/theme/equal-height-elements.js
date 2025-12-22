@@ -1,4 +1,4 @@
-import ResponsiveAutoHeight from "responsive-auto-height";
+﻿import ResponsiveAutoHeight from "responsive-auto-height";
 
 class EqualHeightElements {
   #executed = false;
@@ -31,3 +31,4 @@ class EqualHeightElements {
 ("use script");
 window.oceanwp = window.oceanwp || {};
 oceanwp.equalHeightElements = new EqualHeightElements();
+

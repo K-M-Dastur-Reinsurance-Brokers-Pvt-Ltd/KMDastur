@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 (self["webpackChunkelementorFrontend"] = self["webpackChunkelementorFrontend"] || []).push([["counter"],{
 
 /***/ "../assets/dev/js/frontend/handlers/counter.js":

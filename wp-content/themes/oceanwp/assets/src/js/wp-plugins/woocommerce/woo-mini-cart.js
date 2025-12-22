@@ -1,4 +1,4 @@
-import delegate from "delegate";
+﻿import delegate from "delegate";
 import { fadeInNav, fadeOutNav } from "../../lib/utils";
 
 class WooMiniCart {
@@ -125,3 +125,4 @@ class WooMiniCart {
 }
 
 new WooMiniCart();
+

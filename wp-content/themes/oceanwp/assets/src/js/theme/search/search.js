@@ -1,4 +1,4 @@
-class Search {
+﻿class Search {
   #elements;
   mobileOverlayInput;
 
@@ -55,3 +55,4 @@ class Search {
 }
 
 export default Search;
+

@@ -1,4 +1,4 @@
-export default class Footer {
+﻿export default class Footer {
   #elements = {
     mainSection: document.querySelector("#main"),
   };
@@ -95,3 +95,4 @@ export default class Footer {
     }
   };
 }
+

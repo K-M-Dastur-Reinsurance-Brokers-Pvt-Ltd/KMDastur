@@ -1,4 +1,4 @@
-import delegate from "delegate";
+﻿import delegate from "delegate";
 
 class WooOffCanvas {
   #elements;
@@ -55,3 +55,4 @@ class WooOffCanvas {
 }
 
 new WooOffCanvas();
+

@@ -1,11 +1,11 @@
-__( 'Exit to WordPress', 'elementor' );
+﻿__( 'Exit to WordPress', 'elementor' );
 __( 'More', 'elementor' );
 __( 'Elementor Logo', 'elementor' );
 __( 'Integrations', 'elementor' );
 __( 'User Preferences', 'elementor' );
 __( 'Structure', 'elementor' );
 __( 'Refreshed Top Bar layout!', 'elementor' );
-__( 'We’ve fine-tuned the Top Bar to make navigation faster and smoother.', 'elementor' );
+__( 'Weâ€™ve fine-tuned the Top Bar to make navigation faster and smoother.', 'elementor' );
 __( 'Learn More', 'elementor' );
 __( 'Got it', 'elementor' );
 __( 'Theme Builder', 'elementor' );

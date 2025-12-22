@@ -1,4 +1,4 @@
-import InfiniteScroll from "infinite-scroll";
+﻿import InfiniteScroll from "infinite-scroll";
 import ResponsiveAutoHeight from "responsive-auto-height";
 
 class OWInfiniteScroll {
@@ -160,3 +160,4 @@ window.oceanwp = window.oceanwp || {};
 document.addEventListener("DOMContentLoaded", () => {
   oceanwp.owInfiniteScroll = new OWInfiniteScroll();
 });
+

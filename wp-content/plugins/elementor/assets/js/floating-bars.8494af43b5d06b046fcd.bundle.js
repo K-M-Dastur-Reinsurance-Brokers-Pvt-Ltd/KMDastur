@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 (self["webpackChunkelementorFrontend"] = self["webpackChunkelementorFrontend"] || []).push([["floating-bars"],{
 
 /***/ "../modules/floating-buttons/assets/js/floating-bars/frontend/classes/floatin-bar-dom.js":

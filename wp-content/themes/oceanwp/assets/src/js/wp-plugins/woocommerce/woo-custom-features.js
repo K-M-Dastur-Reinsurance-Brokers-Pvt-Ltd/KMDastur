@@ -1,4 +1,4 @@
-import WooResetVariations from "./custom-features/reset-variations";
+﻿import WooResetVariations from "./custom-features/reset-variations";
 import WooGridList from "./custom-features/woo-grid-list";
 import WooGuestAccountPage from "./custom-features/woo-guest-account-page";
 import WooQuantityButtons from "./custom-features/woo-quantity-buttons";
@@ -45,3 +45,4 @@ class WooCustomFeatures {
 
 window.oceanwpWooCustomFeatures = new WooCustomFeatures();
 oceanwpWooCustomFeatures.start();
+

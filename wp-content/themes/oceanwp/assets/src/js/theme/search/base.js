@@ -1,4 +1,4 @@
-class SearchBase {
+﻿class SearchBase {
   focus = (form, inputClass) => {
     let formTransitionDuration =
       parseFloat(getComputedStyle(form).transitionDuration.replace("s", "")) *
@@ -17,3 +17,4 @@ class SearchBase {
 }
 
 export default SearchBase;
+

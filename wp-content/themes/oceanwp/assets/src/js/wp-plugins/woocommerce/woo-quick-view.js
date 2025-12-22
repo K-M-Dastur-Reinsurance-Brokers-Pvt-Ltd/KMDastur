@@ -1,4 +1,4 @@
-import axios from "axios";
+﻿import axios from "axios";
 import delegate from "delegate";
 import { options } from "../../constants";
 import { fadeIn, fadeOut, visible } from "../../lib/utils";
@@ -277,3 +277,4 @@ class WooQuickView {
 }
 
 new WooQuickView();
+

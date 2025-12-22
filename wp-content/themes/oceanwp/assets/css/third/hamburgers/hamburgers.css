@@ -1,4 +1,4 @@
-/*!
+﻿/*!
  * Project   : OceanWP WordPress Theme
  * Purpose   : Hamburgers Icons
  * Author    : https://jonsuh.com/hamburgers/
@@ -58,3 +58,4 @@ a:hover .hamburger {
 .hamburger-inner::after {
   bottom: -7px;
 }
+

@@ -1,4 +1,4 @@
-import { options } from "../../constants";
+﻿import { options } from "../../constants";
 import { offset } from "../../lib/utils";
 
 class MegaMenu {
@@ -113,3 +113,4 @@ class MegaMenu {
 }
 
 export default MegaMenu;
+

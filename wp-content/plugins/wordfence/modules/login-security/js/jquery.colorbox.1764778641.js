@@ -1,4 +1,4 @@
-/*!
+﻿/*!
 	Colorbox 1.6.4
 	license: MIT
 	http://www.jacklmoore.com/colorbox
@@ -1103,3 +1103,4 @@
 	publicMethod.settings = defaults;
 
 }(jQuery, document, window));
+

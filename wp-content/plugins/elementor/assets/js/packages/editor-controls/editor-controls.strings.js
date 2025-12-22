@@ -1,4 +1,4 @@
-__( "Sorry, you can't upload that file yet.", 'elementor' );
+﻿__( "Sorry, you can't upload that file yet.", 'elementor' );
 __( 'To upload them anyway, ask the site administrator to enable unfiltered', 'elementor' );
 __( 'file uploads.', 'elementor' );
 __( 'Preview SVG', 'elementor' );

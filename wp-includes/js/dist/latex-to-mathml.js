@@ -1,4 +1,4 @@
-/******/ (() => { // webpackBootstrap
+﻿/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
@@ -81,13 +81,13 @@ class ParseError {
       // Extract some context from the input and add it to the error
       let left;
       if (start > 15) {
-        left = "…" + input.slice(start - 15, start);
+        left = "â€¦" + input.slice(start - 15, start);
       } else {
         left = input.slice(0, start);
       }
       let right;
       if (end + 15 < input.length) {
-        right = input.slice(end, end + 15) + "…";
+        right = input.slice(end, end + 15) + "â€¦";
       } else {
         right = input.slice(end);
       }
@@ -544,7 +544,7 @@ let TextNode$1 = class TextNode {
   }
 };
 
-// Create an <a href="…"> node.
+// Create an <a href="â€¦"> node.
 class AnchorNode {
   constructor(href, classes, children) {
     this.href = href;
@@ -841,9 +841,9 @@ const estimatedWidth = node => {
 
 const stretchyCodePoint = {
   widehat: "^",
-  widecheck: "ˇ",
+  widecheck: "Ë‡",
   widetilde: "~",
-  wideparen: "⏜", // \u23dc
+  wideparen: "âœ", // \u23dc
   utilde: "~",
   overleftarrow: "\u2190",
   underleftarrow: "\u2190",
@@ -854,7 +854,7 @@ const stretchyCodePoint = {
   underbrace: "\u23df",
   overbrace: "\u23de",
   overgroup: "\u23e0",
-  overparen: "⏜",
+  overparen: "âœ",
   undergroup: "\u23e1",
   underparen: "\u23dd",
   overleftrightarrow: "\u2194",
@@ -1048,13 +1048,13 @@ defineSymbol(math, textord, "\u2135", "\\aleph", true);
 defineSymbol(math, textord, "\u2200", "\\forall", true);
 defineSymbol(math, textord, "\u210f", "\\hbar", true);
 defineSymbol(math, textord, "\u2203", "\\exists", true);
-// ∇ is actually a unary operator, not binary. But this works.
+// âˆ‡ is actually a unary operator, not binary. But this works.
 defineSymbol(math, bin, "\u2207", "\\nabla", true);
 defineSymbol(math, textord, "\u266d", "\\flat", true);
 defineSymbol(math, textord, "\u2113", "\\ell", true);
 defineSymbol(math, textord, "\u266e", "\\natural", true);
-defineSymbol(math, textord, "Å", "\\Angstrom", true);
-defineSymbol(temml_text, textord, "Å", "\\Angstrom", true);
+defineSymbol(math, textord, "â„«", "\\Angstrom", true);
+defineSymbol(temml_text, textord, "â„«", "\\Angstrom", true);
 defineSymbol(math, textord, "\u2663", "\\clubsuit", true);
 defineSymbol(math, textord, "\u2667", "\\varclubsuit", true);
 defineSymbol(math, textord, "\u2118", "\\wp", true);
@@ -1479,8 +1479,8 @@ defineSymbol(math, textord, "\u2018", "`");
 defineSymbol(math, textord, "$", "\\$");
 defineSymbol(temml_text, textord, "$", "\\$");
 defineSymbol(temml_text, textord, "$", "\\textdollar");
-defineSymbol(math, textord, "¢", "\\cent");
-defineSymbol(temml_text, textord, "¢", "\\cent");
+defineSymbol(math, textord, "Â¢", "\\cent");
+defineSymbol(temml_text, textord, "Â¢", "\\cent");
 defineSymbol(math, textord, "%", "\\%");
 defineSymbol(temml_text, textord, "%", "\\%");
 defineSymbol(math, textord, "_", "\\_");
@@ -1620,7 +1620,7 @@ defineSymbol(math, textord, "\u2195", "\\shift");
 defineSymbol(math, textord, "\u2191", "\\shneg");
 defineSymbol(math, temml_close, "?", "?");
 defineSymbol(math, temml_close, "!", "!");
-defineSymbol(math, temml_close, "‼", "‼");
+defineSymbol(math, temml_close, "â€¼", "â€¼");
 defineSymbol(math, temml_close, "\u27e9", "\\rangle", true);
 defineSymbol(math, temml_close, "\u27eb", "\\rAngle", true);
 defineSymbol(math, temml_close, "\u298a", "\\rrangle", true);
@@ -1677,7 +1677,7 @@ defineSymbol(math, punct, ";", ";");
 defineSymbol(math, bin, "\u22bc", "\\barwedge");
 defineSymbol(math, bin, "\u22bb", "\\veebar");
 defineSymbol(math, bin, "\u2299", "\\odot", true);
-// Firefox turns ⊕ into an emoji. So append \uFE0E. Define Unicode character in macros, not here.
+// Firefox turns âŠ• into an emoji. So append \uFE0E. Define Unicode character in macros, not here.
 defineSymbol(math, bin, "\u2295\uFE0E", "\\oplus");
 defineSymbol(math, bin, "\u2297", "\\otimes", true);
 defineSymbol(math, textord, "\u2202", "\\partial", true);
@@ -1704,8 +1704,8 @@ defineSymbol(math, temml_close, "]", "\\rbrack", true);
 defineSymbol(temml_text, textord, "]", "\\rbrack", true);
 defineSymbol(math, temml_open, "(", "\\lparen", true);
 defineSymbol(math, temml_close, ")", "\\rparen", true);
-defineSymbol(math, temml_open, "⦇", "\\llparenthesis", true);
-defineSymbol(math, temml_close, "⦈", "\\rrparenthesis", true);
+defineSymbol(math, temml_open, "â¦‡", "\\llparenthesis", true);
+defineSymbol(math, temml_close, "â¦ˆ", "\\rrparenthesis", true);
 defineSymbol(temml_text, textord, "<", "\\textless", true); // in T1 fontenc
 defineSymbol(temml_text, textord, ">", "\\textgreater", true); // in T1 fontenc
 defineSymbol(math, temml_open, "\u230a", "\\lfloor", true);
@@ -1872,28 +1872,28 @@ defineSymbol(math, textord, "\u2300", "\\diameter", true);
 defineSymbol(temml_text, textord, "\u2300", "\\diameter");
 
 // Italic Greek
-defineSymbol(math, textord, "𝛤", "\\varGamma");
-defineSymbol(math, textord, "𝛥", "\\varDelta");
-defineSymbol(math, textord, "𝛩", "\\varTheta");
-defineSymbol(math, textord, "𝛬", "\\varLambda");
-defineSymbol(math, textord, "𝛯", "\\varXi");
-defineSymbol(math, textord, "𝛱", "\\varPi");
-defineSymbol(math, textord, "𝛴", "\\varSigma");
-defineSymbol(math, textord, "𝛶", "\\varUpsilon");
-defineSymbol(math, textord, "𝛷", "\\varPhi");
-defineSymbol(math, textord, "𝛹", "\\varPsi");
-defineSymbol(math, textord, "𝛺", "\\varOmega");
-defineSymbol(temml_text, textord, "𝛤", "\\varGamma");
-defineSymbol(temml_text, textord, "𝛥", "\\varDelta");
-defineSymbol(temml_text, textord, "𝛩", "\\varTheta");
-defineSymbol(temml_text, textord, "𝛬", "\\varLambda");
-defineSymbol(temml_text, textord, "𝛯", "\\varXi");
-defineSymbol(temml_text, textord, "𝛱", "\\varPi");
-defineSymbol(temml_text, textord, "𝛴", "\\varSigma");
-defineSymbol(temml_text, textord, "𝛶", "\\varUpsilon");
-defineSymbol(temml_text, textord, "𝛷", "\\varPhi");
-defineSymbol(temml_text, textord, "𝛹", "\\varPsi");
-defineSymbol(temml_text, textord, "𝛺", "\\varOmega");
+defineSymbol(math, textord, "ð›¤", "\\varGamma");
+defineSymbol(math, textord, "ð›¥", "\\varDelta");
+defineSymbol(math, textord, "ð›©", "\\varTheta");
+defineSymbol(math, textord, "ð›¬", "\\varLambda");
+defineSymbol(math, textord, "ð›¯", "\\varXi");
+defineSymbol(math, textord, "ð›±", "\\varPi");
+defineSymbol(math, textord, "ð›´", "\\varSigma");
+defineSymbol(math, textord, "ð›¶", "\\varUpsilon");
+defineSymbol(math, textord, "ð›·", "\\varPhi");
+defineSymbol(math, textord, "ð›¹", "\\varPsi");
+defineSymbol(math, textord, "ð›º", "\\varOmega");
+defineSymbol(temml_text, textord, "ð›¤", "\\varGamma");
+defineSymbol(temml_text, textord, "ð›¥", "\\varDelta");
+defineSymbol(temml_text, textord, "ð›©", "\\varTheta");
+defineSymbol(temml_text, textord, "ð›¬", "\\varLambda");
+defineSymbol(temml_text, textord, "ð›¯", "\\varXi");
+defineSymbol(temml_text, textord, "ð›±", "\\varPi");
+defineSymbol(temml_text, textord, "ð›´", "\\varSigma");
+defineSymbol(temml_text, textord, "ð›¶", "\\varUpsilon");
+defineSymbol(temml_text, textord, "ð›·", "\\varPhi");
+defineSymbol(temml_text, textord, "ð›¹", "\\varPsi");
+defineSymbol(temml_text, textord, "ð›º", "\\varOmega");
 
 
 // There are lots of symbols which are the same, so we add them in afterwards.
@@ -1920,7 +1920,7 @@ for (let i = 0; i < letters.length; i++) {
 }
 
 // Some more letters in Unicode Basic Multilingual Plane.
-const narrow = "ÇÐÞçþℂℍℕℙℚℝℤℎℏℊℋℌℐℑℒℓ℘ℛℜℬℰℱℳℭℨ";
+const narrow = "Ã‡ÃÃžÃ§Ã¾â„‚â„â„•â„™â„šâ„â„¤â„Žâ„â„Šâ„‹â„Œâ„â„‘â„’â„“â„˜â„›â„œâ„¬â„°â„±â„³â„­â„¨";
 for (let i = 0; i < narrow.length; i++) {
   const ch = narrow.charAt(i);
   defineSymbol(math, mathord, ch, ch);
@@ -2021,8 +2021,8 @@ for (let i = 0; i < 10; i++) {
  * much of this module.
  */
 
-const openDelims = "([{⌊⌈⟨⟮⎰⟦⦃";
-const closeDelims = ")]}⌋⌉⟩⟯⎱⟦⦄";
+const openDelims = "([{âŒŠâŒˆâŸ¨âŸ®âŽ°âŸ¦â¦ƒ";
+const closeDelims = ")]}âŒ‹âŒ‰âŸ©âŸ¯âŽ±âŸ¦â¦„";
 
 function setLineBreaks(expression, wrapMode, isDisplayMode) {
   const mtrs = [];
@@ -2068,7 +2068,7 @@ function setLineBreaks(expression, wrapMode, isDisplayMode) {
           mrows.push(element);
           block = [node];
         }
-      } else if (level === 0 && wrapMode === "tex" && ch !== "∇") {
+      } else if (level === 0 && wrapMode === "tex" && ch !== "âˆ‡") {
         // Check if the following node is a \nobreak text node, e.g. "~""
         const next = i < expression.length - 1 ? expression[i + 1] : null;
         let glueIsFreeOfNobreak = true;
@@ -2480,9 +2480,9 @@ function buildMathML(tree, texExpression, style, settings) {
   return math;
 }
 
-const smalls = "acegıȷmnopqrsuvwxyzαγεηικμνοπρςστυχωϕ𝐚𝐜𝐞𝐠𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐮𝐯𝐰𝐱𝐲𝐳";
-const talls = "ABCDEFGHIJKLMNOPQRSTUVWXYZbdfhkltΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩβδλζφθψ"
-             + "𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙𝐛𝐝𝐟𝐡𝐤𝐥𝐭";
+const smalls = "acegÄ±È·mnopqrsuvwxyzÎ±Î³ÎµÎ·Î¹ÎºÎ¼Î½Î¿Ï€ÏÏ‚ÏƒÏ„Ï…Ï‡Ï‰Ï•ðšðœðžð ð¦ð§ð¨ð©ðªð«ð¬ð®ð¯ð°ð±ð²ð³";
+const talls = "ABCDEFGHIJKLMNOPQRSTUVWXYZbdfhkltÎ‘Î’Î“Î”Î•Î–Î—Î˜Î™ÎšÎ›ÎœÎÎžÎŸÎ Î¡Î£Î¤Î¥Î¦Î§Î¨Î©Î²Î´Î»Î¶Ï†Î¸Ïˆ"
+             + "ð€ðð‚ðƒð„ð…ð†ð‡ðˆð‰ðŠð‹ðŒððŽððð‘ð’ð“ð”ð•ð–ð—ð˜ð™ð›ððŸð¡ð¤ð¥ð­";
 const longSmalls = new Set(["\\alpha", "\\gamma", "\\delta", "\\epsilon", "\\eta", "\\iota",
   "\\kappa", "\\mu", "\\nu", "\\pi", "\\rho", "\\sigma", "\\tau", "\\upsilon", "\\chi", "\\psi",
   "\\omega", "\\imath", "\\jmath"]);
@@ -2823,7 +2823,7 @@ const munderoverNode = (fName, body, below, style) => {
   // Is this the short part of a mhchem equilibrium arrow?
   const isEq = fName.slice(1, 3) === "eq";
   const minWidth = fName.charAt(1) === "x"
-    ? "1.75"  // mathtools extensible arrows are ≥ 1.75em long
+    ? "1.75"  // mathtools extensible arrows are â‰¥ 1.75em long
     : fName.slice(2, 4) === "cd"
     ? "3.0"  // cd package arrows
     : isEq
@@ -2949,7 +2949,7 @@ const arrowComponent = {
   "\\equilibriumLeft": ["\\eqrightharpoonup", "\\longleftharpoondown"]
 };
 
-// Browsers are not good at stretching a glyph that contains a pair of stacked arrows such as ⇄.
+// Browsers are not good at stretching a glyph that contains a pair of stacked arrows such as â‡„.
 // So we stack a pair of single arrows.
 defineFunction({
   type: "stackedArrow",
@@ -3695,7 +3695,7 @@ defineFunction({
   names: [
     "\\global",
     "\\long",
-    "\\\\globallong" // can’t be entered directly
+    "\\\\globallong" // canâ€™t be entered directly
   ],
   props: {
     numArgs: 0,
@@ -3752,7 +3752,7 @@ defineFunction({
         }
 
         // A parameter, the first appearance of # must be followed by 1,
-        // the next by 2, and so on; up to nine #’s are allowed
+        // the next by 2, and so on; up to nine #â€™s are allowed
         tok = parser.gullet.popToken();
         if (!/^[1-9]$/.test(tok.text)) {
           throw new ParseError(`Invalid argument number "${tok.text}"`);
@@ -3799,7 +3799,7 @@ defineFunction({
   type: "internal",
   names: [
     "\\let",
-    "\\\\globallet" // can’t be entered directly
+    "\\\\globallet" // canâ€™t be entered directly
   ],
   props: {
     numArgs: 0,
@@ -3820,7 +3820,7 @@ defineFunction({
   type: "internal",
   names: [
     "\\futurelet",
-    "\\\\globalfuture" // can’t be entered directly
+    "\\\\globalfuture" // canâ€™t be entered directly
   ],
   props: {
     numArgs: 0,
@@ -3931,9 +3931,9 @@ const delimiters = [
   "\\lbrace",
   "\\}",
   "\\rbrace",
-  "⦇",
+  "â¦‡",
   "\\llparenthesis",
-  "⦈",
+  "â¦ˆ",
   "\\rrparenthesis",
   "\\lfloor",
   "\\rfloor",
@@ -3954,9 +3954,9 @@ const delimiters = [
   "\\rAngle",
   "\u27eb",
   "\\llangle",
-  "⦉",
+  "â¦‰",
   "\\rrangle",
-  "⦊",
+  "â¦Š",
   "\\lt",
   "\\gt",
   "\\lvert",
@@ -4011,8 +4011,8 @@ function checkDelimiter(delim, context) {
   if (symDelim && delimiters.includes(symDelim.text)) {
     // If a character is not in the MathML operator dictionary, it will not stretch.
     // Replace such characters w/characters that will stretch.
-    if (["<", "\\lt"].includes(symDelim.text)) { symDelim.text = "⟨"; }
-    if ([">", "\\gt"].includes(symDelim.text)) { symDelim.text = "⟩"; }
+    if (["<", "\\lt"].includes(symDelim.text)) { symDelim.text = "âŸ¨"; }
+    if ([">", "\\gt"].includes(symDelim.text)) { symDelim.text = "âŸ©"; }
     return symDelim;
   } else if (symDelim) {
     throw new ParseError(`Invalid delimiter '${symDelim.text}' after '${context.funcName}'`, delim);
@@ -4126,7 +4126,7 @@ defineFunction({
     let body = parser.parseExpression(false, null, true);
     let nextToken = parser.fetch();
     while (nextToken.text === "\\middle") {
-      // `\middle`, from the ε-TeX package, ends one group and starts another group.
+      // `\middle`, from the Îµ-TeX package, ends one group and starts another group.
       // We had to parse this expression with `breakOnMiddle` enabled in order
       // to get TeX-compliant parsing of \over.
       // But we do not want, at this point, to end on \middle, so continue
@@ -4597,8 +4597,8 @@ const macros = _macros;
 
 defineMacro("\\noexpand", function(context) {
   // The expansion is the token itself; but that token is interpreted
-  // as if its meaning were ‘\relax’ if it is a control sequence that
-  // would ordinarily be expanded by TeX’s expansion rules.
+  // as if its meaning were â€˜\relaxâ€™ if it is a control sequence that
+  // would ordinarily be expanded by TeXâ€™s expansion rules.
   const t = context.popToken();
   if (context.isExpandable(t.text)) {
     t.noexpand = true;
@@ -4609,7 +4609,7 @@ defineMacro("\\noexpand", function(context) {
 
 defineMacro("\\expandafter", function(context) {
   // TeX first reads the token that comes immediately after \expandafter,
-  // without expanding it; let’s call this token t. Then TeX reads the
+  // without expanding it; letâ€™s call this token t. Then TeX reads the
   // token that comes after t (and possibly more tokens, if that token
   // has an argument), replacing it by its expansion. Finally TeX puts
   // t back in front of that expansion.
@@ -4783,7 +4783,7 @@ function recreateArgStr(context) {
   return str
 }
 
-// The Latin Modern font renders <mi>√</mi> at the wrong vertical alignment.
+// The Latin Modern font renders <mi>âˆš</mi> at the wrong vertical alignment.
 // This macro provides a better rendering.
 defineMacro("\\surd", '\\sqrt{\\vphantom{|}}');
 
@@ -4818,7 +4818,7 @@ defineMacro("\\mathstrut", "\\vphantom{(}");
 defineMacro("\\underbar", "\\underline{\\text{#1}}");
 
 //////////////////////////////////////////////////////////////////////
-// LaTeX_2ε
+// LaTeX_2Îµ
 
 // \vdots{\vbox{\baselineskip4\p@  \lineskiplimit\z@
 // \kern6\p@\hbox{.}\hbox{.}\hbox{.}}}
@@ -5289,9 +5289,9 @@ defineMacro("\\incoh", `{\\mkern5mu\\rule{}{0.7em}\\mathrlap{\\smash{\\raise2mu{
 
 //////////////////////////////////////////////////////////////////////
 // chemstyle package
-defineMacro("\\standardstate", "\\text{\\tiny\\char`⦵}");
+defineMacro("\\standardstate", "\\text{\\tiny\\char`â¦µ}");
 
-﻿/* eslint-disable */
+ï»¿/* eslint-disable */
 /* -*- Mode: JavaScript; indent-tabs-mode:nil; js-indent-level: 2 -*- */
 /* vim: set ts=2 et sw=2 tw=80: */
 
@@ -5309,7 +5309,7 @@ defineMacro("\\standardstate", "\\text{\\tiny\\char`⦵}");
  *    4. The ~bond forms are composed entirely of \rule elements.
  *    5. Two dashes in _getBond are wrapped in braces to suppress spacing. i.e., {-}
  *    6. The electron dot uses \textbullet instead of \bullet.
- *    7. \smash[T] has been removed. (WebKit hides anything inside \smash{…})
+ *    7. \smash[T] has been removed. (WebKit hides anything inside \smash{â€¦})
  *
  *    This code, as other Temml code, is released under the MIT license.
  * 
@@ -7994,7 +7994,7 @@ defineEnvironment({
 
 // A cases environment (in amsmath.sty) is almost equivalent to
 // \def
-// \left\{\begin{array}{@{}l@{\quad}l@{}} … \end{array}\right.
+// \left\{\begin{array}{@{}l@{\quad}l@{}} â€¦ \end{array}\right.
 // {dcases} is a {cases} environment where cells are set in \displaystyle,
 // as defined in mathtools.sty.
 // {rcases} is another mathtools environment. It's brace is on the right side.
@@ -8260,7 +8260,7 @@ const mathmlBuilder$6 = (group, style) => {
   }
   // Check if it is possible to consolidate elements into a single <mi> element.
   if (isLongVariableName(group, font)) {
-    // This is a \mathrm{…} group. It gets special treatment because symbolsOrd.js
+    // This is a \mathrm{â€¦} group. It gets special treatment because symbolsOrd.js
     // wraps <mi> elements with <mrow>s to work around a Firefox bug.
     const mi = mathGroup.children[0].children[0];
     delete mi.attributes.mathvariant;
@@ -8458,7 +8458,7 @@ defineFunction({
     "\\dbinom",
     "\\binom",
     "\\tbinom",
-    "\\\\atopfrac", // can’t be entered directly
+    "\\\\atopfrac", // canâ€™t be entered directly
     "\\\\bracefrac",
     "\\\\brackfrac" // ditto
   ],
@@ -9332,7 +9332,7 @@ function mathmlBuilder$3(group, style) {
     if (group.isCharacterBox || inner[0].type === "mathord") {
       node = inner[0];
       node.type = "mi";
-      if (node.children.length === 1 && node.children[0].text && node.children[0].text === "∇") {
+      if (node.children.length === 1 && node.children[0].text && node.children[0].text === "âˆ‡") {
         node.setAttribute("mathvariant", "normal");
       }
     } else {
@@ -9660,7 +9660,7 @@ const ordTypes = ["textord", "mathord", "ordgroup", "close", "leftright", "font"
 // "supsub" since some of them (like \int) can affect super/subscripting.
 
 const setSpacing = node => {
-  // The user wrote a \mathop{…} function. Change spacing from default to OP spacing.
+  // The user wrote a \mathop{â€¦} function. Change spacing from default to OP spacing.
   // The most likely spacing for an OP is a thin space per TeXbook p170.
   node.attributes.lspace = "0.1667em";
   node.attributes.rspace = "0.1667em";
@@ -10671,7 +10671,7 @@ defineFunctionBuilders({
       const testNode = sup.type === "mrow" ? sup.children[0] : sup;
       if ((testNode && testNode.type === "mo" && testNode.classes.includes("tml-prime"))
         && group.base && group.base.text && "fF".indexOf(group.base.text) > -1) {
-        // Chromium does not address italic correction on prime.  Prevent f′ from overlapping.
+        // Chromium does not address italic correction on prime.  Prevent fâ€² from overlapping.
         testNode.classes.push("prime-pad");
       }
       children.push(sup);
@@ -11019,7 +11019,7 @@ const offset = Object.freeze({
     "sans-serif-bold-italic": ch => { return 0x1D5F5 },
     "monospace": ch =>              { return 0x1D629 }
   },
-  upperCaseGreek: { // A-Ω
+  upperCaseGreek: { // A-Î©
     "normal": ch =>                 { return 0 },
     "bold": ch =>                   { return 0x1D317 },
     "italic": ch =>                 { return 0x1D351 },
@@ -11037,7 +11037,7 @@ const offset = Object.freeze({
     "sans-serif-bold-italic": ch => { return 0x1D3FF },
     "monospace": ch =>              { return 0 }
   },
-  lowerCaseGreek: { // α-ω
+  lowerCaseGreek: { // Î±-Ï‰
     "normal": ch =>                 { return 0 },
     "bold": ch =>                   { return 0x1D311 },
     "italic": ch =>                 { return 0x1D34B },
@@ -11109,32 +11109,32 @@ const variantChar = (ch, variant) => {
 };
 
 const smallCaps = Object.freeze({
-  a: "ᴀ",
-  b: "ʙ",
-  c: "ᴄ",
-  d: "ᴅ",
-  e: "ᴇ",
-  f: "ꜰ",
-  g: "ɢ",
-  h: "ʜ",
-  i: "ɪ",
-  j: "ᴊ",
-  k: "ᴋ",
-  l: "ʟ",
-  m: "ᴍ",
-  n: "ɴ",
-  o: "ᴏ",
-  p: "ᴘ",
-  q: "ǫ",
-  r: "ʀ",
+  a: "á´€",
+  b: "Ê™",
+  c: "á´„",
+  d: "á´…",
+  e: "á´‡",
+  f: "êœ°",
+  g: "É¢",
+  h: "Êœ",
+  i: "Éª",
+  j: "á´Š",
+  k: "á´‹",
+  l: "ÊŸ",
+  m: "á´",
+  n: "É´",
+  o: "á´",
+  p: "á´˜",
+  q: "Ç«",
+  r: "Ê€",
   s: "s",
-  t: "ᴛ",
-  u: "ᴜ",
-  v: "ᴠ",
-  w: "ᴡ",
+  t: "á´›",
+  u: "á´œ",
+  v: "á´ ",
+  w: "á´¡",
   x: "x",
-  y: "ʏ",
-  z: "ᴢ"
+  y: "Ê",
+  z: "á´¢"
 });
 
 // "mathord" and "textord" ParseNodes created in Parser.js from symbol Groups in
@@ -11644,7 +11644,7 @@ class Namespace {
 }
 
 /**
- * This file contains the “gullet” where macros are expanded
+ * This file contains the â€œgulletâ€ where macros are expanded
  * until only non-macro tokens remain.
  */
 
@@ -11781,15 +11781,15 @@ class MacroExpander {
     // empty) sequence of tokens with properly nested {...} groups that is
     // followed ... by this particular list of non-parameter tokens.
     // The argument for an undelimited parameter is the next nonblank
-    // token, unless that token is ‘{’, when the argument will be the
+    // token, unless that token is â€˜{â€™, when the argument will be the
     // entire {...} group that follows.
     const tokens = [];
     const isDelimited = delims && delims.length > 0;
     if (!isDelimited) {
       // Ignore spaces between arguments.  As the TeXbook says:
-      // "After you have said ‘\def\row#1#2{...}’, you are allowed to
-      //  put spaces between the arguments (e.g., ‘\row x n’), because
-      //  TeX doesn’t use single spaces as undelimited arguments."
+      // "After you have said â€˜\def\row#1#2{...}â€™, you are allowed to
+      //  put spaces between the arguments (e.g., â€˜\row x nâ€™), because
+      //  TeX doesnâ€™t use single spaces as undelimited arguments."
       this.consumeSpaces();
     }
     const start = this.future();
@@ -11828,7 +11828,7 @@ class MacroExpander {
         }
       }
     } while (depth !== 0 || isDelimited);
-    // If the argument found ... has the form ‘{<nested tokens>}’,
+    // If the argument found ... has the form â€˜{<nested tokens>}â€™,
     // ... the outermost braces enclosing the argument are removed
     if (start.text === "{" && tokens[tokens.length - 1].text === "}") {
       tokens.pop();
@@ -11912,7 +11912,7 @@ class MacroExpander {
           }
           tok = tokens[--i]; // next token on stack
           if (tok.text === "#") {
-            // ## → #
+            // ## â†’ #
             tokens.splice(i + 1, 1); // drop first #
           } else if (/^[1-9]$/.test(tok.text)) {
             // replace the placeholder with the indicated argument
@@ -11946,7 +11946,7 @@ class MacroExpander {
     for (;;) {
       if (this.expandOnce() === false) { // fully expanded
         const token = this.stack.pop();
-        // The token after \noexpand is interpreted as if its meaning were ‘\relax’
+        // The token after \noexpand is interpreted as if its meaning were â€˜\relaxâ€™
         if (token.treatAsRelax) {
           token.text = "\\relax";
         }
@@ -12074,24 +12074,24 @@ class MacroExpander {
 
 // Helpers for Parser.js handling of Unicode (sub|super)script characters.
 
-const unicodeSubRegEx = /^[₊₋₌₍₎₀₁₂₃₄₅₆₇₈₉ₐₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵦᵧᵨᵩᵪ]/;
+const unicodeSubRegEx = /^[â‚Šâ‚‹â‚Œâ‚â‚Žâ‚€â‚â‚‚â‚ƒâ‚„â‚…â‚†â‚‡â‚ˆâ‚‰â‚â‚‘â‚•áµ¢â±¼â‚–â‚—â‚˜â‚™â‚’â‚šáµ£â‚›â‚œáµ¤áµ¥â‚“áµ¦áµ§áµ¨áµ©áµª]/;
 
 const uSubsAndSups = Object.freeze({
-  '₊': '+',
-  '₋': '-',
-  '₌': '=',
-  '₍': '(',
-  '₎': ')',
-  '₀': '0',
-  '₁': '1',
-  '₂': '2',
-  '₃': '3',
-  '₄': '4',
-  '₅': '5',
-  '₆': '6',
-  '₇': '7',
-  '₈': '8',
-  '₉': '9',
+  'â‚Š': '+',
+  'â‚‹': '-',
+  'â‚Œ': '=',
+  'â‚': '(',
+  'â‚Ž': ')',
+  'â‚€': '0',
+  'â‚': '1',
+  'â‚‚': '2',
+  'â‚ƒ': '3',
+  'â‚„': '4',
+  'â‚…': '5',
+  'â‚†': '6',
+  'â‚‡': '7',
+  'â‚ˆ': '8',
+  'â‚‰': '9',
   '\u2090': 'a',
   '\u2091': 'e',
   '\u2095': 'h',
@@ -12109,26 +12109,26 @@ const uSubsAndSups = Object.freeze({
   '\u1D64': 'u',
   '\u1D65': 'v',
   '\u2093': 'x',
-  '\u1D66': 'β',
-  '\u1D67': 'γ',
-  '\u1D68': 'ρ',
+  '\u1D66': 'Î²',
+  '\u1D67': 'Î³',
+  '\u1D68': 'Ï',
   '\u1D69': '\u03d5',
-  '\u1D6A': 'χ',
-  '⁺': '+',
-  '⁻': '-',
-  '⁼': '=',
-  '⁽': '(',
-  '⁾': ')',
-  '⁰': '0',
-  '¹': '1',
-  '²': '2',
-  '³': '3',
-  '⁴': '4',
-  '⁵': '5',
-  '⁶': '6',
-  '⁷': '7',
-  '⁸': '8',
-  '⁹': '9',
+  '\u1D6A': 'Ï‡',
+  'âº': '+',
+  'â»': '-',
+  'â¼': '=',
+  'â½': '(',
+  'â¾': ')',
+  'â°': '0',
+  'Â¹': '1',
+  'Â²': '2',
+  'Â³': '3',
+  'â´': '4',
+  'âµ': '5',
+  'â¶': '6',
+  'â·': '7',
+  'â¸': '8',
+  'â¹': '9',
   '\u1D2C': 'A',
   '\u1D2E': 'B',
   '\u1D30': 'D',
@@ -12173,12 +12173,12 @@ const uSubsAndSups = Object.freeze({
   '\u02E3': 'x',
   '\u02B8': 'y',
   '\u1DBB': 'z',
-  '\u1D5D': 'β',
-  '\u1D5E': 'γ',
-  '\u1D5F': 'δ',
+  '\u1D5D': 'Î²',
+  '\u1D5E': 'Î³',
+  '\u1D5F': 'Î´',
   '\u1D60': '\u03d5',
-  '\u1D61': 'χ',
-  '\u1DBF': 'θ'
+  '\u1D61': 'Ï‡',
+  '\u1DBF': 'Î¸'
 });
 
 // Used for Unicode input of calligraphic and script letters
@@ -12229,324 +12229,324 @@ var unicodeAccents = {
 };
 
 var unicodeSymbols = {
-  "á": "á",
-  "à": "à",
-  "ä": "ä",
-  "ǟ": "ǟ",
-  "ã": "ã",
-  "ā": "ā",
-  "ă": "ă",
-  "ắ": "ắ",
-  "ằ": "ằ",
-  "ẵ": "ẵ",
-  "ǎ": "ǎ",
-  "â": "â",
-  "ấ": "ấ",
-  "ầ": "ầ",
-  "ẫ": "ẫ",
-  "ȧ": "ȧ",
-  "ǡ": "ǡ",
-  "å": "å",
-  "ǻ": "ǻ",
-  "ḃ": "ḃ",
-  "ć": "ć",
-  "č": "č",
-  "ĉ": "ĉ",
-  "ċ": "ċ",
-  "ď": "ď",
-  "ḋ": "ḋ",
-  "é": "é",
-  "è": "è",
-  "ë": "ë",
-  "ẽ": "ẽ",
-  "ē": "ē",
-  "ḗ": "ḗ",
-  "ḕ": "ḕ",
-  "ĕ": "ĕ",
-  "ě": "ě",
-  "ê": "ê",
-  "ế": "ế",
-  "ề": "ề",
-  "ễ": "ễ",
-  "ė": "ė",
-  "ḟ": "ḟ",
-  "ǵ": "ǵ",
-  "ḡ": "ḡ",
-  "ğ": "ğ",
-  "ǧ": "ǧ",
-  "ĝ": "ĝ",
-  "ġ": "ġ",
-  "ḧ": "ḧ",
-  "ȟ": "ȟ",
-  "ĥ": "ĥ",
-  "ḣ": "ḣ",
-  "í": "í",
-  "ì": "ì",
-  "ï": "ï",
-  "ḯ": "ḯ",
-  "ĩ": "ĩ",
-  "ī": "ī",
-  "ĭ": "ĭ",
-  "ǐ": "ǐ",
-  "î": "î",
-  "ǰ": "ǰ",
-  "ĵ": "ĵ",
-  "ḱ": "ḱ",
-  "ǩ": "ǩ",
-  "ĺ": "ĺ",
-  "ľ": "ľ",
-  "ḿ": "ḿ",
-  "ṁ": "ṁ",
-  "ń": "ń",
-  "ǹ": "ǹ",
-  "ñ": "ñ",
-  "ň": "ň",
-  "ṅ": "ṅ",
-  "ó": "ó",
-  "ò": "ò",
-  "ö": "ö",
-  "ȫ": "ȫ",
-  "õ": "õ",
-  "ṍ": "ṍ",
-  "ṏ": "ṏ",
-  "ȭ": "ȭ",
-  "ō": "ō",
-  "ṓ": "ṓ",
-  "ṑ": "ṑ",
-  "ŏ": "ŏ",
-  "ǒ": "ǒ",
-  "ô": "ô",
-  "ố": "ố",
-  "ồ": "ồ",
-  "ỗ": "ỗ",
-  "ȯ": "ȯ",
-  "ȱ": "ȱ",
-  "ő": "ő",
-  "ṕ": "ṕ",
-  "ṗ": "ṗ",
-  "ŕ": "ŕ",
-  "ř": "ř",
-  "ṙ": "ṙ",
-  "ś": "ś",
-  "ṥ": "ṥ",
-  "š": "š",
-  "ṧ": "ṧ",
-  "ŝ": "ŝ",
-  "ṡ": "ṡ",
-  "ẗ": "ẗ",
-  "ť": "ť",
-  "ṫ": "ṫ",
-  "ú": "ú",
-  "ù": "ù",
-  "ü": "ü",
-  "ǘ": "ǘ",
-  "ǜ": "ǜ",
-  "ǖ": "ǖ",
-  "ǚ": "ǚ",
-  "ũ": "ũ",
-  "ṹ": "ṹ",
-  "ū": "ū",
-  "ṻ": "ṻ",
-  "ŭ": "ŭ",
-  "ǔ": "ǔ",
-  "û": "û",
-  "ů": "ů",
-  "ű": "ű",
-  "ṽ": "ṽ",
-  "ẃ": "ẃ",
-  "ẁ": "ẁ",
-  "ẅ": "ẅ",
-  "ŵ": "ŵ",
-  "ẇ": "ẇ",
-  "ẘ": "ẘ",
-  "ẍ": "ẍ",
-  "ẋ": "ẋ",
-  "ý": "ý",
-  "ỳ": "ỳ",
-  "ÿ": "ÿ",
-  "ỹ": "ỹ",
-  "ȳ": "ȳ",
-  "ŷ": "ŷ",
-  "ẏ": "ẏ",
-  "ẙ": "ẙ",
-  "ź": "ź",
-  "ž": "ž",
-  "ẑ": "ẑ",
-  "ż": "ż",
-  "Á": "Á",
-  "À": "À",
-  "Ä": "Ä",
-  "Ǟ": "Ǟ",
-  "Ã": "Ã",
-  "Ā": "Ā",
-  "Ă": "Ă",
-  "Ắ": "Ắ",
-  "Ằ": "Ằ",
-  "Ẵ": "Ẵ",
-  "Ǎ": "Ǎ",
-  "Â": "Â",
-  "Ấ": "Ấ",
-  "Ầ": "Ầ",
-  "Ẫ": "Ẫ",
-  "Ȧ": "Ȧ",
-  "Ǡ": "Ǡ",
-  "Å": "Å",
-  "Ǻ": "Ǻ",
-  "Ḃ": "Ḃ",
-  "Ć": "Ć",
-  "Č": "Č",
-  "Ĉ": "Ĉ",
-  "Ċ": "Ċ",
-  "Ď": "Ď",
-  "Ḋ": "Ḋ",
-  "É": "É",
-  "È": "È",
-  "Ë": "Ë",
-  "Ẽ": "Ẽ",
-  "Ē": "Ē",
-  "Ḗ": "Ḗ",
-  "Ḕ": "Ḕ",
-  "Ĕ": "Ĕ",
-  "Ě": "Ě",
-  "Ê": "Ê",
-  "Ế": "Ế",
-  "Ề": "Ề",
-  "Ễ": "Ễ",
-  "Ė": "Ė",
-  "Ḟ": "Ḟ",
-  "Ǵ": "Ǵ",
-  "Ḡ": "Ḡ",
-  "Ğ": "Ğ",
-  "Ǧ": "Ǧ",
-  "Ĝ": "Ĝ",
-  "Ġ": "Ġ",
-  "Ḧ": "Ḧ",
-  "Ȟ": "Ȟ",
-  "Ĥ": "Ĥ",
-  "Ḣ": "Ḣ",
-  "Í": "Í",
-  "Ì": "Ì",
-  "Ï": "Ï",
-  "Ḯ": "Ḯ",
-  "Ĩ": "Ĩ",
-  "Ī": "Ī",
-  "Ĭ": "Ĭ",
-  "Ǐ": "Ǐ",
-  "Î": "Î",
-  "İ": "İ",
-  "Ĵ": "Ĵ",
-  "Ḱ": "Ḱ",
-  "Ǩ": "Ǩ",
-  "Ĺ": "Ĺ",
-  "Ľ": "Ľ",
-  "Ḿ": "Ḿ",
-  "Ṁ": "Ṁ",
-  "Ń": "Ń",
-  "Ǹ": "Ǹ",
-  "Ñ": "Ñ",
-  "Ň": "Ň",
-  "Ṅ": "Ṅ",
-  "Ó": "Ó",
-  "Ò": "Ò",
-  "Ö": "Ö",
-  "Ȫ": "Ȫ",
-  "Õ": "Õ",
-  "Ṍ": "Ṍ",
-  "Ṏ": "Ṏ",
-  "Ȭ": "Ȭ",
-  "Ō": "Ō",
-  "Ṓ": "Ṓ",
-  "Ṑ": "Ṑ",
-  "Ŏ": "Ŏ",
-  "Ǒ": "Ǒ",
-  "Ô": "Ô",
-  "Ố": "Ố",
-  "Ồ": "Ồ",
-  "Ỗ": "Ỗ",
-  "Ȯ": "Ȯ",
-  "Ȱ": "Ȱ",
-  "Ő": "Ő",
-  "Ṕ": "Ṕ",
-  "Ṗ": "Ṗ",
-  "Ŕ": "Ŕ",
-  "Ř": "Ř",
-  "Ṙ": "Ṙ",
-  "Ś": "Ś",
-  "Ṥ": "Ṥ",
-  "Š": "Š",
-  "Ṧ": "Ṧ",
-  "Ŝ": "Ŝ",
-  "Ṡ": "Ṡ",
-  "Ť": "Ť",
-  "Ṫ": "Ṫ",
-  "Ú": "Ú",
-  "Ù": "Ù",
-  "Ü": "Ü",
-  "Ǘ": "Ǘ",
-  "Ǜ": "Ǜ",
-  "Ǖ": "Ǖ",
-  "Ǚ": "Ǚ",
-  "Ũ": "Ũ",
-  "Ṹ": "Ṹ",
-  "Ū": "Ū",
-  "Ṻ": "Ṻ",
-  "Ŭ": "Ŭ",
-  "Ǔ": "Ǔ",
-  "Û": "Û",
-  "Ů": "Ů",
-  "Ű": "Ű",
-  "Ṽ": "Ṽ",
-  "Ẃ": "Ẃ",
-  "Ẁ": "Ẁ",
-  "Ẅ": "Ẅ",
-  "Ŵ": "Ŵ",
-  "Ẇ": "Ẇ",
-  "Ẍ": "Ẍ",
-  "Ẋ": "Ẋ",
-  "Ý": "Ý",
-  "Ỳ": "Ỳ",
-  "Ÿ": "Ÿ",
-  "Ỹ": "Ỹ",
-  "Ȳ": "Ȳ",
-  "Ŷ": "Ŷ",
-  "Ẏ": "Ẏ",
-  "Ź": "Ź",
-  "Ž": "Ž",
-  "Ẑ": "Ẑ",
-  "Ż": "Ż",
-  "ά": "ά",
-  "ὰ": "ὰ",
-  "ᾱ": "ᾱ",
-  "ᾰ": "ᾰ",
-  "έ": "έ",
-  "ὲ": "ὲ",
-  "ή": "ή",
-  "ὴ": "ὴ",
-  "ί": "ί",
-  "ὶ": "ὶ",
-  "ϊ": "ϊ",
-  "ΐ": "ΐ",
-  "ῒ": "ῒ",
-  "ῑ": "ῑ",
-  "ῐ": "ῐ",
-  "ό": "ό",
-  "ὸ": "ὸ",
-  "ύ": "ύ",
-  "ὺ": "ὺ",
-  "ϋ": "ϋ",
-  "ΰ": "ΰ",
-  "ῢ": "ῢ",
-  "ῡ": "ῡ",
-  "ῠ": "ῠ",
-  "ώ": "ώ",
-  "ὼ": "ὼ",
-  "Ύ": "Ύ",
-  "Ὺ": "Ὺ",
-  "Ϋ": "Ϋ",
-  "Ῡ": "Ῡ",
-  "Ῠ": "Ῠ",
-  "Ώ": "Ώ",
-  "Ὼ": "Ὼ"
+  "Ã¡": "aÌ",
+  "Ã ": "aÌ€",
+  "Ã¤": "aÌˆ",
+  "ÇŸ": "aÌˆÌ„",
+  "Ã£": "aÌƒ",
+  "Ä": "aÌ„",
+  "Äƒ": "aÌ†",
+  "áº¯": "aÌ†Ì",
+  "áº±": "aÌ†Ì€",
+  "áºµ": "aÌ†Ìƒ",
+  "ÇŽ": "aÌŒ",
+  "Ã¢": "aÌ‚",
+  "áº¥": "aÌ‚Ì",
+  "áº§": "aÌ‚Ì€",
+  "áº«": "aÌ‚Ìƒ",
+  "È§": "aÌ‡",
+  "Ç¡": "aÌ‡Ì„",
+  "Ã¥": "aÌŠ",
+  "Ç»": "aÌŠÌ",
+  "á¸ƒ": "bÌ‡",
+  "Ä‡": "cÌ",
+  "Ä": "cÌŒ",
+  "Ä‰": "cÌ‚",
+  "Ä‹": "cÌ‡",
+  "Ä": "dÌŒ",
+  "á¸‹": "dÌ‡",
+  "Ã©": "eÌ",
+  "Ã¨": "eÌ€",
+  "Ã«": "eÌˆ",
+  "áº½": "eÌƒ",
+  "Ä“": "eÌ„",
+  "á¸—": "eÌ„Ì",
+  "á¸•": "eÌ„Ì€",
+  "Ä•": "eÌ†",
+  "Ä›": "eÌŒ",
+  "Ãª": "eÌ‚",
+  "áº¿": "eÌ‚Ì",
+  "á»": "eÌ‚Ì€",
+  "á»…": "eÌ‚Ìƒ",
+  "Ä—": "eÌ‡",
+  "á¸Ÿ": "fÌ‡",
+  "Çµ": "gÌ",
+  "á¸¡": "gÌ„",
+  "ÄŸ": "gÌ†",
+  "Ç§": "gÌŒ",
+  "Ä": "gÌ‚",
+  "Ä¡": "gÌ‡",
+  "á¸§": "hÌˆ",
+  "ÈŸ": "hÌŒ",
+  "Ä¥": "hÌ‚",
+  "á¸£": "hÌ‡",
+  "Ã­": "iÌ",
+  "Ã¬": "iÌ€",
+  "Ã¯": "iÌˆ",
+  "á¸¯": "iÌˆÌ",
+  "Ä©": "iÌƒ",
+  "Ä«": "iÌ„",
+  "Ä­": "iÌ†",
+  "Ç": "iÌŒ",
+  "Ã®": "iÌ‚",
+  "Ç°": "jÌŒ",
+  "Äµ": "jÌ‚",
+  "á¸±": "kÌ",
+  "Ç©": "kÌŒ",
+  "Äº": "lÌ",
+  "Ä¾": "lÌŒ",
+  "á¸¿": "mÌ",
+  "á¹": "mÌ‡",
+  "Å„": "nÌ",
+  "Ç¹": "nÌ€",
+  "Ã±": "nÌƒ",
+  "Åˆ": "nÌŒ",
+  "á¹…": "nÌ‡",
+  "Ã³": "oÌ",
+  "Ã²": "oÌ€",
+  "Ã¶": "oÌˆ",
+  "È«": "oÌˆÌ„",
+  "Ãµ": "oÌƒ",
+  "á¹": "oÌƒÌ",
+  "á¹": "oÌƒÌˆ",
+  "È­": "oÌƒÌ„",
+  "Å": "oÌ„",
+  "á¹“": "oÌ„Ì",
+  "á¹‘": "oÌ„Ì€",
+  "Å": "oÌ†",
+  "Ç’": "oÌŒ",
+  "Ã´": "oÌ‚",
+  "á»‘": "oÌ‚Ì",
+  "á»“": "oÌ‚Ì€",
+  "á»—": "oÌ‚Ìƒ",
+  "È¯": "oÌ‡",
+  "È±": "oÌ‡Ì„",
+  "Å‘": "oÌ‹",
+  "á¹•": "pÌ",
+  "á¹—": "pÌ‡",
+  "Å•": "rÌ",
+  "Å™": "rÌŒ",
+  "á¹™": "rÌ‡",
+  "Å›": "sÌ",
+  "á¹¥": "sÌÌ‡",
+  "Å¡": "sÌŒ",
+  "á¹§": "sÌŒÌ‡",
+  "Å": "sÌ‚",
+  "á¹¡": "sÌ‡",
+  "áº—": "tÌˆ",
+  "Å¥": "tÌŒ",
+  "á¹«": "tÌ‡",
+  "Ãº": "uÌ",
+  "Ã¹": "uÌ€",
+  "Ã¼": "uÌˆ",
+  "Ç˜": "uÌˆÌ",
+  "Çœ": "uÌˆÌ€",
+  "Ç–": "uÌˆÌ„",
+  "Çš": "uÌˆÌŒ",
+  "Å©": "uÌƒ",
+  "á¹¹": "uÌƒÌ",
+  "Å«": "uÌ„",
+  "á¹»": "uÌ„Ìˆ",
+  "Å­": "uÌ†",
+  "Ç”": "uÌŒ",
+  "Ã»": "uÌ‚",
+  "Å¯": "uÌŠ",
+  "Å±": "uÌ‹",
+  "á¹½": "vÌƒ",
+  "áºƒ": "wÌ",
+  "áº": "wÌ€",
+  "áº…": "wÌˆ",
+  "Åµ": "wÌ‚",
+  "áº‡": "wÌ‡",
+  "áº˜": "wÌŠ",
+  "áº": "xÌˆ",
+  "áº‹": "xÌ‡",
+  "Ã½": "yÌ",
+  "á»³": "yÌ€",
+  "Ã¿": "yÌˆ",
+  "á»¹": "yÌƒ",
+  "È³": "yÌ„",
+  "Å·": "yÌ‚",
+  "áº": "yÌ‡",
+  "áº™": "yÌŠ",
+  "Åº": "zÌ",
+  "Å¾": "zÌŒ",
+  "áº‘": "zÌ‚",
+  "Å¼": "zÌ‡",
+  "Ã": "AÌ",
+  "Ã€": "AÌ€",
+  "Ã„": "AÌˆ",
+  "Çž": "AÌˆÌ„",
+  "Ãƒ": "AÌƒ",
+  "Ä€": "AÌ„",
+  "Ä‚": "AÌ†",
+  "áº®": "AÌ†Ì",
+  "áº°": "AÌ†Ì€",
+  "áº´": "AÌ†Ìƒ",
+  "Ç": "AÌŒ",
+  "Ã‚": "AÌ‚",
+  "áº¤": "AÌ‚Ì",
+  "áº¦": "AÌ‚Ì€",
+  "áºª": "AÌ‚Ìƒ",
+  "È¦": "AÌ‡",
+  "Ç ": "AÌ‡Ì„",
+  "Ã…": "AÌŠ",
+  "Çº": "AÌŠÌ",
+  "á¸‚": "BÌ‡",
+  "Ä†": "CÌ",
+  "ÄŒ": "CÌŒ",
+  "Äˆ": "CÌ‚",
+  "ÄŠ": "CÌ‡",
+  "ÄŽ": "DÌŒ",
+  "á¸Š": "DÌ‡",
+  "Ã‰": "EÌ",
+  "Ãˆ": "EÌ€",
+  "Ã‹": "EÌˆ",
+  "áº¼": "EÌƒ",
+  "Ä’": "EÌ„",
+  "á¸–": "EÌ„Ì",
+  "á¸”": "EÌ„Ì€",
+  "Ä”": "EÌ†",
+  "Äš": "EÌŒ",
+  "ÃŠ": "EÌ‚",
+  "áº¾": "EÌ‚Ì",
+  "á»€": "EÌ‚Ì€",
+  "á»„": "EÌ‚Ìƒ",
+  "Ä–": "EÌ‡",
+  "á¸ž": "FÌ‡",
+  "Ç´": "GÌ",
+  "á¸ ": "GÌ„",
+  "Äž": "GÌ†",
+  "Ç¦": "GÌŒ",
+  "Äœ": "GÌ‚",
+  "Ä ": "GÌ‡",
+  "á¸¦": "HÌˆ",
+  "Èž": "HÌŒ",
+  "Ä¤": "HÌ‚",
+  "á¸¢": "HÌ‡",
+  "Ã": "IÌ",
+  "ÃŒ": "IÌ€",
+  "Ã": "IÌˆ",
+  "á¸®": "IÌˆÌ",
+  "Ä¨": "IÌƒ",
+  "Äª": "IÌ„",
+  "Ä¬": "IÌ†",
+  "Ç": "IÌŒ",
+  "ÃŽ": "IÌ‚",
+  "Ä°": "IÌ‡",
+  "Ä´": "JÌ‚",
+  "á¸°": "KÌ",
+  "Ç¨": "KÌŒ",
+  "Ä¹": "LÌ",
+  "Ä½": "LÌŒ",
+  "á¸¾": "MÌ",
+  "á¹€": "MÌ‡",
+  "Åƒ": "NÌ",
+  "Ç¸": "NÌ€",
+  "Ã‘": "NÌƒ",
+  "Å‡": "NÌŒ",
+  "á¹„": "NÌ‡",
+  "Ã“": "OÌ",
+  "Ã’": "OÌ€",
+  "Ã–": "OÌˆ",
+  "Èª": "OÌˆÌ„",
+  "Ã•": "OÌƒ",
+  "á¹Œ": "OÌƒÌ",
+  "á¹Ž": "OÌƒÌˆ",
+  "È¬": "OÌƒÌ„",
+  "ÅŒ": "OÌ„",
+  "á¹’": "OÌ„Ì",
+  "á¹": "OÌ„Ì€",
+  "ÅŽ": "OÌ†",
+  "Ç‘": "OÌŒ",
+  "Ã”": "OÌ‚",
+  "á»": "OÌ‚Ì",
+  "á»’": "OÌ‚Ì€",
+  "á»–": "OÌ‚Ìƒ",
+  "È®": "OÌ‡",
+  "È°": "OÌ‡Ì„",
+  "Å": "OÌ‹",
+  "á¹”": "PÌ",
+  "á¹–": "PÌ‡",
+  "Å”": "RÌ",
+  "Å˜": "RÌŒ",
+  "á¹˜": "RÌ‡",
+  "Åš": "SÌ",
+  "á¹¤": "SÌÌ‡",
+  "Å ": "SÌŒ",
+  "á¹¦": "SÌŒÌ‡",
+  "Åœ": "SÌ‚",
+  "á¹ ": "SÌ‡",
+  "Å¤": "TÌŒ",
+  "á¹ª": "TÌ‡",
+  "Ãš": "UÌ",
+  "Ã™": "UÌ€",
+  "Ãœ": "UÌˆ",
+  "Ç—": "UÌˆÌ",
+  "Ç›": "UÌˆÌ€",
+  "Ç•": "UÌˆÌ„",
+  "Ç™": "UÌˆÌŒ",
+  "Å¨": "UÌƒ",
+  "á¹¸": "UÌƒÌ",
+  "Åª": "UÌ„",
+  "á¹º": "UÌ„Ìˆ",
+  "Å¬": "UÌ†",
+  "Ç“": "UÌŒ",
+  "Ã›": "UÌ‚",
+  "Å®": "UÌŠ",
+  "Å°": "UÌ‹",
+  "á¹¼": "VÌƒ",
+  "áº‚": "WÌ",
+  "áº€": "WÌ€",
+  "áº„": "WÌˆ",
+  "Å´": "WÌ‚",
+  "áº†": "WÌ‡",
+  "áºŒ": "XÌˆ",
+  "áºŠ": "XÌ‡",
+  "Ã": "YÌ",
+  "á»²": "YÌ€",
+  "Å¸": "YÌˆ",
+  "á»¸": "YÌƒ",
+  "È²": "YÌ„",
+  "Å¶": "YÌ‚",
+  "áºŽ": "YÌ‡",
+  "Å¹": "ZÌ",
+  "Å½": "ZÌŒ",
+  "áº": "ZÌ‚",
+  "Å»": "ZÌ‡",
+  "Î¬": "Î±Ì",
+  "á½°": "Î±Ì€",
+  "á¾±": "Î±Ì„",
+  "á¾°": "Î±Ì†",
+  "Î­": "ÎµÌ",
+  "á½²": "ÎµÌ€",
+  "Î®": "Î·Ì",
+  "á½´": "Î·Ì€",
+  "Î¯": "Î¹Ì",
+  "á½¶": "Î¹Ì€",
+  "ÏŠ": "Î¹Ìˆ",
+  "Î": "Î¹ÌˆÌ",
+  "á¿’": "Î¹ÌˆÌ€",
+  "á¿‘": "Î¹Ì„",
+  "á¿": "Î¹Ì†",
+  "ÏŒ": "Î¿Ì",
+  "á½¸": "Î¿Ì€",
+  "Ï": "Ï…Ì",
+  "á½º": "Ï…Ì€",
+  "Ï‹": "Ï…Ìˆ",
+  "Î°": "Ï…ÌˆÌ",
+  "á¿¢": "Ï…ÌˆÌ€",
+  "á¿¡": "Ï…Ì„",
+  "á¿ ": "Ï…Ì†",
+  "ÏŽ": "Ï‰Ì",
+  "á½¼": "Ï‰Ì€",
+  "ÎŽ": "Î¥Ì",
+  "á¿ª": "Î¥Ì€",
+  "Î«": "Î¥Ìˆ",
+  "á¿©": "Î¥Ì„",
+  "á¿¨": "Î¥Ì†",
+  "Î": "Î©Ì",
+  "á¿º": "Î©Ì€"
 };
 
 /* eslint no-constant-condition:0 */

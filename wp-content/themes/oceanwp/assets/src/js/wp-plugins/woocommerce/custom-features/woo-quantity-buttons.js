@@ -1,4 +1,4 @@
-import delegate from "delegate";
+﻿import delegate from "delegate";
 import { options } from "../../../constants";
 
 class WooQuantityButtons {
@@ -189,3 +189,4 @@ class WooQuantityButtons {
 }
 
 export default WooQuantityButtons;
+

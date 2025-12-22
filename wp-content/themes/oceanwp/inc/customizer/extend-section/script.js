@@ -1,4 +1,4 @@
-( function( $ ) {
+﻿( function( $ ) {
 
 	var api = wp.customize;
 
@@ -322,3 +322,4 @@
 	});
 
 })( jQuery );
+

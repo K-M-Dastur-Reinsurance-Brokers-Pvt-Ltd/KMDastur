@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 (self["webpackChunkelementorFrontend"] = self["webpackChunkelementorFrontend"] || []).push([["text-editor"],{
 
 /***/ "../assets/dev/js/frontend/handlers/text-editor.js":

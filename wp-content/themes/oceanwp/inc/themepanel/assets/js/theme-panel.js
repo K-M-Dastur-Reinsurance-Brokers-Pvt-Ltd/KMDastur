@@ -1,4 +1,4 @@
-// Document Ready
+﻿// Document Ready
 jQuery(document).ready(function ($) {
 
     var ThemePanelWrap = $('.oceanwp-tp-wrap');
@@ -308,3 +308,4 @@ jQuery(document).ready(function ($) {
     }
 
 });
+

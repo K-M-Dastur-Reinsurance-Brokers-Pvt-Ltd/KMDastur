@@ -1,4 +1,4 @@
-import { fadeInNav, fadeOutNav } from "../../lib/utils";
+﻿import { fadeInNav, fadeOutNav } from "../../lib/utils";
 
 class Menu {
   #currentElem;
@@ -116,3 +116,4 @@ class Menu {
 }
 
 export default Menu;
+
