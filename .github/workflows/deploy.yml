@@ -18,7 +18,7 @@ jobs:
           role-to-assume: arn:aws:iam::596504523308:role/github-actions-kmdastur-deploy
           aws-region: ap-south-1
 
-      # DEBUG (remove after first success)
+      # DEBUG (remove after you confirm it works)
       - name: Debug AWS identity
         run: aws sts get-caller-identity
 
