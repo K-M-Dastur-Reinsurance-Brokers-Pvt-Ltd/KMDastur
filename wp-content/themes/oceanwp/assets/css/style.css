@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /*------------------------------------*
     $CONTENTS
 *------------------------------------*/
@@ -1811,7 +1811,7 @@ blockquote cite {
 blockquote cite:before {
   position: absolute;
   left: 0;
-  content: "â€”";
+  content: "-";
 }
 
 q:before,
@@ -2870,7 +2870,7 @@ a.pure-button-selected {
   z-index: 101;
 }
 #site-header.top-header.search-overlay #search-toggle .search-overlay-toggle.exit > span:before {
-  content: "âœ•";
+  content: "œ•";
   color: #fff;
 }
 #site-header.top-header #searchform-header-replace input {
@@ -5008,7 +5008,7 @@ body.vertical-header-style.vh-closed #site-header.vertical-header #site-navigati
   bottom: -80%;
   left: 50%;
   color: transparent;
-  content: "â€¢";
+  content: "€¢";
   text-shadow: 0 0 transparent;
   font-size: 1.2em;
   line-height: 1;

@@ -1,4 +1,4 @@
-﻿/******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({});
 /************************************************************************/
@@ -606,13 +606,13 @@ const $8927f6f2acc4f386$var$NODES = [
  * For example:
  *
  * dispatching a known click ðŸ‘Ž
- * target.dispatchEvent(new Event(â€˜clickâ€™))
+ * target.dispatchEvent(new Event(€˜click'))
  *
  * dispatching a custom type within a non-discrete event ðŸ‘Ž
- * onScroll={(event) => event.target.dispatchEvent(new CustomEvent(â€˜customTypeâ€™))}
+ * onScroll={(event) => event.target.dispatchEvent(new CustomEvent(€˜customType'))}
  *
  * dispatching a custom type within a `discrete` event ðŸ‘
- * onPointerDown={(event) => dispatchDiscreteCustomEvent(event.target, new CustomEvent(â€˜customTypeâ€™))}
+ * onPointerDown={(event) => dispatchDiscreteCustomEvent(event.target, new CustomEvent(€˜customType'))}
  *
  * Note: though React classifies `focus`, `focusin` and `focusout` events as `discrete`, it's  not recommended to use
  * this utility with them. This is because it's possible for those handlers to be called implicitly during render

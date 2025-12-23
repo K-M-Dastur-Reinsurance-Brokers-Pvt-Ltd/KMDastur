@@ -1,6 +1,6 @@
-﻿/**
+/**
  * core-js 3.39.0
- * Â© 2014-2024 Denis Pushkarev (zloirock.ru)
+ * © 2014-2024 Denis Pushkarev (zloirock.ru)
  * license: https://github.com/zloirock/core-js/blob/v3.39.0/LICENSE
  * source: https://github.com/zloirock/core-js
  */
@@ -426,7 +426,7 @@ var store = module.exports = globalThis[SHARED] || defineGlobalProperty(SHARED, 
 (store.versions || (store.versions = [])).push({
   version: '3.39.0',
   mode: IS_PURE ? 'pure' : 'global',
-  copyright: 'Â© 2014-2024 Denis Pushkarev (zloirock.ru)',
+  copyright: '© 2014-2024 Denis Pushkarev (zloirock.ru)',
   license: 'https://github.com/zloirock/core-js/blob/v3.39.0/LICENSE',
   source: 'https://github.com/zloirock/core-js'
 });

@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 .editor-post-title__block .editor-post-title__input {
   font-size: 2rem;
   font-weight: 600;
@@ -80,7 +80,7 @@
 .block-editor-block-list__layout blockquote cite:before {
   position: absolute;
   left: 0;
-  content: "â€”";
+  content: "-";
 }
 .block-editor-block-list__layout q:before,
 .block-editor-block-list__layout q:after,
@@ -94,7 +94,7 @@
 .block-editor-block-list__layout blockquote .wp-block-quote__citation:before {
   position: absolute;
   left: 0;
-  content: "â€”";
+  content: "-";
 }
 .block-editor-block-list__layout address {
   display: block;

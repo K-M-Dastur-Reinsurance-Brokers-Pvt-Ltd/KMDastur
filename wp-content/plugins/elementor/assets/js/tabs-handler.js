@@ -1,4 +1,4 @@
-﻿"use strict";
+"use strict";
 (self["webpackChunkelementorFrontend"] = self["webpackChunkelementorFrontend"] || []).push([["tabs-handler"],{
 
 /***/ "../modules/atomic-widgets/elements/atomic-tabs/atomic-tabs-handler.js":
@@ -2007,7 +2007,7 @@ var store = module.exports = globalThis[SHARED] || defineGlobalProperty(SHARED, 
 (store.versions || (store.versions = [])).push({
   version: '3.43.0',
   mode: IS_PURE ? 'pure' : 'global',
-  copyright: 'Â© 2014-2025 Denis Pushkarev (zloirock.ru)',
+  copyright: '© 2014-2025 Denis Pushkarev (zloirock.ru)',
   license: 'https://github.com/zloirock/core-js/blob/v3.43.0/LICENSE',
   source: 'https://github.com/zloirock/core-js'
 });

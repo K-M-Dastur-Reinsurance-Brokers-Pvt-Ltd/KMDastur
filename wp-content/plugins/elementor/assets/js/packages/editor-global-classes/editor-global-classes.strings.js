@@ -1,4 +1,4 @@
-﻿__( 'class', 'elementor' );
+__( 'class', 'elementor' );
 __( 'classes', 'elementor' );
 __( 'Convert to global class', 'elementor' );
 __( 'Sorry, nothing matched.', 'elementor' );
@@ -71,7 +71,7 @@ __( 'Delete', 'elementor' );
 __( 'Show {{number}} {{locations}}', 'elementor' );
 __( 'location', 'elementor' );
 __( 'locations', 'elementor' );
-__( 'This class isnâ€™t being used yet.', 'elementor' );
+__( 'This class isn't being used yet.', 'elementor' );
 __( 'Post', 'elementor' );
 __( 'Page', 'elementor' );
 __( 'Popup', 'elementor' );

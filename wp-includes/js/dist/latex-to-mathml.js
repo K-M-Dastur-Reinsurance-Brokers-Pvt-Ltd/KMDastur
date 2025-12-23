@@ -1,4 +1,4 @@
-﻿/******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
@@ -81,13 +81,13 @@ class ParseError {
       // Extract some context from the input and add it to the error
       let left;
       if (start > 15) {
-        left = "â€¦" + input.slice(start - 15, start);
+        left = "€¦" + input.slice(start - 15, start);
       } else {
         left = input.slice(0, start);
       }
       let right;
       if (end + 15 < input.length) {
-        right = input.slice(end, end + 15) + "â€¦";
+        right = input.slice(end, end + 15) + "€¦";
       } else {
         right = input.slice(end);
       }
@@ -544,7 +544,7 @@ let TextNode$1 = class TextNode {
   }
 };
 
-// Create an <a href="â€¦"> node.
+// Create an <a href="€¦"> node.
 class AnchorNode {
   constructor(href, classes, children) {
     this.href = href;
@@ -843,7 +843,7 @@ const stretchyCodePoint = {
   widehat: "^",
   widecheck: "Ë‡",
   widetilde: "~",
-  wideparen: "âœ", // \u23dc
+  wideparen: "œ", // \u23dc
   utilde: "~",
   overleftarrow: "\u2190",
   underleftarrow: "\u2190",
@@ -854,7 +854,7 @@ const stretchyCodePoint = {
   underbrace: "\u23df",
   overbrace: "\u23de",
   overgroup: "\u23e0",
-  overparen: "âœ",
+  overparen: "œ",
   undergroup: "\u23e1",
   underparen: "\u23dd",
   overleftrightarrow: "\u2194",
@@ -1048,13 +1048,13 @@ defineSymbol(math, textord, "\u2135", "\\aleph", true);
 defineSymbol(math, textord, "\u2200", "\\forall", true);
 defineSymbol(math, textord, "\u210f", "\\hbar", true);
 defineSymbol(math, textord, "\u2203", "\\exists", true);
-// âˆ‡ is actually a unary operator, not binary. But this works.
+// ˆ‡ is actually a unary operator, not binary. But this works.
 defineSymbol(math, bin, "\u2207", "\\nabla", true);
 defineSymbol(math, textord, "\u266d", "\\flat", true);
 defineSymbol(math, textord, "\u2113", "\\ell", true);
 defineSymbol(math, textord, "\u266e", "\\natural", true);
-defineSymbol(math, textord, "â„«", "\\Angstrom", true);
-defineSymbol(temml_text, textord, "â„«", "\\Angstrom", true);
+defineSymbol(math, textord, "„«", "\\Angstrom", true);
+defineSymbol(temml_text, textord, "„«", "\\Angstrom", true);
 defineSymbol(math, textord, "\u2663", "\\clubsuit", true);
 defineSymbol(math, textord, "\u2667", "\\varclubsuit", true);
 defineSymbol(math, textord, "\u2118", "\\wp", true);
@@ -1479,8 +1479,8 @@ defineSymbol(math, textord, "\u2018", "`");
 defineSymbol(math, textord, "$", "\\$");
 defineSymbol(temml_text, textord, "$", "\\$");
 defineSymbol(temml_text, textord, "$", "\\textdollar");
-defineSymbol(math, textord, "Â¢", "\\cent");
-defineSymbol(temml_text, textord, "Â¢", "\\cent");
+defineSymbol(math, textord, "¢", "\\cent");
+defineSymbol(temml_text, textord, "¢", "\\cent");
 defineSymbol(math, textord, "%", "\\%");
 defineSymbol(temml_text, textord, "%", "\\%");
 defineSymbol(math, textord, "_", "\\_");
@@ -1620,7 +1620,7 @@ defineSymbol(math, textord, "\u2195", "\\shift");
 defineSymbol(math, textord, "\u2191", "\\shneg");
 defineSymbol(math, temml_close, "?", "?");
 defineSymbol(math, temml_close, "!", "!");
-defineSymbol(math, temml_close, "â€¼", "â€¼");
+defineSymbol(math, temml_close, "€¼", "€¼");
 defineSymbol(math, temml_close, "\u27e9", "\\rangle", true);
 defineSymbol(math, temml_close, "\u27eb", "\\rAngle", true);
 defineSymbol(math, temml_close, "\u298a", "\\rrangle", true);
@@ -1677,7 +1677,7 @@ defineSymbol(math, punct, ";", ";");
 defineSymbol(math, bin, "\u22bc", "\\barwedge");
 defineSymbol(math, bin, "\u22bb", "\\veebar");
 defineSymbol(math, bin, "\u2299", "\\odot", true);
-// Firefox turns âŠ• into an emoji. So append \uFE0E. Define Unicode character in macros, not here.
+// Firefox turns Š• into an emoji. So append \uFE0E. Define Unicode character in macros, not here.
 defineSymbol(math, bin, "\u2295\uFE0E", "\\oplus");
 defineSymbol(math, bin, "\u2297", "\\otimes", true);
 defineSymbol(math, textord, "\u2202", "\\partial", true);
@@ -1704,8 +1704,8 @@ defineSymbol(math, temml_close, "]", "\\rbrack", true);
 defineSymbol(temml_text, textord, "]", "\\rbrack", true);
 defineSymbol(math, temml_open, "(", "\\lparen", true);
 defineSymbol(math, temml_close, ")", "\\rparen", true);
-defineSymbol(math, temml_open, "â¦‡", "\\llparenthesis", true);
-defineSymbol(math, temml_close, "â¦ˆ", "\\rrparenthesis", true);
+defineSymbol(math, temml_open, "¦‡", "\\llparenthesis", true);
+defineSymbol(math, temml_close, "¦ˆ", "\\rrparenthesis", true);
 defineSymbol(temml_text, textord, "<", "\\textless", true); // in T1 fontenc
 defineSymbol(temml_text, textord, ">", "\\textgreater", true); // in T1 fontenc
 defineSymbol(math, temml_open, "\u230a", "\\lfloor", true);
@@ -1920,7 +1920,7 @@ for (let i = 0; i < letters.length; i++) {
 }
 
 // Some more letters in Unicode Basic Multilingual Plane.
-const narrow = "Ã‡ÃÃžÃ§Ã¾â„‚â„â„•â„™â„šâ„â„¤â„Žâ„â„Šâ„‹â„Œâ„â„‘â„’â„“â„˜â„›â„œâ„¬â„°â„±â„³â„­â„¨";
+const narrow = "Ã‡ÃÃžÃ§Ã¾„‚„„•„™„š„„¤„Ž„„Š„‹„Œ„„‘„’„“„˜„›„œ„¬„°„±„³„­„¨";
 for (let i = 0; i < narrow.length; i++) {
   const ch = narrow.charAt(i);
   defineSymbol(math, mathord, ch, ch);
@@ -2021,8 +2021,8 @@ for (let i = 0; i < 10; i++) {
  * much of this module.
  */
 
-const openDelims = "([{âŒŠâŒˆâŸ¨âŸ®âŽ°âŸ¦â¦ƒ";
-const closeDelims = ")]}âŒ‹âŒ‰âŸ©âŸ¯âŽ±âŸ¦â¦„";
+const openDelims = "([{ŒŠŒˆŸ¨Ÿ®Ž°Ÿ¦¦ƒ";
+const closeDelims = ")]}Œ‹Œ‰Ÿ©Ÿ¯Ž±Ÿ¦¦„";
 
 function setLineBreaks(expression, wrapMode, isDisplayMode) {
   const mtrs = [];
@@ -2068,7 +2068,7 @@ function setLineBreaks(expression, wrapMode, isDisplayMode) {
           mrows.push(element);
           block = [node];
         }
-      } else if (level === 0 && wrapMode === "tex" && ch !== "âˆ‡") {
+      } else if (level === 0 && wrapMode === "tex" && ch !== "ˆ‡") {
         // Check if the following node is a \nobreak text node, e.g. "~""
         const next = i < expression.length - 1 ? expression[i + 1] : null;
         let glueIsFreeOfNobreak = true;
@@ -2823,7 +2823,7 @@ const munderoverNode = (fName, body, below, style) => {
   // Is this the short part of a mhchem equilibrium arrow?
   const isEq = fName.slice(1, 3) === "eq";
   const minWidth = fName.charAt(1) === "x"
-    ? "1.75"  // mathtools extensible arrows are â‰¥ 1.75em long
+    ? "1.75"  // mathtools extensible arrows are ‰¥ 1.75em long
     : fName.slice(2, 4) === "cd"
     ? "3.0"  // cd package arrows
     : isEq
@@ -2949,7 +2949,7 @@ const arrowComponent = {
   "\\equilibriumLeft": ["\\eqrightharpoonup", "\\longleftharpoondown"]
 };
 
-// Browsers are not good at stretching a glyph that contains a pair of stacked arrows such as â‡„.
+// Browsers are not good at stretching a glyph that contains a pair of stacked arrows such as ‡„.
 // So we stack a pair of single arrows.
 defineFunction({
   type: "stackedArrow",
@@ -3695,7 +3695,7 @@ defineFunction({
   names: [
     "\\global",
     "\\long",
-    "\\\\globallong" // canâ€™t be entered directly
+    "\\\\globallong" // can't be entered directly
   ],
   props: {
     numArgs: 0,
@@ -3752,7 +3752,7 @@ defineFunction({
         }
 
         // A parameter, the first appearance of # must be followed by 1,
-        // the next by 2, and so on; up to nine #â€™s are allowed
+        // the next by 2, and so on; up to nine #'s are allowed
         tok = parser.gullet.popToken();
         if (!/^[1-9]$/.test(tok.text)) {
           throw new ParseError(`Invalid argument number "${tok.text}"`);
@@ -3799,7 +3799,7 @@ defineFunction({
   type: "internal",
   names: [
     "\\let",
-    "\\\\globallet" // canâ€™t be entered directly
+    "\\\\globallet" // can't be entered directly
   ],
   props: {
     numArgs: 0,
@@ -3820,7 +3820,7 @@ defineFunction({
   type: "internal",
   names: [
     "\\futurelet",
-    "\\\\globalfuture" // canâ€™t be entered directly
+    "\\\\globalfuture" // can't be entered directly
   ],
   props: {
     numArgs: 0,
@@ -3931,9 +3931,9 @@ const delimiters = [
   "\\lbrace",
   "\\}",
   "\\rbrace",
-  "â¦‡",
+  "¦‡",
   "\\llparenthesis",
-  "â¦ˆ",
+  "¦ˆ",
   "\\rrparenthesis",
   "\\lfloor",
   "\\rfloor",
@@ -3954,9 +3954,9 @@ const delimiters = [
   "\\rAngle",
   "\u27eb",
   "\\llangle",
-  "â¦‰",
+  "¦‰",
   "\\rrangle",
-  "â¦Š",
+  "¦Š",
   "\\lt",
   "\\gt",
   "\\lvert",
@@ -4011,8 +4011,8 @@ function checkDelimiter(delim, context) {
   if (symDelim && delimiters.includes(symDelim.text)) {
     // If a character is not in the MathML operator dictionary, it will not stretch.
     // Replace such characters w/characters that will stretch.
-    if (["<", "\\lt"].includes(symDelim.text)) { symDelim.text = "âŸ¨"; }
-    if ([">", "\\gt"].includes(symDelim.text)) { symDelim.text = "âŸ©"; }
+    if (["<", "\\lt"].includes(symDelim.text)) { symDelim.text = "Ÿ¨"; }
+    if ([">", "\\gt"].includes(symDelim.text)) { symDelim.text = "Ÿ©"; }
     return symDelim;
   } else if (symDelim) {
     throw new ParseError(`Invalid delimiter '${symDelim.text}' after '${context.funcName}'`, delim);
@@ -4597,8 +4597,8 @@ const macros = _macros;
 
 defineMacro("\\noexpand", function(context) {
   // The expansion is the token itself; but that token is interpreted
-  // as if its meaning were â€˜\relaxâ€™ if it is a control sequence that
-  // would ordinarily be expanded by TeXâ€™s expansion rules.
+  // as if its meaning were €˜\relax' if it is a control sequence that
+  // would ordinarily be expanded by TeX's expansion rules.
   const t = context.popToken();
   if (context.isExpandable(t.text)) {
     t.noexpand = true;
@@ -4609,7 +4609,7 @@ defineMacro("\\noexpand", function(context) {
 
 defineMacro("\\expandafter", function(context) {
   // TeX first reads the token that comes immediately after \expandafter,
-  // without expanding it; letâ€™s call this token t. Then TeX reads the
+  // without expanding it; let's call this token t. Then TeX reads the
   // token that comes after t (and possibly more tokens, if that token
   // has an argument), replacing it by its expansion. Finally TeX puts
   // t back in front of that expansion.
@@ -4783,7 +4783,7 @@ function recreateArgStr(context) {
   return str
 }
 
-// The Latin Modern font renders <mi>âˆš</mi> at the wrong vertical alignment.
+// The Latin Modern font renders <mi>ˆš</mi> at the wrong vertical alignment.
 // This macro provides a better rendering.
 defineMacro("\\surd", '\\sqrt{\\vphantom{|}}');
 
@@ -5289,7 +5289,7 @@ defineMacro("\\incoh", `{\\mkern5mu\\rule{}{0.7em}\\mathrlap{\\smash{\\raise2mu{
 
 //////////////////////////////////////////////////////////////////////
 // chemstyle package
-defineMacro("\\standardstate", "\\text{\\tiny\\char`â¦µ}");
+defineMacro("\\standardstate", "\\text{\\tiny\\char`¦µ}");
 
 ï»¿/* eslint-disable */
 /* -*- Mode: JavaScript; indent-tabs-mode:nil; js-indent-level: 2 -*- */
@@ -5309,7 +5309,7 @@ defineMacro("\\standardstate", "\\text{\\tiny\\char`â¦µ}");
  *    4. The ~bond forms are composed entirely of \rule elements.
  *    5. Two dashes in _getBond are wrapped in braces to suppress spacing. i.e., {-}
  *    6. The electron dot uses \textbullet instead of \bullet.
- *    7. \smash[T] has been removed. (WebKit hides anything inside \smash{â€¦})
+ *    7. \smash[T] has been removed. (WebKit hides anything inside \smash{€¦})
  *
  *    This code, as other Temml code, is released under the MIT license.
  * 
@@ -7994,7 +7994,7 @@ defineEnvironment({
 
 // A cases environment (in amsmath.sty) is almost equivalent to
 // \def
-// \left\{\begin{array}{@{}l@{\quad}l@{}} â€¦ \end{array}\right.
+// \left\{\begin{array}{@{}l@{\quad}l@{}} €¦ \end{array}\right.
 // {dcases} is a {cases} environment where cells are set in \displaystyle,
 // as defined in mathtools.sty.
 // {rcases} is another mathtools environment. It's brace is on the right side.
@@ -8260,7 +8260,7 @@ const mathmlBuilder$6 = (group, style) => {
   }
   // Check if it is possible to consolidate elements into a single <mi> element.
   if (isLongVariableName(group, font)) {
-    // This is a \mathrm{â€¦} group. It gets special treatment because symbolsOrd.js
+    // This is a \mathrm{€¦} group. It gets special treatment because symbolsOrd.js
     // wraps <mi> elements with <mrow>s to work around a Firefox bug.
     const mi = mathGroup.children[0].children[0];
     delete mi.attributes.mathvariant;
@@ -8458,7 +8458,7 @@ defineFunction({
     "\\dbinom",
     "\\binom",
     "\\tbinom",
-    "\\\\atopfrac", // canâ€™t be entered directly
+    "\\\\atopfrac", // can't be entered directly
     "\\\\bracefrac",
     "\\\\brackfrac" // ditto
   ],
@@ -9332,7 +9332,7 @@ function mathmlBuilder$3(group, style) {
     if (group.isCharacterBox || inner[0].type === "mathord") {
       node = inner[0];
       node.type = "mi";
-      if (node.children.length === 1 && node.children[0].text && node.children[0].text === "âˆ‡") {
+      if (node.children.length === 1 && node.children[0].text && node.children[0].text === "ˆ‡") {
         node.setAttribute("mathvariant", "normal");
       }
     } else {
@@ -9660,7 +9660,7 @@ const ordTypes = ["textord", "mathord", "ordgroup", "close", "leftright", "font"
 // "supsub" since some of them (like \int) can affect super/subscripting.
 
 const setSpacing = node => {
-  // The user wrote a \mathop{â€¦} function. Change spacing from default to OP spacing.
+  // The user wrote a \mathop{€¦} function. Change spacing from default to OP spacing.
   // The most likely spacing for an OP is a thin space per TeXbook p170.
   node.attributes.lspace = "0.1667em";
   node.attributes.rspace = "0.1667em";
@@ -10671,7 +10671,7 @@ defineFunctionBuilders({
       const testNode = sup.type === "mrow" ? sup.children[0] : sup;
       if ((testNode && testNode.type === "mo" && testNode.classes.includes("tml-prime"))
         && group.base && group.base.text && "fF".indexOf(group.base.text) > -1) {
-        // Chromium does not address italic correction on prime.  Prevent fâ€² from overlapping.
+        // Chromium does not address italic correction on prime.  Prevent f€² from overlapping.
         testNode.classes.push("prime-pad");
       }
       children.push(sup);
@@ -11644,7 +11644,7 @@ class Namespace {
 }
 
 /**
- * This file contains the â€œgulletâ€ where macros are expanded
+ * This file contains the "gullet" where macros are expanded
  * until only non-macro tokens remain.
  */
 
@@ -11781,15 +11781,15 @@ class MacroExpander {
     // empty) sequence of tokens with properly nested {...} groups that is
     // followed ... by this particular list of non-parameter tokens.
     // The argument for an undelimited parameter is the next nonblank
-    // token, unless that token is â€˜{â€™, when the argument will be the
+    // token, unless that token is €˜{', when the argument will be the
     // entire {...} group that follows.
     const tokens = [];
     const isDelimited = delims && delims.length > 0;
     if (!isDelimited) {
       // Ignore spaces between arguments.  As the TeXbook says:
-      // "After you have said â€˜\def\row#1#2{...}â€™, you are allowed to
-      //  put spaces between the arguments (e.g., â€˜\row x nâ€™), because
-      //  TeX doesnâ€™t use single spaces as undelimited arguments."
+      // "After you have said €˜\def\row#1#2{...}', you are allowed to
+      //  put spaces between the arguments (e.g., €˜\row x n'), because
+      //  TeX doesn't use single spaces as undelimited arguments."
       this.consumeSpaces();
     }
     const start = this.future();
@@ -11828,7 +11828,7 @@ class MacroExpander {
         }
       }
     } while (depth !== 0 || isDelimited);
-    // If the argument found ... has the form â€˜{<nested tokens>}â€™,
+    // If the argument found ... has the form €˜{<nested tokens>}',
     // ... the outermost braces enclosing the argument are removed
     if (start.text === "{" && tokens[tokens.length - 1].text === "}") {
       tokens.pop();
@@ -11912,7 +11912,7 @@ class MacroExpander {
           }
           tok = tokens[--i]; // next token on stack
           if (tok.text === "#") {
-            // ## â†’ #
+            // ## †’ #
             tokens.splice(i + 1, 1); // drop first #
           } else if (/^[1-9]$/.test(tok.text)) {
             // replace the placeholder with the indicated argument
@@ -11946,7 +11946,7 @@ class MacroExpander {
     for (;;) {
       if (this.expandOnce() === false) { // fully expanded
         const token = this.stack.pop();
-        // The token after \noexpand is interpreted as if its meaning were â€˜\relaxâ€™
+        // The token after \noexpand is interpreted as if its meaning were €˜\relax'
         if (token.treatAsRelax) {
           token.text = "\\relax";
         }
@@ -12074,24 +12074,24 @@ class MacroExpander {
 
 // Helpers for Parser.js handling of Unicode (sub|super)script characters.
 
-const unicodeSubRegEx = /^[â‚Šâ‚‹â‚Œâ‚â‚Žâ‚€â‚â‚‚â‚ƒâ‚„â‚…â‚†â‚‡â‚ˆâ‚‰â‚â‚‘â‚•áµ¢â±¼â‚–â‚—â‚˜â‚™â‚’â‚šáµ£â‚›â‚œáµ¤áµ¥â‚“áµ¦áµ§áµ¨áµ©áµª]/;
+const unicodeSubRegEx = /^[‚Š‚‹‚Œ‚‚Ž‚€‚‚‚‚ƒ‚„‚…‚†‚‡‚ˆ‚‰‚‚‘‚•áµ¢±¼‚–‚—‚˜‚™‚’‚šáµ£‚›‚œáµ¤áµ¥‚“áµ¦áµ§áµ¨áµ©áµª]/;
 
 const uSubsAndSups = Object.freeze({
-  'â‚Š': '+',
-  'â‚‹': '-',
-  'â‚Œ': '=',
-  'â‚': '(',
-  'â‚Ž': ')',
-  'â‚€': '0',
-  'â‚': '1',
-  'â‚‚': '2',
-  'â‚ƒ': '3',
-  'â‚„': '4',
-  'â‚…': '5',
-  'â‚†': '6',
-  'â‚‡': '7',
-  'â‚ˆ': '8',
-  'â‚‰': '9',
+  '‚Š': '+',
+  '‚‹': '-',
+  '‚Œ': '=',
+  '‚': '(',
+  '‚Ž': ')',
+  '‚€': '0',
+  '‚': '1',
+  '‚‚': '2',
+  '‚ƒ': '3',
+  '‚„': '4',
+  '‚…': '5',
+  '‚†': '6',
+  '‚‡': '7',
+  '‚ˆ': '8',
+  '‚‰': '9',
   '\u2090': 'a',
   '\u2091': 'e',
   '\u2095': 'h',
@@ -12114,21 +12114,21 @@ const uSubsAndSups = Object.freeze({
   '\u1D68': 'Ï',
   '\u1D69': '\u03d5',
   '\u1D6A': 'Ï‡',
-  'âº': '+',
-  'â»': '-',
-  'â¼': '=',
-  'â½': '(',
-  'â¾': ')',
-  'â°': '0',
-  'Â¹': '1',
-  'Â²': '2',
-  'Â³': '3',
-  'â´': '4',
-  'âµ': '5',
-  'â¶': '6',
-  'â·': '7',
-  'â¸': '8',
-  'â¹': '9',
+  'º': '+',
+  '»': '-',
+  '¼': '=',
+  '½': '(',
+  '¾': ')',
+  '°': '0',
+  '¹': '1',
+  '²': '2',
+  '³': '3',
+  '´': '4',
+  'µ': '5',
+  '¶': '6',
+  '·': '7',
+  '¸': '8',
+  '¹': '9',
   '\u1D2C': 'A',
   '\u1D2E': 'B',
   '\u1D30': 'D',

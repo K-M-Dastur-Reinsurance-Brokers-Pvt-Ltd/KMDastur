@@ -1,4 +1,4 @@
-﻿/******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
@@ -2191,7 +2191,7 @@ function MetaBoxesMain({ isLegacy }) {
       },
       // Avoids hiccups while dragging over objects like iframes and ensures that
       // the event to end the drag is captured by the target (resize handle)
-      // whether or not itâ€™s under the pointer.
+      // whether or not it's under the pointer.
       onPointerDown: ({ pointerId, target }) => {
         if (separatorRef.current?.parentElement.contains(target)) {
           target.setPointerCapture(pointerId);

@@ -1,4 +1,4 @@
-﻿/******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 197:
@@ -38271,7 +38271,7 @@ function useTabNav() {
         return;
       }
       if (
-        // Bails in case the focus capture elements arenâ€™t present. They
+        // Bails in case the focus capture elements aren't present. They
         // may be omitted to avoid silent tab stops in preview mode.
         // See: https://github.com/WordPress/gutenberg/pull/59317
         !focusCaptureAfterRef.current || !focusCaptureBeforeRef.current
@@ -40089,8 +40089,8 @@ const TOKENS = {
     class: /\.(?<name>[-\w\P{ASCII}]+)/gu,
     comma: /\s*,\s*/g,
     combinator: /\s*[\s>+~]\s*/g,
-    'pseudo-element': /::(?<name>[-\w\P{ASCII}]+)(?:\((?<argument>Â¶*)\))?/gu,
-    'pseudo-class': /:(?<name>[-\w\P{ASCII}]+)(?:\((?<argument>Â¶*)\))?/gu,
+    'pseudo-element': /::(?<name>[-\w\P{ASCII}]+)(?:\((?<argument>¶*)\))?/gu,
+    'pseudo-class': /:(?<name>[-\w\P{ASCII}]+)(?:\((?<argument>¶*)\))?/gu,
     universal: /(?:(?<namespace>\*|[-\w\P{ASCII}]*)\|)?\*/gu,
     type: /(?:(?<namespace>\*|[-\w\P{ASCII}]*)\|)?(?<name>[-\w\P{ASCII}]+)/gu, // this must be last
 };
@@ -40115,7 +40115,7 @@ const getArgumentPatternByType = (type) => {
     switch (type) {
         case 'pseudo-element':
         case 'pseudo-class':
-            return new RegExp(TOKENS[type].source.replace('(?<argument>Â¶*)', '(?<argument>.*)'), 'gu');
+            return new RegExp(TOKENS[type].source.replace('(?<argument>¶*)', '(?<argument>.*)'), 'gu');
         default:
             return TOKENS[type];
     }
@@ -40217,7 +40217,7 @@ function parsel_tokenize(selector, grammar = TOKENS) {
         while ((offset = selector.indexOf('(', pos)) > -1) {
             const value = gobbleParens(selector, offset);
             replacements.push({ value, offset });
-            selector = `${selector.substring(0, offset)}(${'Â¶'.repeat(value.length - 2)})${selector.substring(offset + value.length)}`;
+            selector = `${selector.substring(0, offset)}(${'¶'.repeat(value.length - 2)})${selector.substring(offset + value.length)}`;
             pos = offset + value.length;
         }
     }
@@ -64724,7 +64724,7 @@ var isPropValid = /* #__PURE__ */memoize(function (prop) {
 ;// ./node_modules/@emotion/sheet/dist/emotion-sheet.browser.esm.js
 /*
 
-Based off glamor's StyleSheet, thanks Sunil â¤ï¸
+Based off glamor's StyleSheet, thanks Sunil ¤ï¸
 
 high performance StyleSheet for css-in-js systems
 

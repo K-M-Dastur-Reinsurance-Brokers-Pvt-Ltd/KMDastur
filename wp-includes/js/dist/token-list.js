@@ -1,4 +1,4 @@
-﻿/******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
@@ -151,8 +151,8 @@ class TokenList {
     this.value = this._valueAsArray.filter((val) => !items.includes(val)).join(" ");
   }
   /**
-   * If `force` is not given, "toggles" `token`, removing it if itâ€™s present
-   * and adding it if itâ€™s not present. If `force` is true, adds token (same
+   * If `force` is not given, "toggles" `token`, removing it if it's present
+   * and adding it if it's not present. If `force` is true, adds token (same
    * as add()). If force is false, removes token (same as remove()). Returns
    * true if `token` is now present, and false otherwise.
    *
@@ -195,7 +195,7 @@ class TokenList {
   }
   /* eslint-disable @typescript-eslint/no-unused-vars */
   /**
-   * Returns true if `token` is in the associated attributeâ€™s supported
+   * Returns true if `token` is in the associated attribute's supported
    * tokens. Returns false otherwise.
    *
    * Always returns `true` in this implementation.

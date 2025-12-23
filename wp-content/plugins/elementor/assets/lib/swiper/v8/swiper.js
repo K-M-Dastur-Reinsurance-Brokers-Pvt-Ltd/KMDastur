@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Swiper 8.4.5
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
@@ -8053,7 +8053,7 @@
 
         i3 = binarySearch(this.x, x2);
         i1 = i3 - 1; // We have our indexes i1 & i3, so we can calculate already:
-        // y2 := ((x2âˆ’x1) Ã— (y3âˆ’y1)) Ã· (x3âˆ’x1) + y1
+        // y2 := ((x2ˆ’x1) Ã— (y3ˆ’y1)) Ã· (x3ˆ’x1) + y1
 
         return (x2 - this.x[i1]) * (this.y[i3] - this.y[i1]) / (this.x[i3] - this.x[i1]) + this.y[i1];
       };

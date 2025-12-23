@@ -1,4 +1,4 @@
-﻿(self["webpackChunkelementor"] = self["webpackChunkelementor"] || []).push([["vendors-node_modules_react-query_devtools_index_js"],{
+(self["webpackChunkelementor"] = self["webpackChunkelementor"] || []).push([["vendors-node_modules_react-query_devtools_index_js"],{
 
 /***/ "../node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js":
 /*!**********************************************************************************!*\
@@ -1787,7 +1787,7 @@ var ReactQueryDevtoolsPanel = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___de
     style: {
       padding: '.3em .4em'
     }
-  }, sortDesc ? 'â¬‡ Desc' : 'â¬† Asc')) : null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("div", {
+  }, sortDesc ? '¬‡ Desc' : '¬† Asc')) : null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default().createElement("div", {
     style: {
       overflowY: 'auto',
       flex: '1'

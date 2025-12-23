@@ -1,4 +1,4 @@
-﻿/******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "../node_modules/@babel/runtime/helpers/arrayLikeToArray.js":
@@ -1288,9 +1288,9 @@ function getNormalAttributeName(attribute) {
 /**
  * Returns the normal form of the style property name for HTML.
  *
- * - Converts property names to kebab-case, e.g. 'backgroundColor' â†’ 'background-color'
- * - Leaves custom attributes alone, e.g. '--myBackgroundColor' â†’ '--myBackgroundColor'
- * - Converts vendor-prefixed property names to -kebab-case, e.g. 'MozTransform' â†’ '-moz-transform'
+ * - Converts property names to kebab-case, e.g. 'backgroundColor' †’ 'background-color'
+ * - Leaves custom attributes alone, e.g. '--myBackgroundColor' †’ '--myBackgroundColor'
+ * - Converts vendor-prefixed property names to -kebab-case, e.g. 'MozTransform' †’ '-moz-transform'
  *
  * @param {string} property Property name.
  *

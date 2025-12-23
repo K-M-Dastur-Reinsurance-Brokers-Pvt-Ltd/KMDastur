@@ -1,4 +1,4 @@
-﻿/******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 66:
@@ -27216,7 +27216,7 @@ const limitShift = function (options) {
 };
 
 /**
- * Provides data that allows you to change the size of the floating element â€”
+ * Provides data that allows you to change the size of the floating element -
  * for instance, prevent it from overflowing the clipping boundary or match the
  * width of the reference element.
  * @see https://floating-ui.com/docs/size
@@ -28218,7 +28218,7 @@ const floating_ui_dom_shift = (/* unused pure expression or super */ null && (sh
 const floating_ui_dom_flip = (/* unused pure expression or super */ null && (flip$1));
 
 /**
- * Provides data that allows you to change the size of the floating element â€”
+ * Provides data that allows you to change the size of the floating element -
  * for instance, prevent it from overflowing the clipping boundary or match the
  * width of the reference element.
  * @see https://floating-ui.com/docs/size

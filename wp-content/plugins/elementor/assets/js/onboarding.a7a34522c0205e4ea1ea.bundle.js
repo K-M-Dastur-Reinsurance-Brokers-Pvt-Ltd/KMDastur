@@ -1,4 +1,4 @@
-﻿"use strict";
+"use strict";
 (self["webpackChunkelementor"] = self["webpackChunkelementor"] || []).push([["onboarding"],{
 
 /***/ "../app/modules/onboarding/assets/js/app.js":
@@ -1921,7 +1921,7 @@ function Account() {
       firstLine: /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, __('To get the most of Elementor, we\'ll connect your account.', 'elementor'), "  ", /*#__PURE__*/_react.default.createElement("br", null), " ", __('Then you can:', 'elementor')),
       listItems: [__('Access dozens of professionally designed templates', 'elementor'), __('Manage all your sites from the My Elementor dashboard', 'elementor'), __('Unlock tools that streamline your workflow and site setup', 'elementor')]
     } : {
-      firstLine: __('To get the most out of Elementor, weâ€™ll connect your account.', 'elementor') + ' ' + __('Then you can:', 'elementor'),
+      firstLine: __('To get the most out of Elementor, we'll connect your account.', 'elementor') + ' ' + __('Then you can:', 'elementor'),
       listItems: [__('Choose from countless professional templates', 'elementor'), __('Manage your site with our handy dashboard', 'elementor'), __('Take part in the community forum, share & grow together', 'elementor')]
     };
   }
@@ -1932,7 +1932,7 @@ function Account() {
     role: 'button'
   };
   if (state.isLibraryConnected) {
-    actionButton.text = __('Letâ€™s do it', 'elementor');
+    actionButton.text = __('Let's do it', 'elementor');
     actionButton.onClick = function () {
       elementorCommon.events.dispatchEvent({
         event: 'next',
@@ -2319,7 +2319,7 @@ function HelloTheme() {
     noticeStateSuccess = {
       type: 'success',
       icon: 'eicon-check-circle-o',
-      message: __('Your siteâ€™s got Hello theme. High-five!', 'elementor')
+      message: __('Your site's got Hello theme. High-five!', 'elementor')
     },
     _useState7 = (0, _react.useState)(state.isHelloThemeActivated ? noticeStateSuccess : null),
     _useState8 = (0, _slicedToArray2.default)(_useState7, 2),

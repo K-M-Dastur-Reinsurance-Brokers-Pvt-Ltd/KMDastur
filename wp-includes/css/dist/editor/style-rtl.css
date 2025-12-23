@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 :root{
   --wp-block-synced-color:#7a00df;
   --wp-block-synced-color--rgb:122, 0, 223;
@@ -859,19 +859,19 @@ body.is-fullscreen-mode .interface-interface-skeleton{
   margin-left:4px;
 }
 .document-outline__item.is-h2 .document-outline__emdash:before{
-  content:"â€”";
+  content:"-";
 }
 .document-outline__item.is-h3 .document-outline__emdash:before{
-  content:"â€”â€”";
+  content:"--";
 }
 .document-outline__item.is-h4 .document-outline__emdash:before{
-  content:"â€”â€”â€”";
+  content:"---";
 }
 .document-outline__item.is-h5 .document-outline__emdash:before{
-  content:"â€”â€”â€”â€”";
+  content:"----";
 }
 .document-outline__item.is-h6 .document-outline__emdash:before{
-  content:"â€”â€”â€”â€”â€”";
+  content:"-----";
 }
 
 .document-outline__button{

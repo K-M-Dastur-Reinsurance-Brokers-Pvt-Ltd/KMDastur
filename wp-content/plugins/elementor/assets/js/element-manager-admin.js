@@ -1,4 +1,4 @@
-﻿/******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "../modules/element-manager/assets/js/api.js":
@@ -782,7 +782,7 @@ var App = exports.App = function App() {
       display: 'block',
       marginTop: '20px'
     }
-  }, (0, _i18n.__)('If youâ€™re adding widgets back in, enjoy them!', 'elementor'))), /*#__PURE__*/_react.default.createElement(_components.ButtonGroup, {
+  }, (0, _i18n.__)('If you're adding widgets back in, enjoy them!', 'elementor'))), /*#__PURE__*/_react.default.createElement(_components.ButtonGroup, {
     style: {
       display: 'flex',
       justifyContent: 'flex-end',
@@ -2835,9 +2835,9 @@ function getNormalAttributeName(attribute) {
 /**
  * Returns the normal form of the style property name for HTML.
  *
- * - Converts property names to kebab-case, e.g. 'backgroundColor' â†’ 'background-color'
- * - Leaves custom attributes alone, e.g. '--myBackgroundColor' â†’ '--myBackgroundColor'
- * - Converts vendor-prefixed property names to -kebab-case, e.g. 'MozTransform' â†’ '-moz-transform'
+ * - Converts property names to kebab-case, e.g. 'backgroundColor' †’ 'background-color'
+ * - Leaves custom attributes alone, e.g. '--myBackgroundColor' †’ '--myBackgroundColor'
+ * - Converts vendor-prefixed property names to -kebab-case, e.g. 'MozTransform' †’ '-moz-transform'
  *
  * @param {string} property Property name.
  *

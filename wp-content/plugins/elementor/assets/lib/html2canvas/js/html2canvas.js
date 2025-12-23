@@ -1,4 +1,4 @@
-﻿/*!
+/*!
  * html2canvas 1.4.1 <https://html2canvas.hertzen.com>
  * Copyright (c) 2022 Niklas von Hertzen <https://hertzen.com>
  * Released under MIT License
@@ -479,7 +479,7 @@
                 categories.push(false);
             }
             if (['normal', 'auto', 'loose'].indexOf(lineBreak) !== -1) {
-                // U+2010, â€“ U+2013, ã€œ U+301C, ã‚  U+30A0
+                // U+2010, - U+2013, ã€œ U+301C, ã‚  U+30A0
                 if ([0x2010, 0x2013, 0x301c, 0x30a0].indexOf(codePoint) !== -1) {
                     indices.push(index);
                     return types.push(CB);
@@ -632,15 +632,15 @@
         if ([SP, BA, HY].indexOf(current) === -1 && next === GL) {
             return BREAK_NOT_ALLOWED$1;
         }
-        // LB13 Do not break before â€˜]â€™ or â€˜!â€™ or â€˜;â€™ or â€˜/â€™, even after spaces.
+        // LB13 Do not break before €˜]' or €˜!' or €˜;' or €˜/', even after spaces.
         if ([CL, CP, EX, IS, SY].indexOf(next) !== -1) {
             return BREAK_NOT_ALLOWED$1;
         }
-        // LB14 Do not break after â€˜[â€™, even after spaces.
+        // LB14 Do not break after €˜[', even after spaces.
         if (previousNonSpaceClassType(currentIndex, classTypes) === OP) {
             return BREAK_NOT_ALLOWED$1;
         }
-        // LB15 Do not break within â€˜â€[â€™, even with intervening spaces.
+        // LB15 Do not break within €˜"[', even with intervening spaces.
         if (isAdjacentWithSpaceIgnored(QU, OP, currentIndex, classTypes)) {
             return BREAK_NOT_ALLOWED$1;
         }
@@ -648,7 +648,7 @@
         if (isAdjacentWithSpaceIgnored([CL, CP], NS, currentIndex, classTypes)) {
             return BREAK_NOT_ALLOWED$1;
         }
-        // LB17 Do not break within â€˜â€”â€”â€™, even with intervening spaces.
+        // LB17 Do not break within €˜--', even with intervening spaces.
         if (isAdjacentWithSpaceIgnored(B2, B2, currentIndex, classTypes)) {
             return BREAK_NOT_ALLOWED$1;
         }
@@ -656,7 +656,7 @@
         if (current === SP) {
             return BREAK_ALLOWED$1;
         }
-        // LB19 Do not break before or after quotation marks, such as â€˜ â€ â€™.
+        // LB19 Do not break before or after quotation marks, such as €˜ " '.
         if (current === QU || next === QU) {
             return BREAK_NOT_ALLOWED$1;
         }
@@ -672,7 +672,7 @@
         if (before === HL && HYPHEN.indexOf(current) !== -1) {
             return BREAK_NOT_ALLOWED$1;
         }
-        // LB21b Donâ€™t break between Solidus and Hebrew letters.
+        // LB21b Don't break between Solidus and Hebrew letters.
         if (current === SY && next === HL) {
             return BREAK_NOT_ALLOWED$1;
         }
@@ -748,11 +748,11 @@
             (KOREAN_SYLLABLE_BLOCK.indexOf(next) !== -1 && current === PR)) {
             return BREAK_NOT_ALLOWED$1;
         }
-        // LB28 Do not break between alphabetics (â€œatâ€).
+        // LB28 Do not break between alphabetics ("at").
         if (ALPHABETICS.indexOf(current) !== -1 && ALPHABETICS.indexOf(next) !== -1) {
             return BREAK_NOT_ALLOWED$1;
         }
-        // LB29 Do not break between numeric punctuation and alphabetics (â€œe.g.â€).
+        // LB29 Do not break between numeric punctuation and alphabetics ("e.g.").
         if (current === IS && ALPHABETICS.indexOf(next) !== -1) {
             return BREAK_NOT_ALLOWED$1;
         }
@@ -2123,7 +2123,7 @@
         var ry = 0;
         switch (gradient.size) {
             case 0 /* CLOSEST_SIDE */:
-                // The ending shape is sized so that that it exactly meets the side of the gradient box closest to the gradientâ€™s center.
+                // The ending shape is sized so that that it exactly meets the side of the gradient box closest to the gradient's center.
                 // If the shape is an ellipse, it exactly meets the closest side in each dimension.
                 if (gradient.shape === 0 /* CIRCLE */) {
                     rx = ry = Math.min(Math.abs(x), Math.abs(x - width), Math.abs(y), Math.abs(y - height));
@@ -2134,7 +2134,7 @@
                 }
                 break;
             case 2 /* CLOSEST_CORNER */:
-                // The ending shape is sized so that that it passes through the corner of the gradient box closest to the gradientâ€™s center.
+                // The ending shape is sized so that that it passes through the corner of the gradient box closest to the gradient's center.
                 // If the shape is an ellipse, the ending shape is given the same aspect-ratio it would have if closest-side were specified.
                 if (gradient.shape === 0 /* CIRCLE */) {
                     rx = ry = Math.min(distance(x, y), distance(x, y - height), distance(x - width, y), distance(x - width, y - height));
@@ -5099,11 +5099,11 @@
         var spaceSuffix = appendSuffix ? ' ' : '';
         switch (type) {
             case 0 /* DISC */:
-                return 'â€¢' + spaceSuffix;
+                return '€¢' + spaceSuffix;
             case 1 /* CIRCLE */:
-                return 'â—¦' + spaceSuffix;
+                return '—¦' + spaceSuffix;
             case 2 /* SQUARE */:
-                return 'â—¾' + spaceSuffix;
+                return '—¾' + spaceSuffix;
             case 5 /* DECIMAL_LEADING_ZERO */:
                 var string = createCounterStyleFromRange(value, 48, 57, true, defaultSuffix);
                 return string.length < 4 ? "0" + string : string;

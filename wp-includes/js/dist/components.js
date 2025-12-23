@@ -1,4 +1,4 @@
-﻿/******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 66:
@@ -9716,7 +9716,7 @@ const limitShift = function (options) {
 };
 
 /**
- * Provides data that allows you to change the size of the floating element â€”
+ * Provides data that allows you to change the size of the floating element -
  * for instance, prevent it from overflowing the clipping boundary or match the
  * width of the reference element.
  * @see https://floating-ui.com/docs/size
@@ -10718,7 +10718,7 @@ const floating_ui_dom_shift = shift;
 const floating_ui_dom_flip = flip;
 
 /**
- * Provides data that allows you to change the size of the floating element â€”
+ * Provides data that allows you to change the size of the floating element -
  * for instance, prevent it from overflowing the clipping boundary or match the
  * width of the reference element.
  * @see https://floating-ui.com/docs/size
@@ -12633,7 +12633,7 @@ const getStyledClassNameFromKey = memize(getStyledClassName);
 ;// ./node_modules/@emotion/sheet/dist/emotion-sheet.browser.esm.js
 /*
 
-Based off glamor's StyleSheet, thanks Sunil â¤ï¸
+Based off glamor's StyleSheet, thanks Sunil ¤ï¸
 
 high performance StyleSheet for css-in-js systems
 
@@ -19614,8 +19614,8 @@ class DOMKeyframesResolver extends KeyframeResolver {
 /**
  * Check if a value is animatable. Examples:
  *
- * âœ…: 100, "100px", "#fff"
- * âŒ: "block", "url(2.jpg)"
+ * œ…: 100, "100px", "#fff"
+ * Œ: "block", "url(2.jpg)"
  * @param value
  *
  * @internal
@@ -49243,7 +49243,7 @@ const unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  * @description
  * Return the formatted date string in the given format. The result may vary by locale.
  *
- * > âš ï¸ Please note that the `format` tokens differ from Moment.js and other libraries.
+ * > š ï¸ Please note that the `format` tokens differ from Moment.js and other libraries.
  * > See: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md
  *
  * The characters wrapped between two single quotes characters (') are escaped.
@@ -64826,7 +64826,7 @@ function tzOffset_tzOffset(timeZone, date) {
     if (offsetStr in offsetCache) return offsetCache[offsetStr];
     return calcOffset(offsetStr, offsetStr.split(":"));
   } catch {
-    // Fallback to manual parsing if the runtime doesn't support Â±HH:MM/Â±HHMM/Â±HH
+    // Fallback to manual parsing if the runtime doesn't support ±HH:MM/±HHMM/±HH
     // See: https://github.com/nodejs/node/issues/53419
     if (timeZone in offsetCache) return offsetCache[timeZone];
     const captures = timeZone?.match(offsetRe);
@@ -68580,7 +68580,7 @@ const format_unescapedLatinCharacterRegExp = /[a-zA-Z]/;
  * @description
  * Return the formatted date string in the given format. The result may vary by locale.
  *
- * > âš ï¸ Please note that the `format` tokens differ from Moment.js and other libraries.
+ * > š ï¸ Please note that the `format` tokens differ from Moment.js and other libraries.
  * > See: https://github.com/date-fns/date-fns/blob/master/docs/unicodeTokens.md
  *
  * The characters wrapped between two single quotes characters (') are escaped.

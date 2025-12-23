@@ -1,4 +1,4 @@
-﻿__( 'Clear', 'elementor' );
+__( 'Clear', 'elementor' );
 __( 'Style', 'elementor' );
 // translators: %s$1 is the style label, %s$2 is the name of the style property being edited
 __( `%s$1 %s$2 edited`, 'elementor' );
@@ -36,7 +36,7 @@ __( 'This has value from another style', 'elementor' );
 __( 'Dynamic tags', 'elementor' );
 __( 'Dynamic tags', 'elementor' );
 __( 'Dynamic tags', 'elementor' );
-__( 'Search dynamic tagsâ€¦', 'elementor' );
+__( 'Search dynamic tags€¦', 'elementor' );
 __( 'Sorry, nothing matched', 'elementor' );
 __( 'Try something else.', 'elementor' );
 __( 'Clear & try again', 'elementor' );
@@ -57,13 +57,13 @@ __( 'Local Class', 'elementor' );
 __( 'local', 'elementor' );
 __( 'Classes', 'elementor' );
 __( 'Type class name', 'elementor' );
-__( 'With your current role, you can use existing classes but canâ€™t modify them.', 'elementor' );
+__( 'With your current role, you can use existing classes but can't modify them.', 'elementor' );
 __( 'Sorry, nothing matched', 'elementor' );
 __( 'With your current role,', 'elementor' );
 __( 'you can only use existing classes.', 'elementor' );
 __( 'Clear & try again', 'elementor' );
 __(
-					'Youâ€™ve reached the limit of 50 classes. Please remove an existing one to create a new class.',
+					'You've reached the limit of 50 classes. Please remove an existing one to create a new class.',
 					'elementor'
 				);
 __( 'States', 'elementor' );
@@ -71,7 +71,7 @@ __( 'With your current role, you can only use existing states.', 'elementor' );
 __( 'Has style', 'elementor' );
 __( 'Remove', 'elementor' );
 __(
-					'With your current role, you can use existing classes but canâ€™t modify them.',
+					'With your current role, you can use existing classes but can't modify them.',
 					'elementor'
 				);
 __( 'Rename', 'elementor' );

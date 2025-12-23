@@ -1,4 +1,4 @@
-﻿/******/ (() => { // webpackBootstrap
+/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 1030:
@@ -166,7 +166,7 @@ function getDefaultOpts (simple) {
     },
     metadata: {
       defaultValue: false,
-      description: 'Enable support for document metadata (defined at the top of the document between `Â«Â«Â«` and `Â»Â»Â»` or between `---` and `---`).',
+      description: 'Enable support for document metadata (defined at the top of the document between `«««` and `»»»` or between `---` and `---`).',
       type: 'boolean'
     },
     splitAdjacentBlockquotes: {
@@ -686,7 +686,7 @@ showdown.helper.stdExtName = function (s) {
 function escapeCharactersCallback (wholeMatch, m1) {
   'use strict';
   var charCodeToEscape = m1.charCodeAt(0);
-  return 'Â¨E' + charCodeToEscape + 'E';
+  return '¨E' + charCodeToEscape + 'E';
 }
 
 /**
@@ -2459,15 +2459,15 @@ showdown.Converter = function (converterOptions) {
       }
     };
 
-    // This lets us use Â¨ trema as an escape char to avoid md5 hashes
+    // This lets us use ¨ trema as an escape char to avoid md5 hashes
     // The choice of character is arbitrary; anything that isn't
     // magic in Markdown will work.
-    text = text.replace(/Â¨/g, 'Â¨T');
+    text = text.replace(/¨/g, '¨T');
 
-    // Replace $ with Â¨D
+    // Replace $ with ¨D
     // RegExp interprets $ as a special character
     // when it's in a replacement string
-    text = text.replace(/\$/g, 'Â¨D');
+    text = text.replace(/\$/g, '¨D');
 
     // Standardize line endings
     text = text.replace(/\r\n/g, '\n'); // DOS to Unix
@@ -2511,10 +2511,10 @@ showdown.Converter = function (converterOptions) {
     text = showdown.subParser('unescapeSpecialChars')(text, options, globals);
 
     // attacklab: Restore dollar signs
-    text = text.replace(/Â¨D/g, '$$');
+    text = text.replace(/¨D/g, '$$');
 
     // attacklab: Restore tremas
-    text = text.replace(/Â¨T/g, 'Â¨');
+    text = text.replace(/¨T/g, '¨');
 
     // render a complete html document instead of a partial if the option is enabled
     text = showdown.subParser('completeHTMLDocument')(text, options, globals);
@@ -2544,7 +2544,7 @@ showdown.Converter = function (converterOptions) {
     // due to an edge case, we need to find this: > <
     // to prevent removing of non silent white spaces
     // ex: <em>this is</em> <strong>sparta</strong>
-    src = src.replace(/>[ \t]+</, '>Â¨NBSP;<');
+    src = src.replace(/>[ \t]+</, '>¨NBSP;<');
 
     if (!HTMLParser) {
       if (window && window.document) {
@@ -2837,7 +2837,7 @@ showdown.subParser('anchors', function (text, options, globals) {
     // to external links. Hash links (#) open in same page
     if (options.openLinksInNewWindow && !/^#/.test(url)) {
       // escaped _
-      result += ' rel="noopener noreferrer" target="Â¨E95Eblank"';
+      result += ' rel="noopener noreferrer" target="¨E95Eblank"';
     }
 
     result += '>' + linkText + '</a>';
@@ -2876,7 +2876,7 @@ showdown.subParser('anchors', function (text, options, globals) {
       var lnk = options.ghMentionsLink.replace(/\{u}/g, username),
           target = '';
       if (options.openLinksInNewWindow) {
-        target = ' rel="noopener noreferrer" target="Â¨E95Eblank"';
+        target = ' rel="noopener noreferrer" target="¨E95Eblank"';
       }
       return st + '<a href="' + lnk + '"' + target + '>' + mentions + '</a>';
     });
@@ -2910,7 +2910,7 @@ var simpleURLRegex  = /([*~_]+|\b)(((https?|ftp|dict):\/\/|www\.)[^'">\s]+?\.[^'
           append = trailingPunctuation;
         }
         if (options.openLinksInNewWindow) {
-          target = ' rel="noopener noreferrer" target="Â¨E95Eblank"';
+          target = ' rel="noopener noreferrer" target="¨E95Eblank"';
         }
         return lmc + '<a href="' + link + '"' + target + '>' + lnkTxt + '</a>' + append + tmc;
       };
@@ -3019,7 +3019,7 @@ showdown.subParser('blockQuotes', function (text, options, globals) {
     bq = bq.replace(/^[ \t]*>[ \t]?/gm, ''); // trim one level of quoting
 
     // attacklab: clean up hack
-    bq = bq.replace(/Â¨0/g, '');
+    bq = bq.replace(/¨0/g, '');
 
     bq = bq.replace(/^[ \t]+$/gm, ''); // trim whitespace-only lines
     bq = showdown.subParser('githubCodeBlocks')(bq, options, globals);
@@ -3030,8 +3030,8 @@ showdown.subParser('blockQuotes', function (text, options, globals) {
     bq = bq.replace(/(\s*<pre>[^\r]+?<\/pre>)/gm, function (wholeMatch, m1) {
       var pre = m1;
       // attacklab: hack around Konqueror 3.5.4 bug:
-      pre = pre.replace(/^  /mg, 'Â¨0');
-      pre = pre.replace(/Â¨0/g, '');
+      pre = pre.replace(/^  /mg, '¨0');
+      pre = pre.replace(/¨0/g, '');
       return pre;
     });
 
@@ -3051,9 +3051,9 @@ showdown.subParser('codeBlocks', function (text, options, globals) {
   text = globals.converter._dispatch('codeBlocks.before', text, options, globals);
 
   // sentinel workarounds for lack of \A and \Z, safari\khtml bug
-  text += 'Â¨0';
+  text += '¨0';
 
-  var pattern = /(?:\n\n|^)((?:(?:[ ]{4}|\t).*\n+)+)(\n*[ ]{0,3}[^ \t\n]|(?=Â¨0))/g;
+  var pattern = /(?:\n\n|^)((?:(?:[ ]{4}|\t).*\n+)+)(\n*[ ]{0,3}[^ \t\n]|(?=¨0))/g;
   text = text.replace(pattern, function (wholeMatch, m1, m2) {
     var codeblock = m1,
         nextChar = m2,
@@ -3075,7 +3075,7 @@ showdown.subParser('codeBlocks', function (text, options, globals) {
   });
 
   // strip sentinel
-  text = text.replace(/Â¨0/, '');
+  text = text.replace(/¨0/, '');
 
   text = globals.converter._dispatch('codeBlocks.after', text, options, globals);
   return text;
@@ -3204,10 +3204,10 @@ showdown.subParser('detab', function (text, options, globals) {
   text = text.replace(/\t(?=\t)/g, '    '); // g_tab_width
 
   // replace the nth with two sentinels
-  text = text.replace(/\t/g, 'Â¨AÂ¨B');
+  text = text.replace(/\t/g, '¨A¨B');
 
   // use the sentinel to anchor our regex so it doesn't explode
-  text = text.replace(/Â¨B(.+?)Â¨A/g, function (wholeMatch, m1) {
+  text = text.replace(/¨B(.+?)¨A/g, function (wholeMatch, m1) {
     var leadingText = m1,
         numSpaces = 4 - leadingText.length % 4;  // g_tab_width
 
@@ -3220,8 +3220,8 @@ showdown.subParser('detab', function (text, options, globals) {
   });
 
   // clean up sentinels
-  text = text.replace(/Â¨A/g, '    ');  // g_tab_width
-  text = text.replace(/Â¨B/g, '');
+  text = text.replace(/¨A/g, '    ');  // g_tab_width
+  text = text.replace(/¨B/g, '');
 
   text = globals.converter._dispatch('detab.after', text, options, globals);
   return text;
@@ -3232,7 +3232,7 @@ showdown.subParser('ellipsis', function (text, options, globals) {
 
   text = globals.converter._dispatch('ellipsis.before', text, options, globals);
 
-  text = text.replace(/\.\.\./g, 'â€¦');
+  text = text.replace(/\.\.\./g, '€¦');
 
   text = globals.converter._dispatch('ellipsis.after', text, options, globals);
 
@@ -3384,7 +3384,7 @@ showdown.subParser('githubCodeBlocks', function (text, options, globals) {
 
   text = globals.converter._dispatch('githubCodeBlocks.before', text, options, globals);
 
-  text += 'Â¨0';
+  text += '¨0';
 
   text = text.replace(/(?:^|\n)(?: {0,3})(```+|~~~+)(?: *)([^\s`~]*)\n([\s\S]*?)\n(?: {0,3})\1/g, function (wholeMatch, delim, language, codeblock) {
     var end = (options.omitExtraWLInCodeBlocks) ? '' : '\n';
@@ -3402,11 +3402,11 @@ showdown.subParser('githubCodeBlocks', function (text, options, globals) {
     // Since GHCodeblocks can be false positives, we need to
     // store the primitive text and the parsed text in a global var,
     // and then return a token
-    return '\n\nÂ¨G' + (globals.ghCodeBlocks.push({text: wholeMatch, codeblock: codeblock}) - 1) + 'G\n\n';
+    return '\n\n¨G' + (globals.ghCodeBlocks.push({text: wholeMatch, codeblock: codeblock}) - 1) + 'G\n\n';
   });
 
   // attacklab: strip sentinel
-  text = text.replace(/Â¨0/, '');
+  text = text.replace(/¨0/, '');
 
   return globals.converter._dispatch('githubCodeBlocks.after', text, options, globals);
 });
@@ -3415,7 +3415,7 @@ showdown.subParser('hashBlock', function (text, options, globals) {
   'use strict';
   text = globals.converter._dispatch('hashBlock.before', text, options, globals);
   text = text.replace(/(^\n+|\n+$)/g, '');
-  text = '\n\nÂ¨K' + (globals.gHtmlBlocks.push(text) - 1) + 'K\n\n';
+  text = '\n\n¨K' + (globals.gHtmlBlocks.push(text) - 1) + 'K\n\n';
   text = globals.converter._dispatch('hashBlock.after', text, options, globals);
   return text;
 });
@@ -3429,7 +3429,7 @@ showdown.subParser('hashCodeTags', function (text, options, globals) {
 
   var repFunc = function (wholeMatch, match, left, right) {
     var codeblock = left + showdown.subParser('encodeCode')(match, options, globals) + right;
-    return 'Â¨C' + (globals.gHtmlSpans.push(codeblock) - 1) + 'C';
+    return '¨C' + (globals.gHtmlSpans.push(codeblock) - 1) + 'C';
   };
 
   // Hash naked <code>
@@ -3452,8 +3452,8 @@ showdown.subParser('hashElement', function (text, options, globals) {
     // strip trailing blank lines
     blockText = blockText.replace(/\n+$/g, '');
 
-    // Replace the element text with a marker ("Â¨KxK" where x is its key)
-    blockText = '\n\nÂ¨K' + (globals.gHtmlBlocks.push(blockText) - 1) + 'K\n\n';
+    // Replace the element text with a marker ("¨KxK" where x is its key)
+    blockText = '\n\n¨K' + (globals.gHtmlBlocks.push(blockText) - 1) + 'K\n\n';
 
     return blockText;
   };
@@ -3506,7 +3506,7 @@ showdown.subParser('hashHTMLBlocks', function (text, options, globals) {
         if (left.search(/\bmarkdown\b/) !== -1) {
           txt = left + globals.converter.makeHtml(match) + right;
         }
-        return '\n\nÂ¨K' + (globals.gHtmlBlocks.push(txt) - 1) + 'K\n\n';
+        return '\n\n¨K' + (globals.gHtmlBlocks.push(txt) - 1) + 'K\n\n';
       };
 
   if (options.backslashEscapesHTMLTags) {
@@ -3547,7 +3547,7 @@ showdown.subParser('hashHTMLBlocks', function (text, options, globals) {
 
   // Special case for standalone HTML comments
   text = showdown.helper.replaceRecursiveRegExp(text, function (txt) {
-    return '\n\nÂ¨K' + (globals.gHtmlBlocks.push(txt) - 1) + 'K\n\n';
+    return '\n\n¨K' + (globals.gHtmlBlocks.push(txt) - 1) + 'K\n\n';
   }, '^ {0,3}<!--', '-->', 'gm');
 
   // PHP and ASP-style processor instructions (<?...?> and <%...%>)
@@ -3566,7 +3566,7 @@ showdown.subParser('hashHTMLSpans', function (text, options, globals) {
   text = globals.converter._dispatch('hashHTMLSpans.before', text, options, globals);
 
   function hashHTMLSpan (html) {
-    return 'Â¨C' + (globals.gHtmlSpans.push(html) - 1) + 'C';
+    return '¨C' + (globals.gHtmlSpans.push(html) - 1) + 'C';
   }
 
   // Hash Self Closing tags
@@ -3607,16 +3607,16 @@ showdown.subParser('unhashHTMLSpans', function (text, options, globals) {
         // limiter to prevent infinite loop (assume 10 as limit for recurse)
         limit = 0;
 
-    while (/Â¨C(\d+)C/.test(repText)) {
+    while (/¨C(\d+)C/.test(repText)) {
       var num = RegExp.$1;
-      repText = repText.replace('Â¨C' + num + 'C', globals.gHtmlSpans[num]);
+      repText = repText.replace('¨C' + num + 'C', globals.gHtmlSpans[num]);
       if (limit === 10) {
         console.error('maximum nesting of 10 spans reached!!!');
         break;
       }
       ++limit;
     }
-    text = text.replace('Â¨C' + i + 'C', repText);
+    text = text.replace('¨C' + i + 'C', repText);
   }
 
   text = globals.converter._dispatch('unhashHTMLSpans.after', text, options, globals);
@@ -3633,7 +3633,7 @@ showdown.subParser('hashPreCodeTags', function (text, options, globals) {
   var repFunc = function (wholeMatch, match, left, right) {
     // encode html entities
     var codeblock = left + showdown.subParser('encodeCode')(match, options, globals) + right;
-    return '\n\nÂ¨G' + (globals.ghCodeBlocks.push({text: wholeMatch, codeblock: codeblock}) - 1) + 'G\n\n';
+    return '\n\n¨G' + (globals.ghCodeBlocks.push({text: wholeMatch, codeblock: codeblock}) - 1) + 'G\n\n';
   };
 
   // Hash <pre><code>
@@ -3730,21 +3730,21 @@ showdown.subParser('headers', function (text, options, globals) {
     if (options.ghCompatibleHeaderId) {
       title = title
         .replace(/ /g, '-')
-        // replace previously escaped chars (&, Â¨ and $)
+        // replace previously escaped chars (&, ¨ and $)
         .replace(/&amp;/g, '')
-        .replace(/Â¨T/g, '')
-        .replace(/Â¨D/g, '')
+        .replace(/¨T/g, '')
+        .replace(/¨D/g, '')
         // replace rest of the chars (&~$ are repeated as they might have been escaped)
         // borrowed from github's redcarpet (some they should produce similar results)
-        .replace(/[&+$,\/:;=?@"#{}|^Â¨~\[\]`\\*)(%.!'<>]/g, '')
+        .replace(/[&+$,\/:;=?@"#{}|^¨~\[\]`\\*)(%.!'<>]/g, '')
         .toLowerCase();
     } else if (options.rawHeaderId) {
       title = title
         .replace(/ /g, '-')
-        // replace previously escaped chars (&, Â¨ and $)
+        // replace previously escaped chars (&, ¨ and $)
         .replace(/&amp;/g, '&')
-        .replace(/Â¨T/g, 'Â¨')
-        .replace(/Â¨D/g, '$')
+        .replace(/¨T/g, '¨')
+        .replace(/¨D/g, '$')
         // replace " and '
         .replace(/["']/g, '-')
         .toLowerCase();
@@ -4002,16 +4002,16 @@ showdown.subParser('lists', function (text, options, globals) {
     listStr = listStr.replace(/\n{2,}$/, '\n');
 
     // attacklab: add sentinel to emulate \z
-    listStr += 'Â¨0';
+    listStr += '¨0';
 
-    var rgx = /(\n)?(^ {0,3})([*+-]|\d+[.])[ \t]+((\[(x|X| )?])?[ \t]*[^\r]+?(\n{1,2}))(?=\n*(Â¨0| {0,3}([*+-]|\d+[.])[ \t]+))/gm,
-        isParagraphed = (/\n[ \t]*\n(?!Â¨0)/.test(listStr));
+    var rgx = /(\n)?(^ {0,3})([*+-]|\d+[.])[ \t]+((\[(x|X| )?])?[ \t]*[^\r]+?(\n{1,2}))(?=\n*(¨0| {0,3}([*+-]|\d+[.])[ \t]+))/gm,
+        isParagraphed = (/\n[ \t]*\n(?!¨0)/.test(listStr));
 
     // Since version 1.5, nesting sublists requires 4 spaces (or 1 tab) indentation,
     // which is a syntax breaking change
     // activating this option reverts to old behavior
     if (options.disableForced4SpacesIndentedSublists) {
-      rgx = /(\n)?(^ {0,3})([*+-]|\d+[.])[ \t]+((\[(x|X| )?])?[ \t]*[^\r]+?(\n{1,2}))(?=\n*(Â¨0|\2([*+-]|\d+[.])[ \t]+))/gm;
+      rgx = /(\n)?(^ {0,3})([*+-]|\d+[.])[ \t]+((\[(x|X| )?])?[ \t]*[^\r]+?(\n{1,2}))(?=\n*(¨0|\2([*+-]|\d+[.])[ \t]+))/gm;
     }
 
     listStr = listStr.replace(rgx, function (wholeMatch, m1, m2, m3, m4, taskbtn, checked) {
@@ -4039,10 +4039,10 @@ showdown.subParser('lists', function (text, options, globals) {
       // <ul><li><li><li>a</li></li></li></ul>
       // instead of:
       // <ul><li>- - a</li></ul>
-      // So, to prevent it, we will put a marker (Â¨A)in the beginning of the line
+      // So, to prevent it, we will put a marker (¨A)in the beginning of the line
       // Kind of hackish/monkey patching, but seems more effective than overcomplicating the list parser
       item = item.replace(/^([-*+]|\d\.)[ \t]+[\S\n ]*/g, function (wm2) {
-        return 'Â¨A' + wm2;
+        return '¨A' + wm2;
       });
 
       // m1 - Leading line or
@@ -4066,8 +4066,8 @@ showdown.subParser('lists', function (text, options, globals) {
         }
       }
 
-      // now we need to remove the marker (Â¨A)
-      item = item.replace('Â¨A', '');
+      // now we need to remove the marker (¨A)
+      item = item.replace('¨A', '');
       // we can finally wrap the line in list item tags
       item =  '<li' + bulletStyle + '>' + item + '</li>\n';
 
@@ -4075,7 +4075,7 @@ showdown.subParser('lists', function (text, options, globals) {
     });
 
     // attacklab: strip sentinel
-    listStr = listStr.replace(/Â¨0/g, '');
+    listStr = listStr.replace(/¨0/g, '');
 
     globals.gListLevel--;
 
@@ -4142,17 +4142,17 @@ showdown.subParser('lists', function (text, options, globals) {
   text = globals.converter._dispatch('lists.before', text, options, globals);
   // add sentinel to hack around khtml/safari bug:
   // http://bugs.webkit.org/show_bug.cgi?id=11231
-  text += 'Â¨0';
+  text += '¨0';
 
   if (globals.gListLevel) {
-    text = text.replace(/^(( {0,3}([*+-]|\d+[.])[ \t]+)[^\r]+?(Â¨0|\n{2,}(?=\S)(?![ \t]*(?:[*+-]|\d+[.])[ \t]+)))/gm,
+    text = text.replace(/^(( {0,3}([*+-]|\d+[.])[ \t]+)[^\r]+?(¨0|\n{2,}(?=\S)(?![ \t]*(?:[*+-]|\d+[.])[ \t]+)))/gm,
       function (wholeMatch, list, m2) {
         var listType = (m2.search(/[*+-]/g) > -1) ? 'ul' : 'ol';
         return parseConsecutiveLists(list, listType, true);
       }
     );
   } else {
-    text = text.replace(/(\n\n|^\n?)(( {0,3}([*+-]|\d+[.])[ \t]+)[^\r]+?(Â¨0|\n{2,}(?=\S)(?![ \t]*(?:[*+-]|\d+[.])[ \t]+)))/gm,
+    text = text.replace(/(\n\n|^\n?)(( {0,3}([*+-]|\d+[.])[ \t]+)[^\r]+?(¨0|\n{2,}(?=\S)(?![ \t]*(?:[*+-]|\d+[.])[ \t]+)))/gm,
       function (wholeMatch, m1, list, m3) {
         var listType = (m3.search(/[*+-]/g) > -1) ? 'ul' : 'ol';
         return parseConsecutiveLists(list, listType, false);
@@ -4161,7 +4161,7 @@ showdown.subParser('lists', function (text, options, globals) {
   }
 
   // strip sentinel
-  text = text.replace(/Â¨0/, '');
+  text = text.replace(/¨0/, '');
   text = globals.converter._dispatch('lists.after', text, options, globals);
   return text;
 });
@@ -4197,9 +4197,9 @@ showdown.subParser('metadata', function (text, options, globals) {
     });
   }
 
-  text = text.replace(/^\s*Â«Â«Â«+(\S*?)\n([\s\S]+?)\nÂ»Â»Â»+\n/, function (wholematch, format, content) {
+  text = text.replace(/^\s*«««+(\S*?)\n([\s\S]+?)\n»»»+\n/, function (wholematch, format, content) {
     parseMetadataContents(content);
-    return 'Â¨M';
+    return '¨M';
   });
 
   text = text.replace(/^\s*---+(\S*?)\n([\s\S]+?)\n---+\n/, function (wholematch, format, content) {
@@ -4207,10 +4207,10 @@ showdown.subParser('metadata', function (text, options, globals) {
       globals.metadata.format = format;
     }
     parseMetadataContents(content);
-    return 'Â¨M';
+    return '¨M';
   });
 
-  text = text.replace(/Â¨M/g, '');
+  text = text.replace(/¨M/g, '');
 
   text = globals.converter._dispatch('metadata.after', text, options, globals);
   return text;
@@ -4225,10 +4225,10 @@ showdown.subParser('outdent', function (text, options, globals) {
 
   // attacklab: hack around Konqueror 3.5.4 bug:
   // "----------bug".replace(/^-/g,"") == "bug"
-  text = text.replace(/^(\t|[ ]{1,4})/gm, 'Â¨0'); // attacklab: g_tab_width
+  text = text.replace(/^(\t|[ ]{1,4})/gm, '¨0'); // attacklab: g_tab_width
 
   // attacklab: clean up hack
-  text = text.replace(/Â¨0/g, '');
+  text = text.replace(/¨0/g, '');
 
   text = globals.converter._dispatch('outdent.after', text, options, globals);
   return text;
@@ -4252,7 +4252,7 @@ showdown.subParser('paragraphs', function (text, options, globals) {
   for (var i = 0; i < end; i++) {
     var str = grafs[i];
     // if this is an HTML marker, copy it
-    if (str.search(/Â¨(K|G)(\d+)\1/g) >= 0) {
+    if (str.search(/¨(K|G)(\d+)\1/g) >= 0) {
       grafsOut.push(str);
 
     // test for presence of characters to prevent empty lines being parsed
@@ -4273,7 +4273,7 @@ showdown.subParser('paragraphs', function (text, options, globals) {
         codeFlag = false;
     // if this is a marker for an html block...
     // use RegExp.test instead of string.search because of QML bug
-    while (/Â¨(K|G)(\d+)\1/.test(grafsOutIt)) {
+    while (/¨(K|G)(\d+)\1/.test(grafsOutIt)) {
       var delim = RegExp.$1,
           num   = RegExp.$2;
 
@@ -4290,7 +4290,7 @@ showdown.subParser('paragraphs', function (text, options, globals) {
       }
       blockText = blockText.replace(/\$/g, '$$$$'); // Escape any dollar signs
 
-      grafsOutIt = grafsOutIt.replace(/(\n\n)?Â¨(K|G)\d+\2(\n\n)?/, blockText);
+      grafsOutIt = grafsOutIt.replace(/(\n\n)?¨(K|G)\d+\2(\n\n)?/, blockText);
       // Check if grafsOutIt is a pre->code
       if (/^<pre\b[^>]*>\s*<code\b[^>]*>/.test(grafsOutIt)) {
         codeFlag = true;
@@ -4364,7 +4364,7 @@ showdown.subParser('spanGamut', function (text, options, globals) {
   if (options.simpleLineBreaks) {
     // GFM style hard breaks
     // only add line breaks if the text does not contain a block (special case for lists)
-    if (!/\n\nÂ¨K/.test(text)) {
+    if (!/\n\n¨K/.test(text)) {
       text = text.replace(/\n+/g, '<br />\n');
     }
   } else {
@@ -4403,11 +4403,11 @@ showdown.subParser('strikethrough', function (text, options, globals) {
 showdown.subParser('stripLinkDefinitions', function (text, options, globals) {
   'use strict';
 
-  var regex       = /^ {0,3}\[(.+)]:[ \t]*\n?[ \t]*<?([^>\s]+)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*\n?[ \t]*(?:(\n*)["|'(](.+?)["|')][ \t]*)?(?:\n+|(?=Â¨0))/gm,
-      base64Regex = /^ {0,3}\[(.+)]:[ \t]*\n?[ \t]*<?(data:.+?\/.+?;base64,[A-Za-z0-9+/=\n]+?)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*\n?[ \t]*(?:(\n*)["|'(](.+?)["|')][ \t]*)?(?:\n\n|(?=Â¨0)|(?=\n\[))/gm;
+  var regex       = /^ {0,3}\[(.+)]:[ \t]*\n?[ \t]*<?([^>\s]+)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*\n?[ \t]*(?:(\n*)["|'(](.+?)["|')][ \t]*)?(?:\n+|(?=¨0))/gm,
+      base64Regex = /^ {0,3}\[(.+)]:[ \t]*\n?[ \t]*<?(data:.+?\/.+?;base64,[A-Za-z0-9+/=\n]+?)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*\n?[ \t]*(?:(\n*)["|'(](.+?)["|')][ \t]*)?(?:\n\n|(?=¨0)|(?=\n\[))/gm;
 
   // attacklab: sentinel workarounds for lack of \A and \Z, safari\khtml bug
-  text += 'Â¨0';
+  text += '¨0';
 
   var replaceFunc = function (wholeMatch, linkId, url, width, height, blankLines, title) {
     linkId = linkId.toLowerCase();
@@ -4444,7 +4444,7 @@ showdown.subParser('stripLinkDefinitions', function (text, options, globals) {
   text = text.replace(regex, replaceFunc);
 
   // attacklab: strip sentinel
-  text = text.replace(/Â¨0/, '');
+  text = text.replace(/¨0/, '');
 
   return text;
 });
@@ -4456,9 +4456,9 @@ showdown.subParser('tables', function (text, options, globals) {
     return text;
   }
 
-  var tableRgx       = /^ {0,3}\|?.+\|.+\n {0,3}\|?[ \t]*:?[ \t]*(?:[-=]){2,}[ \t]*:?[ \t]*\|[ \t]*:?[ \t]*(?:[-=]){2,}[\s\S]+?(?:\n\n|Â¨0)/gm,
-      //singeColTblRgx = /^ {0,3}\|.+\|\n {0,3}\|[ \t]*:?[ \t]*(?:[-=]){2,}[ \t]*:?[ \t]*\|[ \t]*\n(?: {0,3}\|.+\|\n)+(?:\n\n|Â¨0)/gm;
-      singeColTblRgx = /^ {0,3}\|.+\|[ \t]*\n {0,3}\|[ \t]*:?[ \t]*(?:[-=]){2,}[ \t]*:?[ \t]*\|[ \t]*\n( {0,3}\|.+\|[ \t]*\n)*(?:\n|Â¨0)/gm;
+  var tableRgx       = /^ {0,3}\|?.+\|.+\n {0,3}\|?[ \t]*:?[ \t]*(?:[-=]){2,}[ \t]*:?[ \t]*\|[ \t]*:?[ \t]*(?:[-=]){2,}[\s\S]+?(?:\n\n|¨0)/gm,
+      //singeColTblRgx = /^ {0,3}\|.+\|\n {0,3}\|[ \t]*:?[ \t]*(?:[-=]){2,}[ \t]*:?[ \t]*\|[ \t]*\n(?: {0,3}\|.+\|\n)+(?:\n\n|¨0)/gm;
+      singeColTblRgx = /^ {0,3}\|.+\|[ \t]*\n {0,3}\|[ \t]*:?[ \t]*(?:[-=]){2,}[ \t]*:?[ \t]*\|[ \t]*\n( {0,3}\|.+\|[ \t]*\n)*(?:\n|¨0)/gm;
 
   function parseStyles (sLine) {
     if (/^:[ \t]*--*$/.test(sLine)) {
@@ -4632,7 +4632,7 @@ showdown.subParser('unescapeSpecialChars', function (text, options, globals) {
   'use strict';
   text = globals.converter._dispatch('unescapeSpecialChars.before', text, options, globals);
 
-  text = text.replace(/Â¨E(\d+)E/g, function (wholeMatch, m1) {
+  text = text.replace(/¨E(\d+)E/g, function (wholeMatch, m1) {
     var charCodeToReplace = parseInt(m1);
     return String.fromCharCode(charCodeToReplace);
   });
@@ -5091,8 +5091,8 @@ showdown.subParser('makeMarkdown.txt', function (node) {
   // multiple spaces are collapsed
   txt = txt.replace(/ +/g, ' ');
 
-  // replace the custom Â¨NBSP; with a space
-  txt = txt.replace(/Â¨NBSP;/g, ' ');
+  // replace the custom ¨NBSP; with a space
+  txt = txt.replace(/¨NBSP;/g, ' ');
 
   // ", <, > and & should replace escaped html entities
   txt = showdown.helper.unescapeHTMLEntities(txt);
@@ -8934,7 +8934,7 @@ function serialize(blocks, options) {
  * do not edit
  */
 var namedCharRefs = {
-    Aacute: "Ã", aacute: "Ã¡", Abreve: "Ä‚", abreve: "Äƒ", ac: "âˆ¾", acd: "âˆ¿", acE: "âˆ¾Ì³", Acirc: "Ã‚", acirc: "Ã¢", acute: "Â´", Acy: "Ð", acy: "Ð°", AElig: "Ã†", aelig: "Ã¦", af: "\u2061", Afr: "ð”„", afr: "ð”ž", Agrave: "Ã€", agrave: "Ã ", alefsym: "â„µ", aleph: "â„µ", Alpha: "Î‘", alpha: "Î±", Amacr: "Ä€", amacr: "Ä", amalg: "â¨¿", amp: "&", AMP: "&", andand: "â©•", And: "â©“", and: "âˆ§", andd: "â©œ", andslope: "â©˜", andv: "â©š", ang: "âˆ ", ange: "â¦¤", angle: "âˆ ", angmsdaa: "â¦¨", angmsdab: "â¦©", angmsdac: "â¦ª", angmsdad: "â¦«", angmsdae: "â¦¬", angmsdaf: "â¦­", angmsdag: "â¦®", angmsdah: "â¦¯", angmsd: "âˆ¡", angrt: "âˆŸ", angrtvb: "âŠ¾", angrtvbd: "â¦", angsph: "âˆ¢", angst: "Ã…", angzarr: "â¼", Aogon: "Ä„", aogon: "Ä…", Aopf: "ð”¸", aopf: "ð•’", apacir: "â©¯", ap: "â‰ˆ", apE: "â©°", ape: "â‰Š", apid: "â‰‹", apos: "'", ApplyFunction: "\u2061", approx: "â‰ˆ", approxeq: "â‰Š", Aring: "Ã…", aring: "Ã¥", Ascr: "ð’œ", ascr: "ð’¶", Assign: "â‰”", ast: "*", asymp: "â‰ˆ", asympeq: "â‰", Atilde: "Ãƒ", atilde: "Ã£", Auml: "Ã„", auml: "Ã¤", awconint: "âˆ³", awint: "â¨‘", backcong: "â‰Œ", backepsilon: "Ï¶", backprime: "â€µ", backsim: "âˆ½", backsimeq: "â‹", Backslash: "âˆ–", Barv: "â«§", barvee: "âŠ½", barwed: "âŒ…", Barwed: "âŒ†", barwedge: "âŒ…", bbrk: "âŽµ", bbrktbrk: "âŽ¶", bcong: "â‰Œ", Bcy: "Ð‘", bcy: "Ð±", bdquo: "â€ž", becaus: "âˆµ", because: "âˆµ", Because: "âˆµ", bemptyv: "â¦°", bepsi: "Ï¶", bernou: "â„¬", Bernoullis: "â„¬", Beta: "Î’", beta: "Î²", beth: "â„¶", between: "â‰¬", Bfr: "ð”…", bfr: "ð”Ÿ", bigcap: "â‹‚", bigcirc: "â—¯", bigcup: "â‹ƒ", bigodot: "â¨€", bigoplus: "â¨", bigotimes: "â¨‚", bigsqcup: "â¨†", bigstar: "â˜…", bigtriangledown: "â–½", bigtriangleup: "â–³", biguplus: "â¨„", bigvee: "â‹", bigwedge: "â‹€", bkarow: "â¤", blacklozenge: "â§«", blacksquare: "â–ª", blacktriangle: "â–´", blacktriangledown: "â–¾", blacktriangleleft: "â—‚", blacktriangleright: "â–¸", blank: "â£", blk12: "â–’", blk14: "â–‘", blk34: "â–“", block: "â–ˆ", bne: "=âƒ¥", bnequiv: "â‰¡âƒ¥", bNot: "â«­", bnot: "âŒ", Bopf: "ð”¹", bopf: "ð•“", bot: "âŠ¥", bottom: "âŠ¥", bowtie: "â‹ˆ", boxbox: "â§‰", boxdl: "â”", boxdL: "â••", boxDl: "â•–", boxDL: "â•—", boxdr: "â”Œ", boxdR: "â•’", boxDr: "â•“", boxDR: "â•”", boxh: "â”€", boxH: "â•", boxhd: "â”¬", boxHd: "â•¤", boxhD: "â•¥", boxHD: "â•¦", boxhu: "â”´", boxHu: "â•§", boxhU: "â•¨", boxHU: "â•©", boxminus: "âŠŸ", boxplus: "âŠž", boxtimes: "âŠ ", boxul: "â”˜", boxuL: "â•›", boxUl: "â•œ", boxUL: "â•", boxur: "â””", boxuR: "â•˜", boxUr: "â•™", boxUR: "â•š", boxv: "â”‚", boxV: "â•‘", boxvh: "â”¼", boxvH: "â•ª", boxVh: "â•«", boxVH: "â•¬", boxvl: "â”¤", boxvL: "â•¡", boxVl: "â•¢", boxVL: "â•£", boxvr: "â”œ", boxvR: "â•ž", boxVr: "â•Ÿ", boxVR: "â• ", bprime: "â€µ", breve: "Ë˜", Breve: "Ë˜", brvbar: "Â¦", bscr: "ð’·", Bscr: "â„¬", bsemi: "â", bsim: "âˆ½", bsime: "â‹", bsolb: "â§…", bsol: "\\", bsolhsub: "âŸˆ", bull: "â€¢", bullet: "â€¢", bump: "â‰Ž", bumpE: "âª®", bumpe: "â‰", Bumpeq: "â‰Ž", bumpeq: "â‰", Cacute: "Ä†", cacute: "Ä‡", capand: "â©„", capbrcup: "â©‰", capcap: "â©‹", cap: "âˆ©", Cap: "â‹’", capcup: "â©‡", capdot: "â©€", CapitalDifferentialD: "â……", caps: "âˆ©ï¸€", caret: "â", caron: "Ë‡", Cayleys: "â„­", ccaps: "â©", Ccaron: "ÄŒ", ccaron: "Ä", Ccedil: "Ã‡", ccedil: "Ã§", Ccirc: "Äˆ", ccirc: "Ä‰", Cconint: "âˆ°", ccups: "â©Œ", ccupssm: "â©", Cdot: "ÄŠ", cdot: "Ä‹", cedil: "Â¸", Cedilla: "Â¸", cemptyv: "â¦²", cent: "Â¢", centerdot: "Â·", CenterDot: "Â·", cfr: "ð” ", Cfr: "â„­", CHcy: "Ð§", chcy: "Ñ‡", check: "âœ“", checkmark: "âœ“", Chi: "Î§", chi: "Ï‡", circ: "Ë†", circeq: "â‰—", circlearrowleft: "â†º", circlearrowright: "â†»", circledast: "âŠ›", circledcirc: "âŠš", circleddash: "âŠ", CircleDot: "âŠ™", circledR: "Â®", circledS: "â“ˆ", CircleMinus: "âŠ–", CirclePlus: "âŠ•", CircleTimes: "âŠ—", cir: "â—‹", cirE: "â§ƒ", cire: "â‰—", cirfnint: "â¨", cirmid: "â«¯", cirscir: "â§‚", ClockwiseContourIntegral: "âˆ²", CloseCurlyDoubleQuote: "â€", CloseCurlyQuote: "â€™", clubs: "â™£", clubsuit: "â™£", colon: ":", Colon: "âˆ·", Colone: "â©´", colone: "â‰”", coloneq: "â‰”", comma: ",", commat: "@", comp: "âˆ", compfn: "âˆ˜", complement: "âˆ", complexes: "â„‚", cong: "â‰…", congdot: "â©­", Congruent: "â‰¡", conint: "âˆ®", Conint: "âˆ¯", ContourIntegral: "âˆ®", copf: "ð•”", Copf: "â„‚", coprod: "âˆ", Coproduct: "âˆ", copy: "Â©", COPY: "Â©", copysr: "â„—", CounterClockwiseContourIntegral: "âˆ³", crarr: "â†µ", cross: "âœ—", Cross: "â¨¯", Cscr: "ð’ž", cscr: "ð’¸", csub: "â«", csube: "â«‘", csup: "â«", csupe: "â«’", ctdot: "â‹¯", cudarrl: "â¤¸", cudarrr: "â¤µ", cuepr: "â‹ž", cuesc: "â‹Ÿ", cularr: "â†¶", cularrp: "â¤½", cupbrcap: "â©ˆ", cupcap: "â©†", CupCap: "â‰", cup: "âˆª", Cup: "â‹“", cupcup: "â©Š", cupdot: "âŠ", cupor: "â©…", cups: "âˆªï¸€", curarr: "â†·", curarrm: "â¤¼", curlyeqprec: "â‹ž", curlyeqsucc: "â‹Ÿ", curlyvee: "â‹Ž", curlywedge: "â‹", curren: "Â¤", curvearrowleft: "â†¶", curvearrowright: "â†·", cuvee: "â‹Ž", cuwed: "â‹", cwconint: "âˆ²", cwint: "âˆ±", cylcty: "âŒ­", dagger: "â€ ", Dagger: "â€¡", daleth: "â„¸", darr: "â†“", Darr: "â†¡", dArr: "â‡“", dash: "â€", Dashv: "â«¤", dashv: "âŠ£", dbkarow: "â¤", dblac: "Ë", Dcaron: "ÄŽ", dcaron: "Ä", Dcy: "Ð”", dcy: "Ð´", ddagger: "â€¡", ddarr: "â‡Š", DD: "â……", dd: "â…†", DDotrahd: "â¤‘", ddotseq: "â©·", deg: "Â°", Del: "âˆ‡", Delta: "Î”", delta: "Î´", demptyv: "â¦±", dfisht: "â¥¿", Dfr: "ð”‡", dfr: "ð”¡", dHar: "â¥¥", dharl: "â‡ƒ", dharr: "â‡‚", DiacriticalAcute: "Â´", DiacriticalDot: "Ë™", DiacriticalDoubleAcute: "Ë", DiacriticalGrave: "`", DiacriticalTilde: "Ëœ", diam: "â‹„", diamond: "â‹„", Diamond: "â‹„", diamondsuit: "â™¦", diams: "â™¦", die: "Â¨", DifferentialD: "â…†", digamma: "Ï", disin: "â‹²", div: "Ã·", divide: "Ã·", divideontimes: "â‹‡", divonx: "â‹‡", DJcy: "Ð‚", djcy: "Ñ’", dlcorn: "âŒž", dlcrop: "âŒ", dollar: "$", Dopf: "ð”»", dopf: "ð••", Dot: "Â¨", dot: "Ë™", DotDot: "âƒœ", doteq: "â‰", doteqdot: "â‰‘", DotEqual: "â‰", dotminus: "âˆ¸", dotplus: "âˆ”", dotsquare: "âŠ¡", doublebarwedge: "âŒ†", DoubleContourIntegral: "âˆ¯", DoubleDot: "Â¨", DoubleDownArrow: "â‡“", DoubleLeftArrow: "â‡", DoubleLeftRightArrow: "â‡”", DoubleLeftTee: "â«¤", DoubleLongLeftArrow: "âŸ¸", DoubleLongLeftRightArrow: "âŸº", DoubleLongRightArrow: "âŸ¹", DoubleRightArrow: "â‡’", DoubleRightTee: "âŠ¨", DoubleUpArrow: "â‡‘", DoubleUpDownArrow: "â‡•", DoubleVerticalBar: "âˆ¥", DownArrowBar: "â¤“", downarrow: "â†“", DownArrow: "â†“", Downarrow: "â‡“", DownArrowUpArrow: "â‡µ", DownBreve: "Ì‘", downdownarrows: "â‡Š", downharpoonleft: "â‡ƒ", downharpoonright: "â‡‚", DownLeftRightVector: "â¥", DownLeftTeeVector: "â¥ž", DownLeftVectorBar: "â¥–", DownLeftVector: "â†½", DownRightTeeVector: "â¥Ÿ", DownRightVectorBar: "â¥—", DownRightVector: "â‡", DownTeeArrow: "â†§", DownTee: "âŠ¤", drbkarow: "â¤", drcorn: "âŒŸ", drcrop: "âŒŒ", Dscr: "ð’Ÿ", dscr: "ð’¹", DScy: "Ð…", dscy: "Ñ•", dsol: "â§¶", Dstrok: "Ä", dstrok: "Ä‘", dtdot: "â‹±", dtri: "â–¿", dtrif: "â–¾", duarr: "â‡µ", duhar: "â¥¯", dwangle: "â¦¦", DZcy: "Ð", dzcy: "ÑŸ", dzigrarr: "âŸ¿", Eacute: "Ã‰", eacute: "Ã©", easter: "â©®", Ecaron: "Äš", ecaron: "Ä›", Ecirc: "ÃŠ", ecirc: "Ãª", ecir: "â‰–", ecolon: "â‰•", Ecy: "Ð­", ecy: "Ñ", eDDot: "â©·", Edot: "Ä–", edot: "Ä—", eDot: "â‰‘", ee: "â…‡", efDot: "â‰’", Efr: "ð”ˆ", efr: "ð”¢", eg: "âªš", Egrave: "Ãˆ", egrave: "Ã¨", egs: "âª–", egsdot: "âª˜", el: "âª™", Element: "âˆˆ", elinters: "â§", ell: "â„“", els: "âª•", elsdot: "âª—", Emacr: "Ä’", emacr: "Ä“", empty: "âˆ…", emptyset: "âˆ…", EmptySmallSquare: "â—»", emptyv: "âˆ…", EmptyVerySmallSquare: "â–«", emsp13: "â€„", emsp14: "â€…", emsp: "â€ƒ", ENG: "ÅŠ", eng: "Å‹", ensp: "â€‚", Eogon: "Ä˜", eogon: "Ä™", Eopf: "ð”¼", eopf: "ð•–", epar: "â‹•", eparsl: "â§£", eplus: "â©±", epsi: "Îµ", Epsilon: "Î•", epsilon: "Îµ", epsiv: "Ïµ", eqcirc: "â‰–", eqcolon: "â‰•", eqsim: "â‰‚", eqslantgtr: "âª–", eqslantless: "âª•", Equal: "â©µ", equals: "=", EqualTilde: "â‰‚", equest: "â‰Ÿ", Equilibrium: "â‡Œ", equiv: "â‰¡", equivDD: "â©¸", eqvparsl: "â§¥", erarr: "â¥±", erDot: "â‰“", escr: "â„¯", Escr: "â„°", esdot: "â‰", Esim: "â©³", esim: "â‰‚", Eta: "Î—", eta: "Î·", ETH: "Ã", eth: "Ã°", Euml: "Ã‹", euml: "Ã«", euro: "â‚¬", excl: "!", exist: "âˆƒ", Exists: "âˆƒ", expectation: "â„°", exponentiale: "â…‡", ExponentialE: "â…‡", fallingdotseq: "â‰’", Fcy: "Ð¤", fcy: "Ñ„", female: "â™€", ffilig: "ï¬ƒ", fflig: "ï¬€", ffllig: "ï¬„", Ffr: "ð”‰", ffr: "ð”£", filig: "ï¬", FilledSmallSquare: "â—¼", FilledVerySmallSquare: "â–ª", fjlig: "fj", flat: "â™­", fllig: "ï¬‚", fltns: "â–±", fnof: "Æ’", Fopf: "ð”½", fopf: "ð•—", forall: "âˆ€", ForAll: "âˆ€", fork: "â‹”", forkv: "â«™", Fouriertrf: "â„±", fpartint: "â¨", frac12: "Â½", frac13: "â…“", frac14: "Â¼", frac15: "â…•", frac16: "â…™", frac18: "â…›", frac23: "â…”", frac25: "â…–", frac34: "Â¾", frac35: "â…—", frac38: "â…œ", frac45: "â…˜", frac56: "â…š", frac58: "â…", frac78: "â…ž", frasl: "â„", frown: "âŒ¢", fscr: "ð’»", Fscr: "â„±", gacute: "Çµ", Gamma: "Î“", gamma: "Î³", Gammad: "Ïœ", gammad: "Ï", gap: "âª†", Gbreve: "Äž", gbreve: "ÄŸ", Gcedil: "Ä¢", Gcirc: "Äœ", gcirc: "Ä", Gcy: "Ð“", gcy: "Ð³", Gdot: "Ä ", gdot: "Ä¡", ge: "â‰¥", gE: "â‰§", gEl: "âªŒ", gel: "â‹›", geq: "â‰¥", geqq: "â‰§", geqslant: "â©¾", gescc: "âª©", ges: "â©¾", gesdot: "âª€", gesdoto: "âª‚", gesdotol: "âª„", gesl: "â‹›ï¸€", gesles: "âª”", Gfr: "ð”Š", gfr: "ð”¤", gg: "â‰«", Gg: "â‹™", ggg: "â‹™", gimel: "â„·", GJcy: "Ðƒ", gjcy: "Ñ“", gla: "âª¥", gl: "â‰·", glE: "âª’", glj: "âª¤", gnap: "âªŠ", gnapprox: "âªŠ", gne: "âªˆ", gnE: "â‰©", gneq: "âªˆ", gneqq: "â‰©", gnsim: "â‹§", Gopf: "ð”¾", gopf: "ð•˜", grave: "`", GreaterEqual: "â‰¥", GreaterEqualLess: "â‹›", GreaterFullEqual: "â‰§", GreaterGreater: "âª¢", GreaterLess: "â‰·", GreaterSlantEqual: "â©¾", GreaterTilde: "â‰³", Gscr: "ð’¢", gscr: "â„Š", gsim: "â‰³", gsime: "âªŽ", gsiml: "âª", gtcc: "âª§", gtcir: "â©º", gt: ">", GT: ">", Gt: "â‰«", gtdot: "â‹—", gtlPar: "â¦•", gtquest: "â©¼", gtrapprox: "âª†", gtrarr: "â¥¸", gtrdot: "â‹—", gtreqless: "â‹›", gtreqqless: "âªŒ", gtrless: "â‰·", gtrsim: "â‰³", gvertneqq: "â‰©ï¸€", gvnE: "â‰©ï¸€", Hacek: "Ë‡", hairsp: "â€Š", half: "Â½", hamilt: "â„‹", HARDcy: "Ðª", hardcy: "ÑŠ", harrcir: "â¥ˆ", harr: "â†”", hArr: "â‡”", harrw: "â†­", Hat: "^", hbar: "â„", Hcirc: "Ä¤", hcirc: "Ä¥", hearts: "â™¥", heartsuit: "â™¥", hellip: "â€¦", hercon: "âŠ¹", hfr: "ð”¥", Hfr: "â„Œ", HilbertSpace: "â„‹", hksearow: "â¤¥", hkswarow: "â¤¦", hoarr: "â‡¿", homtht: "âˆ»", hookleftarrow: "â†©", hookrightarrow: "â†ª", hopf: "ð•™", Hopf: "â„", horbar: "â€•", HorizontalLine: "â”€", hscr: "ð’½", Hscr: "â„‹", hslash: "â„", Hstrok: "Ä¦", hstrok: "Ä§", HumpDownHump: "â‰Ž", HumpEqual: "â‰", hybull: "âƒ", hyphen: "â€", Iacute: "Ã", iacute: "Ã­", ic: "\u2063", Icirc: "ÃŽ", icirc: "Ã®", Icy: "Ð˜", icy: "Ð¸", Idot: "Ä°", IEcy: "Ð•", iecy: "Ðµ", iexcl: "Â¡", iff: "â‡”", ifr: "ð”¦", Ifr: "â„‘", Igrave: "ÃŒ", igrave: "Ã¬", ii: "â…ˆ", iiiint: "â¨Œ", iiint: "âˆ­", iinfin: "â§œ", iiota: "â„©", IJlig: "Ä²", ijlig: "Ä³", Imacr: "Äª", imacr: "Ä«", image: "â„‘", ImaginaryI: "â…ˆ", imagline: "â„", imagpart: "â„‘", imath: "Ä±", Im: "â„‘", imof: "âŠ·", imped: "Æµ", Implies: "â‡’", incare: "â„…", in: "âˆˆ", infin: "âˆž", infintie: "â§", inodot: "Ä±", intcal: "âŠº", int: "âˆ«", Int: "âˆ¬", integers: "â„¤", Integral: "âˆ«", intercal: "âŠº", Intersection: "â‹‚", intlarhk: "â¨—", intprod: "â¨¼", InvisibleComma: "\u2063", InvisibleTimes: "\u2062", IOcy: "Ð", iocy: "Ñ‘", Iogon: "Ä®", iogon: "Ä¯", Iopf: "ð•€", iopf: "ð•š", Iota: "Î™", iota: "Î¹", iprod: "â¨¼", iquest: "Â¿", iscr: "ð’¾", Iscr: "â„", isin: "âˆˆ", isindot: "â‹µ", isinE: "â‹¹", isins: "â‹´", isinsv: "â‹³", isinv: "âˆˆ", it: "\u2062", Itilde: "Ä¨", itilde: "Ä©", Iukcy: "Ð†", iukcy: "Ñ–", Iuml: "Ã", iuml: "Ã¯", Jcirc: "Ä´", jcirc: "Äµ", Jcy: "Ð™", jcy: "Ð¹", Jfr: "ð”", jfr: "ð”§", jmath: "È·", Jopf: "ð•", jopf: "ð•›", Jscr: "ð’¥", jscr: "ð’¿", Jsercy: "Ðˆ", jsercy: "Ñ˜", Jukcy: "Ð„", jukcy: "Ñ”", Kappa: "Îš", kappa: "Îº", kappav: "Ï°", Kcedil: "Ä¶", kcedil: "Ä·", Kcy: "Ðš", kcy: "Ðº", Kfr: "ð”Ž", kfr: "ð”¨", kgreen: "Ä¸", KHcy: "Ð¥", khcy: "Ñ…", KJcy: "ÐŒ", kjcy: "Ñœ", Kopf: "ð•‚", kopf: "ð•œ", Kscr: "ð’¦", kscr: "ð“€", lAarr: "â‡š", Lacute: "Ä¹", lacute: "Äº", laemptyv: "â¦´", lagran: "â„’", Lambda: "Î›", lambda: "Î»", lang: "âŸ¨", Lang: "âŸª", langd: "â¦‘", langle: "âŸ¨", lap: "âª…", Laplacetrf: "â„’", laquo: "Â«", larrb: "â‡¤", larrbfs: "â¤Ÿ", larr: "â†", Larr: "â†ž", lArr: "â‡", larrfs: "â¤", larrhk: "â†©", larrlp: "â†«", larrpl: "â¤¹", larrsim: "â¥³", larrtl: "â†¢", latail: "â¤™", lAtail: "â¤›", lat: "âª«", late: "âª­", lates: "âª­ï¸€", lbarr: "â¤Œ", lBarr: "â¤Ž", lbbrk: "â²", lbrace: "{", lbrack: "[", lbrke: "â¦‹", lbrksld: "â¦", lbrkslu: "â¦", Lcaron: "Ä½", lcaron: "Ä¾", Lcedil: "Ä»", lcedil: "Ä¼", lceil: "âŒˆ", lcub: "{", Lcy: "Ð›", lcy: "Ð»", ldca: "â¤¶", ldquo: "â€œ", ldquor: "â€ž", ldrdhar: "â¥§", ldrushar: "â¥‹", ldsh: "â†²", le: "â‰¤", lE: "â‰¦", LeftAngleBracket: "âŸ¨", LeftArrowBar: "â‡¤", leftarrow: "â†", LeftArrow: "â†", Leftarrow: "â‡", LeftArrowRightArrow: "â‡†", leftarrowtail: "â†¢", LeftCeiling: "âŒˆ", LeftDoubleBracket: "âŸ¦", LeftDownTeeVector: "â¥¡", LeftDownVectorBar: "â¥™", LeftDownVector: "â‡ƒ", LeftFloor: "âŒŠ", leftharpoondown: "â†½", leftharpoonup: "â†¼", leftleftarrows: "â‡‡", leftrightarrow: "â†”", LeftRightArrow: "â†”", Leftrightarrow: "â‡”", leftrightarrows: "â‡†", leftrightharpoons: "â‡‹", leftrightsquigarrow: "â†­", LeftRightVector: "â¥Ž", LeftTeeArrow: "â†¤", LeftTee: "âŠ£", LeftTeeVector: "â¥š", leftthreetimes: "â‹‹", LeftTriangleBar: "â§", LeftTriangle: "âŠ²", LeftTriangleEqual: "âŠ´", LeftUpDownVector: "â¥‘", LeftUpTeeVector: "â¥ ", LeftUpVectorBar: "â¥˜", LeftUpVector: "â†¿", LeftVectorBar: "â¥’", LeftVector: "â†¼", lEg: "âª‹", leg: "â‹š", leq: "â‰¤", leqq: "â‰¦", leqslant: "â©½", lescc: "âª¨", les: "â©½", lesdot: "â©¿", lesdoto: "âª", lesdotor: "âªƒ", lesg: "â‹šï¸€", lesges: "âª“", lessapprox: "âª…", lessdot: "â‹–", lesseqgtr: "â‹š", lesseqqgtr: "âª‹", LessEqualGreater: "â‹š", LessFullEqual: "â‰¦", LessGreater: "â‰¶", lessgtr: "â‰¶", LessLess: "âª¡", lesssim: "â‰²", LessSlantEqual: "â©½", LessTilde: "â‰²", lfisht: "â¥¼", lfloor: "âŒŠ", Lfr: "ð”", lfr: "ð”©", lg: "â‰¶", lgE: "âª‘", lHar: "â¥¢", lhard: "â†½", lharu: "â†¼", lharul: "â¥ª", lhblk: "â–„", LJcy: "Ð‰", ljcy: "Ñ™", llarr: "â‡‡", ll: "â‰ª", Ll: "â‹˜", llcorner: "âŒž", Lleftarrow: "â‡š", llhard: "â¥«", lltri: "â—º", Lmidot: "Ä¿", lmidot: "Å€", lmoustache: "âŽ°", lmoust: "âŽ°", lnap: "âª‰", lnapprox: "âª‰", lne: "âª‡", lnE: "â‰¨", lneq: "âª‡", lneqq: "â‰¨", lnsim: "â‹¦", loang: "âŸ¬", loarr: "â‡½", lobrk: "âŸ¦", longleftarrow: "âŸµ", LongLeftArrow: "âŸµ", Longleftarrow: "âŸ¸", longleftrightarrow: "âŸ·", LongLeftRightArrow: "âŸ·", Longleftrightarrow: "âŸº", longmapsto: "âŸ¼", longrightarrow: "âŸ¶", LongRightArrow: "âŸ¶", Longrightarrow: "âŸ¹", looparrowleft: "â†«", looparrowright: "â†¬", lopar: "â¦…", Lopf: "ð•ƒ", lopf: "ð•", loplus: "â¨­", lotimes: "â¨´", lowast: "âˆ—", lowbar: "_", LowerLeftArrow: "â†™", LowerRightArrow: "â†˜", loz: "â—Š", lozenge: "â—Š", lozf: "â§«", lpar: "(", lparlt: "â¦“", lrarr: "â‡†", lrcorner: "âŒŸ", lrhar: "â‡‹", lrhard: "â¥­", lrm: "\u200e", lrtri: "âŠ¿", lsaquo: "â€¹", lscr: "ð“", Lscr: "â„’", lsh: "â†°", Lsh: "â†°", lsim: "â‰²", lsime: "âª", lsimg: "âª", lsqb: "[", lsquo: "â€˜", lsquor: "â€š", Lstrok: "Å", lstrok: "Å‚", ltcc: "âª¦", ltcir: "â©¹", lt: "<", LT: "<", Lt: "â‰ª", ltdot: "â‹–", lthree: "â‹‹", ltimes: "â‹‰", ltlarr: "â¥¶", ltquest: "â©»", ltri: "â—ƒ", ltrie: "âŠ´", ltrif: "â—‚", ltrPar: "â¦–", lurdshar: "â¥Š", luruhar: "â¥¦", lvertneqq: "â‰¨ï¸€", lvnE: "â‰¨ï¸€", macr: "Â¯", male: "â™‚", malt: "âœ ", maltese: "âœ ", Map: "â¤…", map: "â†¦", mapsto: "â†¦", mapstodown: "â†§", mapstoleft: "â†¤", mapstoup: "â†¥", marker: "â–®", mcomma: "â¨©", Mcy: "Ðœ", mcy: "Ð¼", mdash: "â€”", mDDot: "âˆº", measuredangle: "âˆ¡", MediumSpace: "âŸ", Mellintrf: "â„³", Mfr: "ð”", mfr: "ð”ª", mho: "â„§", micro: "Âµ", midast: "*", midcir: "â«°", mid: "âˆ£", middot: "Â·", minusb: "âŠŸ", minus: "âˆ’", minusd: "âˆ¸", minusdu: "â¨ª", MinusPlus: "âˆ“", mlcp: "â«›", mldr: "â€¦", mnplus: "âˆ“", models: "âŠ§", Mopf: "ð•„", mopf: "ð•ž", mp: "âˆ“", mscr: "ð“‚", Mscr: "â„³", mstpos: "âˆ¾", Mu: "Îœ", mu: "Î¼", multimap: "âŠ¸", mumap: "âŠ¸", nabla: "âˆ‡", Nacute: "Åƒ", nacute: "Å„", nang: "âˆ âƒ’", nap: "â‰‰", napE: "â©°Ì¸", napid: "â‰‹Ì¸", napos: "Å‰", napprox: "â‰‰", natural: "â™®", naturals: "â„•", natur: "â™®", nbsp: "Â ", nbump: "â‰ŽÌ¸", nbumpe: "â‰Ì¸", ncap: "â©ƒ", Ncaron: "Å‡", ncaron: "Åˆ", Ncedil: "Å…", ncedil: "Å†", ncong: "â‰‡", ncongdot: "â©­Ì¸", ncup: "â©‚", Ncy: "Ð", ncy: "Ð½", ndash: "â€“", nearhk: "â¤¤", nearr: "â†—", neArr: "â‡—", nearrow: "â†—", ne: "â‰ ", nedot: "â‰Ì¸", NegativeMediumSpace: "â€‹", NegativeThickSpace: "â€‹", NegativeThinSpace: "â€‹", NegativeVeryThinSpace: "â€‹", nequiv: "â‰¢", nesear: "â¤¨", nesim: "â‰‚Ì¸", NestedGreaterGreater: "â‰«", NestedLessLess: "â‰ª", NewLine: "\u000a", nexist: "âˆ„", nexists: "âˆ„", Nfr: "ð”‘", nfr: "ð”«", ngE: "â‰§Ì¸", nge: "â‰±", ngeq: "â‰±", ngeqq: "â‰§Ì¸", ngeqslant: "â©¾Ì¸", nges: "â©¾Ì¸", nGg: "â‹™Ì¸", ngsim: "â‰µ", nGt: "â‰«âƒ’", ngt: "â‰¯", ngtr: "â‰¯", nGtv: "â‰«Ì¸", nharr: "â†®", nhArr: "â‡Ž", nhpar: "â«²", ni: "âˆ‹", nis: "â‹¼", nisd: "â‹º", niv: "âˆ‹", NJcy: "ÐŠ", njcy: "Ñš", nlarr: "â†š", nlArr: "â‡", nldr: "â€¥", nlE: "â‰¦Ì¸", nle: "â‰°", nleftarrow: "â†š", nLeftarrow: "â‡", nleftrightarrow: "â†®", nLeftrightarrow: "â‡Ž", nleq: "â‰°", nleqq: "â‰¦Ì¸", nleqslant: "â©½Ì¸", nles: "â©½Ì¸", nless: "â‰®", nLl: "â‹˜Ì¸", nlsim: "â‰´", nLt: "â‰ªâƒ’", nlt: "â‰®", nltri: "â‹ª", nltrie: "â‹¬", nLtv: "â‰ªÌ¸", nmid: "âˆ¤", NoBreak: "\u2060", NonBreakingSpace: "Â ", nopf: "ð•Ÿ", Nopf: "â„•", Not: "â«¬", not: "Â¬", NotCongruent: "â‰¢", NotCupCap: "â‰­", NotDoubleVerticalBar: "âˆ¦", NotElement: "âˆ‰", NotEqual: "â‰ ", NotEqualTilde: "â‰‚Ì¸", NotExists: "âˆ„", NotGreater: "â‰¯", NotGreaterEqual: "â‰±", NotGreaterFullEqual: "â‰§Ì¸", NotGreaterGreater: "â‰«Ì¸", NotGreaterLess: "â‰¹", NotGreaterSlantEqual: "â©¾Ì¸", NotGreaterTilde: "â‰µ", NotHumpDownHump: "â‰ŽÌ¸", NotHumpEqual: "â‰Ì¸", notin: "âˆ‰", notindot: "â‹µÌ¸", notinE: "â‹¹Ì¸", notinva: "âˆ‰", notinvb: "â‹·", notinvc: "â‹¶", NotLeftTriangleBar: "â§Ì¸", NotLeftTriangle: "â‹ª", NotLeftTriangleEqual: "â‹¬", NotLess: "â‰®", NotLessEqual: "â‰°", NotLessGreater: "â‰¸", NotLessLess: "â‰ªÌ¸", NotLessSlantEqual: "â©½Ì¸", NotLessTilde: "â‰´", NotNestedGreaterGreater: "âª¢Ì¸", NotNestedLessLess: "âª¡Ì¸", notni: "âˆŒ", notniva: "âˆŒ", notnivb: "â‹¾", notnivc: "â‹½", NotPrecedes: "âŠ€", NotPrecedesEqual: "âª¯Ì¸", NotPrecedesSlantEqual: "â‹ ", NotReverseElement: "âˆŒ", NotRightTriangleBar: "â§Ì¸", NotRightTriangle: "â‹«", NotRightTriangleEqual: "â‹­", NotSquareSubset: "âŠÌ¸", NotSquareSubsetEqual: "â‹¢", NotSquareSuperset: "âŠÌ¸", NotSquareSupersetEqual: "â‹£", NotSubset: "âŠ‚âƒ’", NotSubsetEqual: "âŠˆ", NotSucceeds: "âŠ", NotSucceedsEqual: "âª°Ì¸", NotSucceedsSlantEqual: "â‹¡", NotSucceedsTilde: "â‰¿Ì¸", NotSuperset: "âŠƒâƒ’", NotSupersetEqual: "âŠ‰", NotTilde: "â‰", NotTildeEqual: "â‰„", NotTildeFullEqual: "â‰‡", NotTildeTilde: "â‰‰", NotVerticalBar: "âˆ¤", nparallel: "âˆ¦", npar: "âˆ¦", nparsl: "â«½âƒ¥", npart: "âˆ‚Ì¸", npolint: "â¨”", npr: "âŠ€", nprcue: "â‹ ", nprec: "âŠ€", npreceq: "âª¯Ì¸", npre: "âª¯Ì¸", nrarrc: "â¤³Ì¸", nrarr: "â†›", nrArr: "â‡", nrarrw: "â†Ì¸", nrightarrow: "â†›", nRightarrow: "â‡", nrtri: "â‹«", nrtrie: "â‹­", nsc: "âŠ", nsccue: "â‹¡", nsce: "âª°Ì¸", Nscr: "ð’©", nscr: "ð“ƒ", nshortmid: "âˆ¤", nshortparallel: "âˆ¦", nsim: "â‰", nsime: "â‰„", nsimeq: "â‰„", nsmid: "âˆ¤", nspar: "âˆ¦", nsqsube: "â‹¢", nsqsupe: "â‹£", nsub: "âŠ„", nsubE: "â«…Ì¸", nsube: "âŠˆ", nsubset: "âŠ‚âƒ’", nsubseteq: "âŠˆ", nsubseteqq: "â«…Ì¸", nsucc: "âŠ", nsucceq: "âª°Ì¸", nsup: "âŠ…", nsupE: "â«†Ì¸", nsupe: "âŠ‰", nsupset: "âŠƒâƒ’", nsupseteq: "âŠ‰", nsupseteqq: "â«†Ì¸", ntgl: "â‰¹", Ntilde: "Ã‘", ntilde: "Ã±", ntlg: "â‰¸", ntriangleleft: "â‹ª", ntrianglelefteq: "â‹¬", ntriangleright: "â‹«", ntrianglerighteq: "â‹­", Nu: "Î", nu: "Î½", num: "#", numero: "â„–", numsp: "â€‡", nvap: "â‰âƒ’", nvdash: "âŠ¬", nvDash: "âŠ­", nVdash: "âŠ®", nVDash: "âŠ¯", nvge: "â‰¥âƒ’", nvgt: ">âƒ’", nvHarr: "â¤„", nvinfin: "â§ž", nvlArr: "â¤‚", nvle: "â‰¤âƒ’", nvlt: "<âƒ’", nvltrie: "âŠ´âƒ’", nvrArr: "â¤ƒ", nvrtrie: "âŠµâƒ’", nvsim: "âˆ¼âƒ’", nwarhk: "â¤£", nwarr: "â†–", nwArr: "â‡–", nwarrow: "â†–", nwnear: "â¤§", Oacute: "Ã“", oacute: "Ã³", oast: "âŠ›", Ocirc: "Ã”", ocirc: "Ã´", ocir: "âŠš", Ocy: "Ðž", ocy: "Ð¾", odash: "âŠ", Odblac: "Å", odblac: "Å‘", odiv: "â¨¸", odot: "âŠ™", odsold: "â¦¼", OElig: "Å’", oelig: "Å“", ofcir: "â¦¿", Ofr: "ð”’", ofr: "ð”¬", ogon: "Ë›", Ograve: "Ã’", ograve: "Ã²", ogt: "â§", ohbar: "â¦µ", ohm: "Î©", oint: "âˆ®", olarr: "â†º", olcir: "â¦¾", olcross: "â¦»", oline: "â€¾", olt: "â§€", Omacr: "ÅŒ", omacr: "Å", Omega: "Î©", omega: "Ï‰", Omicron: "ÎŸ", omicron: "Î¿", omid: "â¦¶", ominus: "âŠ–", Oopf: "ð•†", oopf: "ð• ", opar: "â¦·", OpenCurlyDoubleQuote: "â€œ", OpenCurlyQuote: "â€˜", operp: "â¦¹", oplus: "âŠ•", orarr: "â†»", Or: "â©”", or: "âˆ¨", ord: "â©", order: "â„´", orderof: "â„´", ordf: "Âª", ordm: "Âº", origof: "âŠ¶", oror: "â©–", orslope: "â©—", orv: "â©›", oS: "â“ˆ", Oscr: "ð’ª", oscr: "â„´", Oslash: "Ã˜", oslash: "Ã¸", osol: "âŠ˜", Otilde: "Ã•", otilde: "Ãµ", otimesas: "â¨¶", Otimes: "â¨·", otimes: "âŠ—", Ouml: "Ã–", ouml: "Ã¶", ovbar: "âŒ½", OverBar: "â€¾", OverBrace: "âž", OverBracket: "âŽ´", OverParenthesis: "âœ", para: "Â¶", parallel: "âˆ¥", par: "âˆ¥", parsim: "â«³", parsl: "â«½", part: "âˆ‚", PartialD: "âˆ‚", Pcy: "ÐŸ", pcy: "Ð¿", percnt: "%", period: ".", permil: "â€°", perp: "âŠ¥", pertenk: "â€±", Pfr: "ð”“", pfr: "ð”­", Phi: "Î¦", phi: "Ï†", phiv: "Ï•", phmmat: "â„³", phone: "â˜Ž", Pi: "Î ", pi: "Ï€", pitchfork: "â‹”", piv: "Ï–", planck: "â„", planckh: "â„Ž", plankv: "â„", plusacir: "â¨£", plusb: "âŠž", pluscir: "â¨¢", plus: "+", plusdo: "âˆ”", plusdu: "â¨¥", pluse: "â©²", PlusMinus: "Â±", plusmn: "Â±", plussim: "â¨¦", plustwo: "â¨§", pm: "Â±", Poincareplane: "â„Œ", pointint: "â¨•", popf: "ð•¡", Popf: "â„™", pound: "Â£", prap: "âª·", Pr: "âª»", pr: "â‰º", prcue: "â‰¼", precapprox: "âª·", prec: "â‰º", preccurlyeq: "â‰¼", Precedes: "â‰º", PrecedesEqual: "âª¯", PrecedesSlantEqual: "â‰¼", PrecedesTilde: "â‰¾", preceq: "âª¯", precnapprox: "âª¹", precneqq: "âªµ", precnsim: "â‹¨", pre: "âª¯", prE: "âª³", precsim: "â‰¾", prime: "â€²", Prime: "â€³", primes: "â„™", prnap: "âª¹", prnE: "âªµ", prnsim: "â‹¨", prod: "âˆ", Product: "âˆ", profalar: "âŒ®", profline: "âŒ’", profsurf: "âŒ“", prop: "âˆ", Proportional: "âˆ", Proportion: "âˆ·", propto: "âˆ", prsim: "â‰¾", prurel: "âŠ°", Pscr: "ð’«", pscr: "ð“…", Psi: "Î¨", psi: "Ïˆ", puncsp: "â€ˆ", Qfr: "ð””", qfr: "ð”®", qint: "â¨Œ", qopf: "ð•¢", Qopf: "â„š", qprime: "â—", Qscr: "ð’¬", qscr: "ð“†", quaternions: "â„", quatint: "â¨–", quest: "?", questeq: "â‰Ÿ", quot: "\"", QUOT: "\"", rAarr: "â‡›", race: "âˆ½Ì±", Racute: "Å”", racute: "Å•", radic: "âˆš", raemptyv: "â¦³", rang: "âŸ©", Rang: "âŸ«", rangd: "â¦’", range: "â¦¥", rangle: "âŸ©", raquo: "Â»", rarrap: "â¥µ", rarrb: "â‡¥", rarrbfs: "â¤ ", rarrc: "â¤³", rarr: "â†’", Rarr: "â† ", rArr: "â‡’", rarrfs: "â¤ž", rarrhk: "â†ª", rarrlp: "â†¬", rarrpl: "â¥…", rarrsim: "â¥´", Rarrtl: "â¤–", rarrtl: "â†£", rarrw: "â†", ratail: "â¤š", rAtail: "â¤œ", ratio: "âˆ¶", rationals: "â„š", rbarr: "â¤", rBarr: "â¤", RBarr: "â¤", rbbrk: "â³", rbrace: "}", rbrack: "]", rbrke: "â¦Œ", rbrksld: "â¦Ž", rbrkslu: "â¦", Rcaron: "Å˜", rcaron: "Å™", Rcedil: "Å–", rcedil: "Å—", rceil: "âŒ‰", rcub: "}", Rcy: "Ð ", rcy: "Ñ€", rdca: "â¤·", rdldhar: "â¥©", rdquo: "â€", rdquor: "â€", rdsh: "â†³", real: "â„œ", realine: "â„›", realpart: "â„œ", reals: "â„", Re: "â„œ", rect: "â–­", reg: "Â®", REG: "Â®", ReverseElement: "âˆ‹", ReverseEquilibrium: "â‡‹", ReverseUpEquilibrium: "â¥¯", rfisht: "â¥½", rfloor: "âŒ‹", rfr: "ð”¯", Rfr: "â„œ", rHar: "â¥¤", rhard: "â‡", rharu: "â‡€", rharul: "â¥¬", Rho: "Î¡", rho: "Ï", rhov: "Ï±", RightAngleBracket: "âŸ©", RightArrowBar: "â‡¥", rightarrow: "â†’", RightArrow: "â†’", Rightarrow: "â‡’", RightArrowLeftArrow: "â‡„", rightarrowtail: "â†£", RightCeiling: "âŒ‰", RightDoubleBracket: "âŸ§", RightDownTeeVector: "â¥", RightDownVectorBar: "â¥•", RightDownVector: "â‡‚", RightFloor: "âŒ‹", rightharpoondown: "â‡", rightharpoonup: "â‡€", rightleftarrows: "â‡„", rightleftharpoons: "â‡Œ", rightrightarrows: "â‡‰", rightsquigarrow: "â†", RightTeeArrow: "â†¦", RightTee: "âŠ¢", RightTeeVector: "â¥›", rightthreetimes: "â‹Œ", RightTriangleBar: "â§", RightTriangle: "âŠ³", RightTriangleEqual: "âŠµ", RightUpDownVector: "â¥", RightUpTeeVector: "â¥œ", RightUpVectorBar: "â¥”", RightUpVector: "â†¾", RightVectorBar: "â¥“", RightVector: "â‡€", ring: "Ëš", risingdotseq: "â‰“", rlarr: "â‡„", rlhar: "â‡Œ", rlm: "\u200f", rmoustache: "âŽ±", rmoust: "âŽ±", rnmid: "â«®", roang: "âŸ­", roarr: "â‡¾", robrk: "âŸ§", ropar: "â¦†", ropf: "ð•£", Ropf: "â„", roplus: "â¨®", rotimes: "â¨µ", RoundImplies: "â¥°", rpar: ")", rpargt: "â¦”", rppolint: "â¨’", rrarr: "â‡‰", Rrightarrow: "â‡›", rsaquo: "â€º", rscr: "ð“‡", Rscr: "â„›", rsh: "â†±", Rsh: "â†±", rsqb: "]", rsquo: "â€™", rsquor: "â€™", rthree: "â‹Œ", rtimes: "â‹Š", rtri: "â–¹", rtrie: "âŠµ", rtrif: "â–¸", rtriltri: "â§Ž", RuleDelayed: "â§´", ruluhar: "â¥¨", rx: "â„ž", Sacute: "Åš", sacute: "Å›", sbquo: "â€š", scap: "âª¸", Scaron: "Å ", scaron: "Å¡", Sc: "âª¼", sc: "â‰»", sccue: "â‰½", sce: "âª°", scE: "âª´", Scedil: "Åž", scedil: "ÅŸ", Scirc: "Åœ", scirc: "Å", scnap: "âªº", scnE: "âª¶", scnsim: "â‹©", scpolint: "â¨“", scsim: "â‰¿", Scy: "Ð¡", scy: "Ñ", sdotb: "âŠ¡", sdot: "â‹…", sdote: "â©¦", searhk: "â¤¥", searr: "â†˜", seArr: "â‡˜", searrow: "â†˜", sect: "Â§", semi: ";", seswar: "â¤©", setminus: "âˆ–", setmn: "âˆ–", sext: "âœ¶", Sfr: "ð”–", sfr: "ð”°", sfrown: "âŒ¢", sharp: "â™¯", SHCHcy: "Ð©", shchcy: "Ñ‰", SHcy: "Ð¨", shcy: "Ñˆ", ShortDownArrow: "â†“", ShortLeftArrow: "â†", shortmid: "âˆ£", shortparallel: "âˆ¥", ShortRightArrow: "â†’", ShortUpArrow: "â†‘", shy: "\u00ad", Sigma: "Î£", sigma: "Ïƒ", sigmaf: "Ï‚", sigmav: "Ï‚", sim: "âˆ¼", simdot: "â©ª", sime: "â‰ƒ", simeq: "â‰ƒ", simg: "âªž", simgE: "âª ", siml: "âª", simlE: "âªŸ", simne: "â‰†", simplus: "â¨¤", simrarr: "â¥²", slarr: "â†", SmallCircle: "âˆ˜", smallsetminus: "âˆ–", smashp: "â¨³", smeparsl: "â§¤", smid: "âˆ£", smile: "âŒ£", smt: "âªª", smte: "âª¬", smtes: "âª¬ï¸€", SOFTcy: "Ð¬", softcy: "ÑŒ", solbar: "âŒ¿", solb: "â§„", sol: "/", Sopf: "ð•Š", sopf: "ð•¤", spades: "â™ ", spadesuit: "â™ ", spar: "âˆ¥", sqcap: "âŠ“", sqcaps: "âŠ“ï¸€", sqcup: "âŠ”", sqcups: "âŠ”ï¸€", Sqrt: "âˆš", sqsub: "âŠ", sqsube: "âŠ‘", sqsubset: "âŠ", sqsubseteq: "âŠ‘", sqsup: "âŠ", sqsupe: "âŠ’", sqsupset: "âŠ", sqsupseteq: "âŠ’", square: "â–¡", Square: "â–¡", SquareIntersection: "âŠ“", SquareSubset: "âŠ", SquareSubsetEqual: "âŠ‘", SquareSuperset: "âŠ", SquareSupersetEqual: "âŠ’", SquareUnion: "âŠ”", squarf: "â–ª", squ: "â–¡", squf: "â–ª", srarr: "â†’", Sscr: "ð’®", sscr: "ð“ˆ", ssetmn: "âˆ–", ssmile: "âŒ£", sstarf: "â‹†", Star: "â‹†", star: "â˜†", starf: "â˜…", straightepsilon: "Ïµ", straightphi: "Ï•", strns: "Â¯", sub: "âŠ‚", Sub: "â‹", subdot: "âª½", subE: "â«…", sube: "âŠ†", subedot: "â«ƒ", submult: "â«", subnE: "â«‹", subne: "âŠŠ", subplus: "âª¿", subrarr: "â¥¹", subset: "âŠ‚", Subset: "â‹", subseteq: "âŠ†", subseteqq: "â«…", SubsetEqual: "âŠ†", subsetneq: "âŠŠ", subsetneqq: "â«‹", subsim: "â«‡", subsub: "â«•", subsup: "â«“", succapprox: "âª¸", succ: "â‰»", succcurlyeq: "â‰½", Succeeds: "â‰»", SucceedsEqual: "âª°", SucceedsSlantEqual: "â‰½", SucceedsTilde: "â‰¿", succeq: "âª°", succnapprox: "âªº", succneqq: "âª¶", succnsim: "â‹©", succsim: "â‰¿", SuchThat: "âˆ‹", sum: "âˆ‘", Sum: "âˆ‘", sung: "â™ª", sup1: "Â¹", sup2: "Â²", sup3: "Â³", sup: "âŠƒ", Sup: "â‹‘", supdot: "âª¾", supdsub: "â«˜", supE: "â«†", supe: "âŠ‡", supedot: "â«„", Superset: "âŠƒ", SupersetEqual: "âŠ‡", suphsol: "âŸ‰", suphsub: "â«—", suplarr: "â¥»", supmult: "â«‚", supnE: "â«Œ", supne: "âŠ‹", supplus: "â«€", supset: "âŠƒ", Supset: "â‹‘", supseteq: "âŠ‡", supseteqq: "â«†", supsetneq: "âŠ‹", supsetneqq: "â«Œ", supsim: "â«ˆ", supsub: "â«”", supsup: "â«–", swarhk: "â¤¦", swarr: "â†™", swArr: "â‡™", swarrow: "â†™", swnwar: "â¤ª", szlig: "ÃŸ", Tab: "\u0009", target: "âŒ–", Tau: "Î¤", tau: "Ï„", tbrk: "âŽ´", Tcaron: "Å¤", tcaron: "Å¥", Tcedil: "Å¢", tcedil: "Å£", Tcy: "Ð¢", tcy: "Ñ‚", tdot: "âƒ›", telrec: "âŒ•", Tfr: "ð”—", tfr: "ð”±", there4: "âˆ´", therefore: "âˆ´", Therefore: "âˆ´", Theta: "Î˜", theta: "Î¸", thetasym: "Ï‘", thetav: "Ï‘", thickapprox: "â‰ˆ", thicksim: "âˆ¼", ThickSpace: "âŸâ€Š", ThinSpace: "â€‰", thinsp: "â€‰", thkap: "â‰ˆ", thksim: "âˆ¼", THORN: "Ãž", thorn: "Ã¾", tilde: "Ëœ", Tilde: "âˆ¼", TildeEqual: "â‰ƒ", TildeFullEqual: "â‰…", TildeTilde: "â‰ˆ", timesbar: "â¨±", timesb: "âŠ ", times: "Ã—", timesd: "â¨°", tint: "âˆ­", toea: "â¤¨", topbot: "âŒ¶", topcir: "â«±", top: "âŠ¤", Topf: "ð•‹", topf: "ð•¥", topfork: "â«š", tosa: "â¤©", tprime: "â€´", trade: "â„¢", TRADE: "â„¢", triangle: "â–µ", triangledown: "â–¿", triangleleft: "â—ƒ", trianglelefteq: "âŠ´", triangleq: "â‰œ", triangleright: "â–¹", trianglerighteq: "âŠµ", tridot: "â—¬", trie: "â‰œ", triminus: "â¨º", TripleDot: "âƒ›", triplus: "â¨¹", trisb: "â§", tritime: "â¨»", trpezium: "â¢", Tscr: "ð’¯", tscr: "ð“‰", TScy: "Ð¦", tscy: "Ñ†", TSHcy: "Ð‹", tshcy: "Ñ›", Tstrok: "Å¦", tstrok: "Å§", twixt: "â‰¬", twoheadleftarrow: "â†ž", twoheadrightarrow: "â† ", Uacute: "Ãš", uacute: "Ãº", uarr: "â†‘", Uarr: "â†Ÿ", uArr: "â‡‘", Uarrocir: "â¥‰", Ubrcy: "ÐŽ", ubrcy: "Ñž", Ubreve: "Å¬", ubreve: "Å­", Ucirc: "Ã›", ucirc: "Ã»", Ucy: "Ð£", ucy: "Ñƒ", udarr: "â‡…", Udblac: "Å°", udblac: "Å±", udhar: "â¥®", ufisht: "â¥¾", Ufr: "ð”˜", ufr: "ð”²", Ugrave: "Ã™", ugrave: "Ã¹", uHar: "â¥£", uharl: "â†¿", uharr: "â†¾", uhblk: "â–€", ulcorn: "âŒœ", ulcorner: "âŒœ", ulcrop: "âŒ", ultri: "â—¸", Umacr: "Åª", umacr: "Å«", uml: "Â¨", UnderBar: "_", UnderBrace: "âŸ", UnderBracket: "âŽµ", UnderParenthesis: "â", Union: "â‹ƒ", UnionPlus: "âŠŽ", Uogon: "Å²", uogon: "Å³", Uopf: "ð•Œ", uopf: "ð•¦", UpArrowBar: "â¤’", uparrow: "â†‘", UpArrow: "â†‘", Uparrow: "â‡‘", UpArrowDownArrow: "â‡…", updownarrow: "â†•", UpDownArrow: "â†•", Updownarrow: "â‡•", UpEquilibrium: "â¥®", upharpoonleft: "â†¿", upharpoonright: "â†¾", uplus: "âŠŽ", UpperLeftArrow: "â†–", UpperRightArrow: "â†—", upsi: "Ï…", Upsi: "Ï’", upsih: "Ï’", Upsilon: "Î¥", upsilon: "Ï…", UpTeeArrow: "â†¥", UpTee: "âŠ¥", upuparrows: "â‡ˆ", urcorn: "âŒ", urcorner: "âŒ", urcrop: "âŒŽ", Uring: "Å®", uring: "Å¯", urtri: "â—¹", Uscr: "ð’°", uscr: "ð“Š", utdot: "â‹°", Utilde: "Å¨", utilde: "Å©", utri: "â–µ", utrif: "â–´", uuarr: "â‡ˆ", Uuml: "Ãœ", uuml: "Ã¼", uwangle: "â¦§", vangrt: "â¦œ", varepsilon: "Ïµ", varkappa: "Ï°", varnothing: "âˆ…", varphi: "Ï•", varpi: "Ï–", varpropto: "âˆ", varr: "â†•", vArr: "â‡•", varrho: "Ï±", varsigma: "Ï‚", varsubsetneq: "âŠŠï¸€", varsubsetneqq: "â«‹ï¸€", varsupsetneq: "âŠ‹ï¸€", varsupsetneqq: "â«Œï¸€", vartheta: "Ï‘", vartriangleleft: "âŠ²", vartriangleright: "âŠ³", vBar: "â«¨", Vbar: "â««", vBarv: "â«©", Vcy: "Ð’", vcy: "Ð²", vdash: "âŠ¢", vDash: "âŠ¨", Vdash: "âŠ©", VDash: "âŠ«", Vdashl: "â«¦", veebar: "âŠ»", vee: "âˆ¨", Vee: "â‹", veeeq: "â‰š", vellip: "â‹®", verbar: "|", Verbar: "â€–", vert: "|", Vert: "â€–", VerticalBar: "âˆ£", VerticalLine: "|", VerticalSeparator: "â˜", VerticalTilde: "â‰€", VeryThinSpace: "â€Š", Vfr: "ð”™", vfr: "ð”³", vltri: "âŠ²", vnsub: "âŠ‚âƒ’", vnsup: "âŠƒâƒ’", Vopf: "ð•", vopf: "ð•§", vprop: "âˆ", vrtri: "âŠ³", Vscr: "ð’±", vscr: "ð“‹", vsubnE: "â«‹ï¸€", vsubne: "âŠŠï¸€", vsupnE: "â«Œï¸€", vsupne: "âŠ‹ï¸€", Vvdash: "âŠª", vzigzag: "â¦š", Wcirc: "Å´", wcirc: "Åµ", wedbar: "â©Ÿ", wedge: "âˆ§", Wedge: "â‹€", wedgeq: "â‰™", weierp: "â„˜", Wfr: "ð”š", wfr: "ð”´", Wopf: "ð•Ž", wopf: "ð•¨", wp: "â„˜", wr: "â‰€", wreath: "â‰€", Wscr: "ð’²", wscr: "ð“Œ", xcap: "â‹‚", xcirc: "â—¯", xcup: "â‹ƒ", xdtri: "â–½", Xfr: "ð”›", xfr: "ð”µ", xharr: "âŸ·", xhArr: "âŸº", Xi: "Îž", xi: "Î¾", xlarr: "âŸµ", xlArr: "âŸ¸", xmap: "âŸ¼", xnis: "â‹»", xodot: "â¨€", Xopf: "ð•", xopf: "ð•©", xoplus: "â¨", xotime: "â¨‚", xrarr: "âŸ¶", xrArr: "âŸ¹", Xscr: "ð’³", xscr: "ð“", xsqcup: "â¨†", xuplus: "â¨„", xutri: "â–³", xvee: "â‹", xwedge: "â‹€", Yacute: "Ã", yacute: "Ã½", YAcy: "Ð¯", yacy: "Ñ", Ycirc: "Å¶", ycirc: "Å·", Ycy: "Ð«", ycy: "Ñ‹", yen: "Â¥", Yfr: "ð”œ", yfr: "ð”¶", YIcy: "Ð‡", yicy: "Ñ—", Yopf: "ð•", yopf: "ð•ª", Yscr: "ð’´", yscr: "ð“Ž", YUcy: "Ð®", yucy: "ÑŽ", yuml: "Ã¿", Yuml: "Å¸", Zacute: "Å¹", zacute: "Åº", Zcaron: "Å½", zcaron: "Å¾", Zcy: "Ð—", zcy: "Ð·", Zdot: "Å»", zdot: "Å¼", zeetrf: "â„¨", ZeroWidthSpace: "â€‹", Zeta: "Î–", zeta: "Î¶", zfr: "ð”·", Zfr: "â„¨", ZHcy: "Ð–", zhcy: "Ð¶", zigrarr: "â‡", zopf: "ð•«", Zopf: "â„¤", Zscr: "ð’µ", zscr: "ð“", zwj: "\u200d", zwnj: "\u200c"
+    Aacute: "Ã", aacute: "Ã¡", Abreve: "Ä‚", abreve: "Äƒ", ac: "ˆ¾", acd: "ˆ¿", acE: "ˆ¾Ì³", Acirc: "Ã‚", acirc: "Ã¢", acute: "´", Acy: "Ð", acy: "Ð°", AElig: "Ã†", aelig: "Ã¦", af: "\u2061", Afr: "ð”„", afr: "ð”ž", Agrave: "Ã€", agrave: "Ã ", alefsym: "„µ", aleph: "„µ", Alpha: "Î‘", alpha: "Î±", Amacr: "Ä€", amacr: "Ä", amalg: "¨¿", amp: "&", AMP: "&", andand: "©•", And: "©“", and: "ˆ§", andd: "©œ", andslope: "©˜", andv: "©š", ang: "ˆ ", ange: "¦¤", angle: "ˆ ", angmsdaa: "¦¨", angmsdab: "¦©", angmsdac: "¦ª", angmsdad: "¦«", angmsdae: "¦¬", angmsdaf: "¦­", angmsdag: "¦®", angmsdah: "¦¯", angmsd: "ˆ¡", angrt: "ˆŸ", angrtvb: "Š¾", angrtvbd: "¦", angsph: "ˆ¢", angst: "Ã…", angzarr: "¼", Aogon: "Ä„", aogon: "Ä…", Aopf: "ð”¸", aopf: "ð•’", apacir: "©¯", ap: "‰ˆ", apE: "©°", ape: "‰Š", apid: "‰‹", apos: "'", ApplyFunction: "\u2061", approx: "‰ˆ", approxeq: "‰Š", Aring: "Ã…", aring: "Ã¥", Ascr: "ð’œ", ascr: "ð’¶", Assign: "‰”", ast: "*", asymp: "‰ˆ", asympeq: "‰", Atilde: "Ãƒ", atilde: "Ã£", Auml: "Ã„", auml: "Ã¤", awconint: "ˆ³", awint: "¨‘", backcong: "‰Œ", backepsilon: "Ï¶", backprime: "€µ", backsim: "ˆ½", backsimeq: "‹", Backslash: "ˆ–", Barv: "«§", barvee: "Š½", barwed: "Œ…", Barwed: "Œ†", barwedge: "Œ…", bbrk: "Žµ", bbrktbrk: "Ž¶", bcong: "‰Œ", Bcy: "Ð‘", bcy: "Ð±", bdquo: "€ž", becaus: "ˆµ", because: "ˆµ", Because: "ˆµ", bemptyv: "¦°", bepsi: "Ï¶", bernou: "„¬", Bernoullis: "„¬", Beta: "Î’", beta: "Î²", beth: "„¶", between: "‰¬", Bfr: "ð”…", bfr: "ð”Ÿ", bigcap: "‹‚", bigcirc: "—¯", bigcup: "‹ƒ", bigodot: "¨€", bigoplus: "¨", bigotimes: "¨‚", bigsqcup: "¨†", bigstar: "˜…", bigtriangledown: "–½", bigtriangleup: "–³", biguplus: "¨„", bigvee: "‹", bigwedge: "‹€", bkarow: "¤", blacklozenge: "§«", blacksquare: "–ª", blacktriangle: "–´", blacktriangledown: "–¾", blacktriangleleft: "—‚", blacktriangleright: "–¸", blank: "£", blk12: "–’", blk14: "–‘", blk34: "–“", block: "–ˆ", bne: "=ƒ¥", bnequiv: "‰¡ƒ¥", bNot: "«­", bnot: "Œ", Bopf: "ð”¹", bopf: "ð•“", bot: "Š¥", bottom: "Š¥", bowtie: "‹ˆ", boxbox: "§‰", boxdl: "”", boxdL: "••", boxDl: "•–", boxDL: "•—", boxdr: "”Œ", boxdR: "•’", boxDr: "•“", boxDR: "•”", boxh: "”€", boxH: "•", boxhd: "”¬", boxHd: "•¤", boxhD: "•¥", boxHD: "•¦", boxhu: "”´", boxHu: "•§", boxhU: "•¨", boxHU: "•©", boxminus: "ŠŸ", boxplus: "Šž", boxtimes: "Š ", boxul: "”˜", boxuL: "•›", boxUl: "•œ", boxUL: "•", boxur: "””", boxuR: "•˜", boxUr: "•™", boxUR: "•š", boxv: "”‚", boxV: "•‘", boxvh: "”¼", boxvH: "•ª", boxVh: "•«", boxVH: "•¬", boxvl: "”¤", boxvL: "•¡", boxVl: "•¢", boxVL: "•£", boxvr: "”œ", boxvR: "•ž", boxVr: "•Ÿ", boxVR: "• ", bprime: "€µ", breve: "Ë˜", Breve: "Ë˜", brvbar: "¦", bscr: "ð’·", Bscr: "„¬", bsemi: "", bsim: "ˆ½", bsime: "‹", bsolb: "§…", bsol: "\\", bsolhsub: "Ÿˆ", bull: "€¢", bullet: "€¢", bump: "‰Ž", bumpE: "ª®", bumpe: "‰", Bumpeq: "‰Ž", bumpeq: "‰", Cacute: "Ä†", cacute: "Ä‡", capand: "©„", capbrcup: "©‰", capcap: "©‹", cap: "ˆ©", Cap: "‹’", capcup: "©‡", capdot: "©€", CapitalDifferentialD: "……", caps: "ˆ©ï¸€", caret: "", caron: "Ë‡", Cayleys: "„­", ccaps: "©", Ccaron: "ÄŒ", ccaron: "Ä", Ccedil: "Ã‡", ccedil: "Ã§", Ccirc: "Äˆ", ccirc: "Ä‰", Cconint: "ˆ°", ccups: "©Œ", ccupssm: "©", Cdot: "ÄŠ", cdot: "Ä‹", cedil: "¸", Cedilla: "¸", cemptyv: "¦²", cent: "¢", centerdot: "·", CenterDot: "·", cfr: "ð” ", Cfr: "„­", CHcy: "Ð§", chcy: "Ñ‡", check: "œ“", checkmark: "œ“", Chi: "Î§", chi: "Ï‡", circ: "Ë†", circeq: "‰—", circlearrowleft: "†º", circlearrowright: "†»", circledast: "Š›", circledcirc: "Šš", circleddash: "Š", CircleDot: "Š™", circledR: "®", circledS: "“ˆ", CircleMinus: "Š–", CirclePlus: "Š•", CircleTimes: "Š—", cir: "—‹", cirE: "§ƒ", cire: "‰—", cirfnint: "¨", cirmid: "«¯", cirscir: "§‚", ClockwiseContourIntegral: "ˆ²", CloseCurlyDoubleQuote: """, CloseCurlyQuote: "'", clubs: "™£", clubsuit: "™£", colon: ":", Colon: "ˆ·", Colone: "©´", colone: "‰”", coloneq: "‰”", comma: ",", commat: "@", comp: "ˆ", compfn: "ˆ˜", complement: "ˆ", complexes: "„‚", cong: "‰…", congdot: "©­", Congruent: "‰¡", conint: "ˆ®", Conint: "ˆ¯", ContourIntegral: "ˆ®", copf: "ð•”", Copf: "„‚", coprod: "ˆ", Coproduct: "ˆ", copy: "©", COPY: "©", copysr: "„—", CounterClockwiseContourIntegral: "ˆ³", crarr: "†µ", cross: "œ—", Cross: "¨¯", Cscr: "ð’ž", cscr: "ð’¸", csub: "«", csube: "«‘", csup: "«", csupe: "«’", ctdot: "‹¯", cudarrl: "¤¸", cudarrr: "¤µ", cuepr: "‹ž", cuesc: "‹Ÿ", cularr: "†¶", cularrp: "¤½", cupbrcap: "©ˆ", cupcap: "©†", CupCap: "‰", cup: "ˆª", Cup: "‹“", cupcup: "©Š", cupdot: "Š", cupor: "©…", cups: "ˆªï¸€", curarr: "†·", curarrm: "¤¼", curlyeqprec: "‹ž", curlyeqsucc: "‹Ÿ", curlyvee: "‹Ž", curlywedge: "‹", curren: "¤", curvearrowleft: "†¶", curvearrowright: "†·", cuvee: "‹Ž", cuwed: "‹", cwconint: "ˆ²", cwint: "ˆ±", cylcty: "Œ­", dagger: "€ ", Dagger: "€¡", daleth: "„¸", darr: "†“", Darr: "†¡", dArr: "‡“", dash: "€", Dashv: "«¤", dashv: "Š£", dbkarow: "¤", dblac: "Ë", Dcaron: "ÄŽ", dcaron: "Ä", Dcy: "Ð”", dcy: "Ð´", ddagger: "€¡", ddarr: "‡Š", DD: "……", dd: "…†", DDotrahd: "¤‘", ddotseq: "©·", deg: "°", Del: "ˆ‡", Delta: "Î”", delta: "Î´", demptyv: "¦±", dfisht: "¥¿", Dfr: "ð”‡", dfr: "ð”¡", dHar: "¥¥", dharl: "‡ƒ", dharr: "‡‚", DiacriticalAcute: "´", DiacriticalDot: "Ë™", DiacriticalDoubleAcute: "Ë", DiacriticalGrave: "`", DiacriticalTilde: "Ëœ", diam: "‹„", diamond: "‹„", Diamond: "‹„", diamondsuit: "™¦", diams: "™¦", die: "¨", DifferentialD: "…†", digamma: "Ï", disin: "‹²", div: "Ã·", divide: "Ã·", divideontimes: "‹‡", divonx: "‹‡", DJcy: "Ð‚", djcy: "Ñ’", dlcorn: "Œž", dlcrop: "Œ", dollar: "$", Dopf: "ð”»", dopf: "ð••", Dot: "¨", dot: "Ë™", DotDot: "ƒœ", doteq: "‰", doteqdot: "‰‘", DotEqual: "‰", dotminus: "ˆ¸", dotplus: "ˆ”", dotsquare: "Š¡", doublebarwedge: "Œ†", DoubleContourIntegral: "ˆ¯", DoubleDot: "¨", DoubleDownArrow: "‡“", DoubleLeftArrow: "‡", DoubleLeftRightArrow: "‡”", DoubleLeftTee: "«¤", DoubleLongLeftArrow: "Ÿ¸", DoubleLongLeftRightArrow: "Ÿº", DoubleLongRightArrow: "Ÿ¹", DoubleRightArrow: "‡’", DoubleRightTee: "Š¨", DoubleUpArrow: "‡‘", DoubleUpDownArrow: "‡•", DoubleVerticalBar: "ˆ¥", DownArrowBar: "¤“", downarrow: "†“", DownArrow: "†“", Downarrow: "‡“", DownArrowUpArrow: "‡µ", DownBreve: "Ì‘", downdownarrows: "‡Š", downharpoonleft: "‡ƒ", downharpoonright: "‡‚", DownLeftRightVector: "¥", DownLeftTeeVector: "¥ž", DownLeftVectorBar: "¥–", DownLeftVector: "†½", DownRightTeeVector: "¥Ÿ", DownRightVectorBar: "¥—", DownRightVector: "‡", DownTeeArrow: "†§", DownTee: "Š¤", drbkarow: "¤", drcorn: "ŒŸ", drcrop: "ŒŒ", Dscr: "ð’Ÿ", dscr: "ð’¹", DScy: "Ð…", dscy: "Ñ•", dsol: "§¶", Dstrok: "Ä", dstrok: "Ä‘", dtdot: "‹±", dtri: "–¿", dtrif: "–¾", duarr: "‡µ", duhar: "¥¯", dwangle: "¦¦", DZcy: "Ð", dzcy: "ÑŸ", dzigrarr: "Ÿ¿", Eacute: "Ã‰", eacute: "Ã©", easter: "©®", Ecaron: "Äš", ecaron: "Ä›", Ecirc: "ÃŠ", ecirc: "Ãª", ecir: "‰–", ecolon: "‰•", Ecy: "Ð­", ecy: "Ñ", eDDot: "©·", Edot: "Ä–", edot: "Ä—", eDot: "‰‘", ee: "…‡", efDot: "‰’", Efr: "ð”ˆ", efr: "ð”¢", eg: "ªš", Egrave: "Ãˆ", egrave: "Ã¨", egs: "ª–", egsdot: "ª˜", el: "ª™", Element: "ˆˆ", elinters: "§", ell: "„“", els: "ª•", elsdot: "ª—", Emacr: "Ä’", emacr: "Ä“", empty: "ˆ…", emptyset: "ˆ…", EmptySmallSquare: "—»", emptyv: "ˆ…", EmptyVerySmallSquare: "–«", emsp13: "€„", emsp14: "€…", emsp: "€ƒ", ENG: "ÅŠ", eng: "Å‹", ensp: "€‚", Eogon: "Ä˜", eogon: "Ä™", Eopf: "ð”¼", eopf: "ð•–", epar: "‹•", eparsl: "§£", eplus: "©±", epsi: "Îµ", Epsilon: "Î•", epsilon: "Îµ", epsiv: "Ïµ", eqcirc: "‰–", eqcolon: "‰•", eqsim: "‰‚", eqslantgtr: "ª–", eqslantless: "ª•", Equal: "©µ", equals: "=", EqualTilde: "‰‚", equest: "‰Ÿ", Equilibrium: "‡Œ", equiv: "‰¡", equivDD: "©¸", eqvparsl: "§¥", erarr: "¥±", erDot: "‰“", escr: "„¯", Escr: "„°", esdot: "‰", Esim: "©³", esim: "‰‚", Eta: "Î—", eta: "Î·", ETH: "Ã", eth: "Ã°", Euml: "Ã‹", euml: "Ã«", euro: "‚¬", excl: "!", exist: "ˆƒ", Exists: "ˆƒ", expectation: "„°", exponentiale: "…‡", ExponentialE: "…‡", fallingdotseq: "‰’", Fcy: "Ð¤", fcy: "Ñ„", female: "™€", ffilig: "ï¬ƒ", fflig: "ï¬€", ffllig: "ï¬„", Ffr: "ð”‰", ffr: "ð”£", filig: "ï¬", FilledSmallSquare: "—¼", FilledVerySmallSquare: "–ª", fjlig: "fj", flat: "™­", fllig: "ï¬‚", fltns: "–±", fnof: "Æ’", Fopf: "ð”½", fopf: "ð•—", forall: "ˆ€", ForAll: "ˆ€", fork: "‹”", forkv: "«™", Fouriertrf: "„±", fpartint: "¨", frac12: "½", frac13: "…“", frac14: "¼", frac15: "…•", frac16: "…™", frac18: "…›", frac23: "…”", frac25: "…–", frac34: "¾", frac35: "…—", frac38: "…œ", frac45: "…˜", frac56: "…š", frac58: "…", frac78: "…ž", frasl: "„", frown: "Œ¢", fscr: "ð’»", Fscr: "„±", gacute: "Çµ", Gamma: "Î“", gamma: "Î³", Gammad: "Ïœ", gammad: "Ï", gap: "ª†", Gbreve: "Äž", gbreve: "ÄŸ", Gcedil: "Ä¢", Gcirc: "Äœ", gcirc: "Ä", Gcy: "Ð“", gcy: "Ð³", Gdot: "Ä ", gdot: "Ä¡", ge: "‰¥", gE: "‰§", gEl: "ªŒ", gel: "‹›", geq: "‰¥", geqq: "‰§", geqslant: "©¾", gescc: "ª©", ges: "©¾", gesdot: "ª€", gesdoto: "ª‚", gesdotol: "ª„", gesl: "‹›ï¸€", gesles: "ª”", Gfr: "ð”Š", gfr: "ð”¤", gg: "‰«", Gg: "‹™", ggg: "‹™", gimel: "„·", GJcy: "Ðƒ", gjcy: "Ñ“", gla: "ª¥", gl: "‰·", glE: "ª’", glj: "ª¤", gnap: "ªŠ", gnapprox: "ªŠ", gne: "ªˆ", gnE: "‰©", gneq: "ªˆ", gneqq: "‰©", gnsim: "‹§", Gopf: "ð”¾", gopf: "ð•˜", grave: "`", GreaterEqual: "‰¥", GreaterEqualLess: "‹›", GreaterFullEqual: "‰§", GreaterGreater: "ª¢", GreaterLess: "‰·", GreaterSlantEqual: "©¾", GreaterTilde: "‰³", Gscr: "ð’¢", gscr: "„Š", gsim: "‰³", gsime: "ªŽ", gsiml: "ª", gtcc: "ª§", gtcir: "©º", gt: ">", GT: ">", Gt: "‰«", gtdot: "‹—", gtlPar: "¦•", gtquest: "©¼", gtrapprox: "ª†", gtrarr: "¥¸", gtrdot: "‹—", gtreqless: "‹›", gtreqqless: "ªŒ", gtrless: "‰·", gtrsim: "‰³", gvertneqq: "‰©ï¸€", gvnE: "‰©ï¸€", Hacek: "Ë‡", hairsp: "€Š", half: "½", hamilt: "„‹", HARDcy: "Ðª", hardcy: "ÑŠ", harrcir: "¥ˆ", harr: "†”", hArr: "‡”", harrw: "†­", Hat: "^", hbar: "„", Hcirc: "Ä¤", hcirc: "Ä¥", hearts: "™¥", heartsuit: "™¥", hellip: "€¦", hercon: "Š¹", hfr: "ð”¥", Hfr: "„Œ", HilbertSpace: "„‹", hksearow: "¤¥", hkswarow: "¤¦", hoarr: "‡¿", homtht: "ˆ»", hookleftarrow: "†©", hookrightarrow: "†ª", hopf: "ð•™", Hopf: "„", horbar: "€•", HorizontalLine: "”€", hscr: "ð’½", Hscr: "„‹", hslash: "„", Hstrok: "Ä¦", hstrok: "Ä§", HumpDownHump: "‰Ž", HumpEqual: "‰", hybull: "ƒ", hyphen: "€", Iacute: "Ã", iacute: "Ã­", ic: "\u2063", Icirc: "ÃŽ", icirc: "Ã®", Icy: "Ð˜", icy: "Ð¸", Idot: "Ä°", IEcy: "Ð•", iecy: "Ðµ", iexcl: "¡", iff: "‡”", ifr: "ð”¦", Ifr: "„‘", Igrave: "ÃŒ", igrave: "Ã¬", ii: "…ˆ", iiiint: "¨Œ", iiint: "ˆ­", iinfin: "§œ", iiota: "„©", IJlig: "Ä²", ijlig: "Ä³", Imacr: "Äª", imacr: "Ä«", image: "„‘", ImaginaryI: "…ˆ", imagline: "„", imagpart: "„‘", imath: "Ä±", Im: "„‘", imof: "Š·", imped: "Æµ", Implies: "‡’", incare: "„…", in: "ˆˆ", infin: "ˆž", infintie: "§", inodot: "Ä±", intcal: "Šº", int: "ˆ«", Int: "ˆ¬", integers: "„¤", Integral: "ˆ«", intercal: "Šº", Intersection: "‹‚", intlarhk: "¨—", intprod: "¨¼", InvisibleComma: "\u2063", InvisibleTimes: "\u2062", IOcy: "Ð", iocy: "Ñ‘", Iogon: "Ä®", iogon: "Ä¯", Iopf: "ð•€", iopf: "ð•š", Iota: "Î™", iota: "Î¹", iprod: "¨¼", iquest: "¿", iscr: "ð’¾", Iscr: "„", isin: "ˆˆ", isindot: "‹µ", isinE: "‹¹", isins: "‹´", isinsv: "‹³", isinv: "ˆˆ", it: "\u2062", Itilde: "Ä¨", itilde: "Ä©", Iukcy: "Ð†", iukcy: "Ñ–", Iuml: "Ã", iuml: "Ã¯", Jcirc: "Ä´", jcirc: "Äµ", Jcy: "Ð™", jcy: "Ð¹", Jfr: "ð”", jfr: "ð”§", jmath: "È·", Jopf: "ð•", jopf: "ð•›", Jscr: "ð’¥", jscr: "ð’¿", Jsercy: "Ðˆ", jsercy: "Ñ˜", Jukcy: "Ð„", jukcy: "Ñ”", Kappa: "Îš", kappa: "Îº", kappav: "Ï°", Kcedil: "Ä¶", kcedil: "Ä·", Kcy: "Ðš", kcy: "Ðº", Kfr: "ð”Ž", kfr: "ð”¨", kgreen: "Ä¸", KHcy: "Ð¥", khcy: "Ñ…", KJcy: "ÐŒ", kjcy: "Ñœ", Kopf: "ð•‚", kopf: "ð•œ", Kscr: "ð’¦", kscr: "ð“€", lAarr: "‡š", Lacute: "Ä¹", lacute: "Äº", laemptyv: "¦´", lagran: "„’", Lambda: "Î›", lambda: "Î»", lang: "Ÿ¨", Lang: "Ÿª", langd: "¦‘", langle: "Ÿ¨", lap: "ª…", Laplacetrf: "„’", laquo: "«", larrb: "‡¤", larrbfs: "¤Ÿ", larr: "†", Larr: "†ž", lArr: "‡", larrfs: "¤", larrhk: "†©", larrlp: "†«", larrpl: "¤¹", larrsim: "¥³", larrtl: "†¢", latail: "¤™", lAtail: "¤›", lat: "ª«", late: "ª­", lates: "ª­ï¸€", lbarr: "¤Œ", lBarr: "¤Ž", lbbrk: "²", lbrace: "{", lbrack: "[", lbrke: "¦‹", lbrksld: "¦", lbrkslu: "¦", Lcaron: "Ä½", lcaron: "Ä¾", Lcedil: "Ä»", lcedil: "Ä¼", lceil: "Œˆ", lcub: "{", Lcy: "Ð›", lcy: "Ð»", ldca: "¤¶", ldquo: """, ldquor: "€ž", ldrdhar: "¥§", ldrushar: "¥‹", ldsh: "†²", le: "‰¤", lE: "‰¦", LeftAngleBracket: "Ÿ¨", LeftArrowBar: "‡¤", leftarrow: "†", LeftArrow: "†", Leftarrow: "‡", LeftArrowRightArrow: "‡†", leftarrowtail: "†¢", LeftCeiling: "Œˆ", LeftDoubleBracket: "Ÿ¦", LeftDownTeeVector: "¥¡", LeftDownVectorBar: "¥™", LeftDownVector: "‡ƒ", LeftFloor: "ŒŠ", leftharpoondown: "†½", leftharpoonup: "†¼", leftleftarrows: "‡‡", leftrightarrow: "†”", LeftRightArrow: "†”", Leftrightarrow: "‡”", leftrightarrows: "‡†", leftrightharpoons: "‡‹", leftrightsquigarrow: "†­", LeftRightVector: "¥Ž", LeftTeeArrow: "†¤", LeftTee: "Š£", LeftTeeVector: "¥š", leftthreetimes: "‹‹", LeftTriangleBar: "§", LeftTriangle: "Š²", LeftTriangleEqual: "Š´", LeftUpDownVector: "¥‘", LeftUpTeeVector: "¥ ", LeftUpVectorBar: "¥˜", LeftUpVector: "†¿", LeftVectorBar: "¥’", LeftVector: "†¼", lEg: "ª‹", leg: "‹š", leq: "‰¤", leqq: "‰¦", leqslant: "©½", lescc: "ª¨", les: "©½", lesdot: "©¿", lesdoto: "ª", lesdotor: "ªƒ", lesg: "‹šï¸€", lesges: "ª“", lessapprox: "ª…", lessdot: "‹–", lesseqgtr: "‹š", lesseqqgtr: "ª‹", LessEqualGreater: "‹š", LessFullEqual: "‰¦", LessGreater: "‰¶", lessgtr: "‰¶", LessLess: "ª¡", lesssim: "‰²", LessSlantEqual: "©½", LessTilde: "‰²", lfisht: "¥¼", lfloor: "ŒŠ", Lfr: "ð”", lfr: "ð”©", lg: "‰¶", lgE: "ª‘", lHar: "¥¢", lhard: "†½", lharu: "†¼", lharul: "¥ª", lhblk: "–„", LJcy: "Ð‰", ljcy: "Ñ™", llarr: "‡‡", ll: "‰ª", Ll: "‹˜", llcorner: "Œž", Lleftarrow: "‡š", llhard: "¥«", lltri: "—º", Lmidot: "Ä¿", lmidot: "Å€", lmoustache: "Ž°", lmoust: "Ž°", lnap: "ª‰", lnapprox: "ª‰", lne: "ª‡", lnE: "‰¨", lneq: "ª‡", lneqq: "‰¨", lnsim: "‹¦", loang: "Ÿ¬", loarr: "‡½", lobrk: "Ÿ¦", longleftarrow: "Ÿµ", LongLeftArrow: "Ÿµ", Longleftarrow: "Ÿ¸", longleftrightarrow: "Ÿ·", LongLeftRightArrow: "Ÿ·", Longleftrightarrow: "Ÿº", longmapsto: "Ÿ¼", longrightarrow: "Ÿ¶", LongRightArrow: "Ÿ¶", Longrightarrow: "Ÿ¹", looparrowleft: "†«", looparrowright: "†¬", lopar: "¦…", Lopf: "ð•ƒ", lopf: "ð•", loplus: "¨­", lotimes: "¨´", lowast: "ˆ—", lowbar: "_", LowerLeftArrow: "†™", LowerRightArrow: "†˜", loz: "—Š", lozenge: "—Š", lozf: "§«", lpar: "(", lparlt: "¦“", lrarr: "‡†", lrcorner: "ŒŸ", lrhar: "‡‹", lrhard: "¥­", lrm: "\u200e", lrtri: "Š¿", lsaquo: "€¹", lscr: "ð“", Lscr: "„’", lsh: "†°", Lsh: "†°", lsim: "‰²", lsime: "ª", lsimg: "ª", lsqb: "[", lsquo: "€˜", lsquor: "€š", Lstrok: "Å", lstrok: "Å‚", ltcc: "ª¦", ltcir: "©¹", lt: "<", LT: "<", Lt: "‰ª", ltdot: "‹–", lthree: "‹‹", ltimes: "‹‰", ltlarr: "¥¶", ltquest: "©»", ltri: "—ƒ", ltrie: "Š´", ltrif: "—‚", ltrPar: "¦–", lurdshar: "¥Š", luruhar: "¥¦", lvertneqq: "‰¨ï¸€", lvnE: "‰¨ï¸€", macr: "¯", male: "™‚", malt: "œ ", maltese: "œ ", Map: "¤…", map: "†¦", mapsto: "†¦", mapstodown: "†§", mapstoleft: "†¤", mapstoup: "†¥", marker: "–®", mcomma: "¨©", Mcy: "Ðœ", mcy: "Ð¼", mdash: "-", mDDot: "ˆº", measuredangle: "ˆ¡", MediumSpace: "Ÿ", Mellintrf: "„³", Mfr: "ð”", mfr: "ð”ª", mho: "„§", micro: "µ", midast: "*", midcir: "«°", mid: "ˆ£", middot: "·", minusb: "ŠŸ", minus: "ˆ’", minusd: "ˆ¸", minusdu: "¨ª", MinusPlus: "ˆ“", mlcp: "«›", mldr: "€¦", mnplus: "ˆ“", models: "Š§", Mopf: "ð•„", mopf: "ð•ž", mp: "ˆ“", mscr: "ð“‚", Mscr: "„³", mstpos: "ˆ¾", Mu: "Îœ", mu: "Î¼", multimap: "Š¸", mumap: "Š¸", nabla: "ˆ‡", Nacute: "Åƒ", nacute: "Å„", nang: "ˆ ƒ’", nap: "‰‰", napE: "©°Ì¸", napid: "‰‹Ì¸", napos: "Å‰", napprox: "‰‰", natural: "™®", naturals: "„•", natur: "™®", nbsp: " ", nbump: "‰ŽÌ¸", nbumpe: "‰Ì¸", ncap: "©ƒ", Ncaron: "Å‡", ncaron: "Åˆ", Ncedil: "Å…", ncedil: "Å†", ncong: "‰‡", ncongdot: "©­Ì¸", ncup: "©‚", Ncy: "Ð", ncy: "Ð½", ndash: "-", nearhk: "¤¤", nearr: "†—", neArr: "‡—", nearrow: "†—", ne: "‰ ", nedot: "‰Ì¸", NegativeMediumSpace: "€‹", NegativeThickSpace: "€‹", NegativeThinSpace: "€‹", NegativeVeryThinSpace: "€‹", nequiv: "‰¢", nesear: "¤¨", nesim: "‰‚Ì¸", NestedGreaterGreater: "‰«", NestedLessLess: "‰ª", NewLine: "\u000a", nexist: "ˆ„", nexists: "ˆ„", Nfr: "ð”‘", nfr: "ð”«", ngE: "‰§Ì¸", nge: "‰±", ngeq: "‰±", ngeqq: "‰§Ì¸", ngeqslant: "©¾Ì¸", nges: "©¾Ì¸", nGg: "‹™Ì¸", ngsim: "‰µ", nGt: "‰«ƒ’", ngt: "‰¯", ngtr: "‰¯", nGtv: "‰«Ì¸", nharr: "†®", nhArr: "‡Ž", nhpar: "«²", ni: "ˆ‹", nis: "‹¼", nisd: "‹º", niv: "ˆ‹", NJcy: "ÐŠ", njcy: "Ñš", nlarr: "†š", nlArr: "‡", nldr: "€¥", nlE: "‰¦Ì¸", nle: "‰°", nleftarrow: "†š", nLeftarrow: "‡", nleftrightarrow: "†®", nLeftrightarrow: "‡Ž", nleq: "‰°", nleqq: "‰¦Ì¸", nleqslant: "©½Ì¸", nles: "©½Ì¸", nless: "‰®", nLl: "‹˜Ì¸", nlsim: "‰´", nLt: "‰ªƒ’", nlt: "‰®", nltri: "‹ª", nltrie: "‹¬", nLtv: "‰ªÌ¸", nmid: "ˆ¤", NoBreak: "\u2060", NonBreakingSpace: " ", nopf: "ð•Ÿ", Nopf: "„•", Not: "«¬", not: "¬", NotCongruent: "‰¢", NotCupCap: "‰­", NotDoubleVerticalBar: "ˆ¦", NotElement: "ˆ‰", NotEqual: "‰ ", NotEqualTilde: "‰‚Ì¸", NotExists: "ˆ„", NotGreater: "‰¯", NotGreaterEqual: "‰±", NotGreaterFullEqual: "‰§Ì¸", NotGreaterGreater: "‰«Ì¸", NotGreaterLess: "‰¹", NotGreaterSlantEqual: "©¾Ì¸", NotGreaterTilde: "‰µ", NotHumpDownHump: "‰ŽÌ¸", NotHumpEqual: "‰Ì¸", notin: "ˆ‰", notindot: "‹µÌ¸", notinE: "‹¹Ì¸", notinva: "ˆ‰", notinvb: "‹·", notinvc: "‹¶", NotLeftTriangleBar: "§Ì¸", NotLeftTriangle: "‹ª", NotLeftTriangleEqual: "‹¬", NotLess: "‰®", NotLessEqual: "‰°", NotLessGreater: "‰¸", NotLessLess: "‰ªÌ¸", NotLessSlantEqual: "©½Ì¸", NotLessTilde: "‰´", NotNestedGreaterGreater: "ª¢Ì¸", NotNestedLessLess: "ª¡Ì¸", notni: "ˆŒ", notniva: "ˆŒ", notnivb: "‹¾", notnivc: "‹½", NotPrecedes: "Š€", NotPrecedesEqual: "ª¯Ì¸", NotPrecedesSlantEqual: "‹ ", NotReverseElement: "ˆŒ", NotRightTriangleBar: "§Ì¸", NotRightTriangle: "‹«", NotRightTriangleEqual: "‹­", NotSquareSubset: "ŠÌ¸", NotSquareSubsetEqual: "‹¢", NotSquareSuperset: "ŠÌ¸", NotSquareSupersetEqual: "‹£", NotSubset: "Š‚ƒ’", NotSubsetEqual: "Šˆ", NotSucceeds: "Š", NotSucceedsEqual: "ª°Ì¸", NotSucceedsSlantEqual: "‹¡", NotSucceedsTilde: "‰¿Ì¸", NotSuperset: "Šƒƒ’", NotSupersetEqual: "Š‰", NotTilde: "‰", NotTildeEqual: "‰„", NotTildeFullEqual: "‰‡", NotTildeTilde: "‰‰", NotVerticalBar: "ˆ¤", nparallel: "ˆ¦", npar: "ˆ¦", nparsl: "«½ƒ¥", npart: "ˆ‚Ì¸", npolint: "¨”", npr: "Š€", nprcue: "‹ ", nprec: "Š€", npreceq: "ª¯Ì¸", npre: "ª¯Ì¸", nrarrc: "¤³Ì¸", nrarr: "†›", nrArr: "‡", nrarrw: "†Ì¸", nrightarrow: "†›", nRightarrow: "‡", nrtri: "‹«", nrtrie: "‹­", nsc: "Š", nsccue: "‹¡", nsce: "ª°Ì¸", Nscr: "ð’©", nscr: "ð“ƒ", nshortmid: "ˆ¤", nshortparallel: "ˆ¦", nsim: "‰", nsime: "‰„", nsimeq: "‰„", nsmid: "ˆ¤", nspar: "ˆ¦", nsqsube: "‹¢", nsqsupe: "‹£", nsub: "Š„", nsubE: "«…Ì¸", nsube: "Šˆ", nsubset: "Š‚ƒ’", nsubseteq: "Šˆ", nsubseteqq: "«…Ì¸", nsucc: "Š", nsucceq: "ª°Ì¸", nsup: "Š…", nsupE: "«†Ì¸", nsupe: "Š‰", nsupset: "Šƒƒ’", nsupseteq: "Š‰", nsupseteqq: "«†Ì¸", ntgl: "‰¹", Ntilde: "Ã‘", ntilde: "Ã±", ntlg: "‰¸", ntriangleleft: "‹ª", ntrianglelefteq: "‹¬", ntriangleright: "‹«", ntrianglerighteq: "‹­", Nu: "Î", nu: "Î½", num: "#", numero: "„–", numsp: "€‡", nvap: "‰ƒ’", nvdash: "Š¬", nvDash: "Š­", nVdash: "Š®", nVDash: "Š¯", nvge: "‰¥ƒ’", nvgt: ">ƒ’", nvHarr: "¤„", nvinfin: "§ž", nvlArr: "¤‚", nvle: "‰¤ƒ’", nvlt: "<ƒ’", nvltrie: "Š´ƒ’", nvrArr: "¤ƒ", nvrtrie: "Šµƒ’", nvsim: "ˆ¼ƒ’", nwarhk: "¤£", nwarr: "†–", nwArr: "‡–", nwarrow: "†–", nwnear: "¤§", Oacute: "Ã“", oacute: "Ã³", oast: "Š›", Ocirc: "Ã”", ocirc: "Ã´", ocir: "Šš", Ocy: "Ðž", ocy: "Ð¾", odash: "Š", Odblac: "Å", odblac: "Å‘", odiv: "¨¸", odot: "Š™", odsold: "¦¼", OElig: "Å’", oelig: "Å“", ofcir: "¦¿", Ofr: "ð”’", ofr: "ð”¬", ogon: "Ë›", Ograve: "Ã’", ograve: "Ã²", ogt: "§", ohbar: "¦µ", ohm: "Î©", oint: "ˆ®", olarr: "†º", olcir: "¦¾", olcross: "¦»", oline: "€¾", olt: "§€", Omacr: "ÅŒ", omacr: "Å", Omega: "Î©", omega: "Ï‰", Omicron: "ÎŸ", omicron: "Î¿", omid: "¦¶", ominus: "Š–", Oopf: "ð•†", oopf: "ð• ", opar: "¦·", OpenCurlyDoubleQuote: """, OpenCurlyQuote: "€˜", operp: "¦¹", oplus: "Š•", orarr: "†»", Or: "©”", or: "ˆ¨", ord: "©", order: "„´", orderof: "„´", ordf: "ª", ordm: "º", origof: "Š¶", oror: "©–", orslope: "©—", orv: "©›", oS: "“ˆ", Oscr: "ð’ª", oscr: "„´", Oslash: "Ã˜", oslash: "Ã¸", osol: "Š˜", Otilde: "Ã•", otilde: "Ãµ", otimesas: "¨¶", Otimes: "¨·", otimes: "Š—", Ouml: "Ã–", ouml: "Ã¶", ovbar: "Œ½", OverBar: "€¾", OverBrace: "ž", OverBracket: "Ž´", OverParenthesis: "œ", para: "¶", parallel: "ˆ¥", par: "ˆ¥", parsim: "«³", parsl: "«½", part: "ˆ‚", PartialD: "ˆ‚", Pcy: "ÐŸ", pcy: "Ð¿", percnt: "%", period: ".", permil: "€°", perp: "Š¥", pertenk: "€±", Pfr: "ð”“", pfr: "ð”­", Phi: "Î¦", phi: "Ï†", phiv: "Ï•", phmmat: "„³", phone: "˜Ž", Pi: "Î ", pi: "Ï€", pitchfork: "‹”", piv: "Ï–", planck: "„", planckh: "„Ž", plankv: "„", plusacir: "¨£", plusb: "Šž", pluscir: "¨¢", plus: "+", plusdo: "ˆ”", plusdu: "¨¥", pluse: "©²", PlusMinus: "±", plusmn: "±", plussim: "¨¦", plustwo: "¨§", pm: "±", Poincareplane: "„Œ", pointint: "¨•", popf: "ð•¡", Popf: "„™", pound: "£", prap: "ª·", Pr: "ª»", pr: "‰º", prcue: "‰¼", precapprox: "ª·", prec: "‰º", preccurlyeq: "‰¼", Precedes: "‰º", PrecedesEqual: "ª¯", PrecedesSlantEqual: "‰¼", PrecedesTilde: "‰¾", preceq: "ª¯", precnapprox: "ª¹", precneqq: "ªµ", precnsim: "‹¨", pre: "ª¯", prE: "ª³", precsim: "‰¾", prime: "€²", Prime: "€³", primes: "„™", prnap: "ª¹", prnE: "ªµ", prnsim: "‹¨", prod: "ˆ", Product: "ˆ", profalar: "Œ®", profline: "Œ’", profsurf: "Œ“", prop: "ˆ", Proportional: "ˆ", Proportion: "ˆ·", propto: "ˆ", prsim: "‰¾", prurel: "Š°", Pscr: "ð’«", pscr: "ð“…", Psi: "Î¨", psi: "Ïˆ", puncsp: "€ˆ", Qfr: "ð””", qfr: "ð”®", qint: "¨Œ", qopf: "ð•¢", Qopf: "„š", qprime: "—", Qscr: "ð’¬", qscr: "ð“†", quaternions: "„", quatint: "¨–", quest: "?", questeq: "‰Ÿ", quot: "\"", QUOT: "\"", rAarr: "‡›", race: "ˆ½Ì±", Racute: "Å”", racute: "Å•", radic: "ˆš", raemptyv: "¦³", rang: "Ÿ©", Rang: "Ÿ«", rangd: "¦’", range: "¦¥", rangle: "Ÿ©", raquo: "»", rarrap: "¥µ", rarrb: "‡¥", rarrbfs: "¤ ", rarrc: "¤³", rarr: "†’", Rarr: "† ", rArr: "‡’", rarrfs: "¤ž", rarrhk: "†ª", rarrlp: "†¬", rarrpl: "¥…", rarrsim: "¥´", Rarrtl: "¤–", rarrtl: "†£", rarrw: "†", ratail: "¤š", rAtail: "¤œ", ratio: "ˆ¶", rationals: "„š", rbarr: "¤", rBarr: "¤", RBarr: "¤", rbbrk: "³", rbrace: "}", rbrack: "]", rbrke: "¦Œ", rbrksld: "¦Ž", rbrkslu: "¦", Rcaron: "Å˜", rcaron: "Å™", Rcedil: "Å–", rcedil: "Å—", rceil: "Œ‰", rcub: "}", Rcy: "Ð ", rcy: "Ñ€", rdca: "¤·", rdldhar: "¥©", rdquo: """, rdquor: """, rdsh: "†³", real: "„œ", realine: "„›", realpart: "„œ", reals: "„", Re: "„œ", rect: "–­", reg: "®", REG: "®", ReverseElement: "ˆ‹", ReverseEquilibrium: "‡‹", ReverseUpEquilibrium: "¥¯", rfisht: "¥½", rfloor: "Œ‹", rfr: "ð”¯", Rfr: "„œ", rHar: "¥¤", rhard: "‡", rharu: "‡€", rharul: "¥¬", Rho: "Î¡", rho: "Ï", rhov: "Ï±", RightAngleBracket: "Ÿ©", RightArrowBar: "‡¥", rightarrow: "†’", RightArrow: "†’", Rightarrow: "‡’", RightArrowLeftArrow: "‡„", rightarrowtail: "†£", RightCeiling: "Œ‰", RightDoubleBracket: "Ÿ§", RightDownTeeVector: "¥", RightDownVectorBar: "¥•", RightDownVector: "‡‚", RightFloor: "Œ‹", rightharpoondown: "‡", rightharpoonup: "‡€", rightleftarrows: "‡„", rightleftharpoons: "‡Œ", rightrightarrows: "‡‰", rightsquigarrow: "†", RightTeeArrow: "†¦", RightTee: "Š¢", RightTeeVector: "¥›", rightthreetimes: "‹Œ", RightTriangleBar: "§", RightTriangle: "Š³", RightTriangleEqual: "Šµ", RightUpDownVector: "¥", RightUpTeeVector: "¥œ", RightUpVectorBar: "¥”", RightUpVector: "†¾", RightVectorBar: "¥“", RightVector: "‡€", ring: "Ëš", risingdotseq: "‰“", rlarr: "‡„", rlhar: "‡Œ", rlm: "\u200f", rmoustache: "Ž±", rmoust: "Ž±", rnmid: "«®", roang: "Ÿ­", roarr: "‡¾", robrk: "Ÿ§", ropar: "¦†", ropf: "ð•£", Ropf: "„", roplus: "¨®", rotimes: "¨µ", RoundImplies: "¥°", rpar: ")", rpargt: "¦”", rppolint: "¨’", rrarr: "‡‰", Rrightarrow: "‡›", rsaquo: "€º", rscr: "ð“‡", Rscr: "„›", rsh: "†±", Rsh: "†±", rsqb: "]", rsquo: "'", rsquor: "'", rthree: "‹Œ", rtimes: "‹Š", rtri: "–¹", rtrie: "Šµ", rtrif: "–¸", rtriltri: "§Ž", RuleDelayed: "§´", ruluhar: "¥¨", rx: "„ž", Sacute: "Åš", sacute: "Å›", sbquo: "€š", scap: "ª¸", Scaron: "Å ", scaron: "Å¡", Sc: "ª¼", sc: "‰»", sccue: "‰½", sce: "ª°", scE: "ª´", Scedil: "Åž", scedil: "ÅŸ", Scirc: "Åœ", scirc: "Å", scnap: "ªº", scnE: "ª¶", scnsim: "‹©", scpolint: "¨“", scsim: "‰¿", Scy: "Ð¡", scy: "Ñ", sdotb: "Š¡", sdot: "‹…", sdote: "©¦", searhk: "¤¥", searr: "†˜", seArr: "‡˜", searrow: "†˜", sect: "§", semi: ";", seswar: "¤©", setminus: "ˆ–", setmn: "ˆ–", sext: "œ¶", Sfr: "ð”–", sfr: "ð”°", sfrown: "Œ¢", sharp: "™¯", SHCHcy: "Ð©", shchcy: "Ñ‰", SHcy: "Ð¨", shcy: "Ñˆ", ShortDownArrow: "†“", ShortLeftArrow: "†", shortmid: "ˆ£", shortparallel: "ˆ¥", ShortRightArrow: "†’", ShortUpArrow: "†‘", shy: "\u00ad", Sigma: "Î£", sigma: "Ïƒ", sigmaf: "Ï‚", sigmav: "Ï‚", sim: "ˆ¼", simdot: "©ª", sime: "‰ƒ", simeq: "‰ƒ", simg: "ªž", simgE: "ª ", siml: "ª", simlE: "ªŸ", simne: "‰†", simplus: "¨¤", simrarr: "¥²", slarr: "†", SmallCircle: "ˆ˜", smallsetminus: "ˆ–", smashp: "¨³", smeparsl: "§¤", smid: "ˆ£", smile: "Œ£", smt: "ªª", smte: "ª¬", smtes: "ª¬ï¸€", SOFTcy: "Ð¬", softcy: "ÑŒ", solbar: "Œ¿", solb: "§„", sol: "/", Sopf: "ð•Š", sopf: "ð•¤", spades: "™ ", spadesuit: "™ ", spar: "ˆ¥", sqcap: "Š“", sqcaps: "Š“ï¸€", sqcup: "Š”", sqcups: "Š”ï¸€", Sqrt: "ˆš", sqsub: "Š", sqsube: "Š‘", sqsubset: "Š", sqsubseteq: "Š‘", sqsup: "Š", sqsupe: "Š’", sqsupset: "Š", sqsupseteq: "Š’", square: "–¡", Square: "–¡", SquareIntersection: "Š“", SquareSubset: "Š", SquareSubsetEqual: "Š‘", SquareSuperset: "Š", SquareSupersetEqual: "Š’", SquareUnion: "Š”", squarf: "–ª", squ: "–¡", squf: "–ª", srarr: "†’", Sscr: "ð’®", sscr: "ð“ˆ", ssetmn: "ˆ–", ssmile: "Œ£", sstarf: "‹†", Star: "‹†", star: "˜†", starf: "˜…", straightepsilon: "Ïµ", straightphi: "Ï•", strns: "¯", sub: "Š‚", Sub: "‹", subdot: "ª½", subE: "«…", sube: "Š†", subedot: "«ƒ", submult: "«", subnE: "«‹", subne: "ŠŠ", subplus: "ª¿", subrarr: "¥¹", subset: "Š‚", Subset: "‹", subseteq: "Š†", subseteqq: "«…", SubsetEqual: "Š†", subsetneq: "ŠŠ", subsetneqq: "«‹", subsim: "«‡", subsub: "«•", subsup: "«“", succapprox: "ª¸", succ: "‰»", succcurlyeq: "‰½", Succeeds: "‰»", SucceedsEqual: "ª°", SucceedsSlantEqual: "‰½", SucceedsTilde: "‰¿", succeq: "ª°", succnapprox: "ªº", succneqq: "ª¶", succnsim: "‹©", succsim: "‰¿", SuchThat: "ˆ‹", sum: "ˆ‘", Sum: "ˆ‘", sung: "™ª", sup1: "¹", sup2: "²", sup3: "³", sup: "Šƒ", Sup: "‹‘", supdot: "ª¾", supdsub: "«˜", supE: "«†", supe: "Š‡", supedot: "«„", Superset: "Šƒ", SupersetEqual: "Š‡", suphsol: "Ÿ‰", suphsub: "«—", suplarr: "¥»", supmult: "«‚", supnE: "«Œ", supne: "Š‹", supplus: "«€", supset: "Šƒ", Supset: "‹‘", supseteq: "Š‡", supseteqq: "«†", supsetneq: "Š‹", supsetneqq: "«Œ", supsim: "«ˆ", supsub: "«”", supsup: "«–", swarhk: "¤¦", swarr: "†™", swArr: "‡™", swarrow: "†™", swnwar: "¤ª", szlig: "ÃŸ", Tab: "\u0009", target: "Œ–", Tau: "Î¤", tau: "Ï„", tbrk: "Ž´", Tcaron: "Å¤", tcaron: "Å¥", Tcedil: "Å¢", tcedil: "Å£", Tcy: "Ð¢", tcy: "Ñ‚", tdot: "ƒ›", telrec: "Œ•", Tfr: "ð”—", tfr: "ð”±", there4: "ˆ´", therefore: "ˆ´", Therefore: "ˆ´", Theta: "Î˜", theta: "Î¸", thetasym: "Ï‘", thetav: "Ï‘", thickapprox: "‰ˆ", thicksim: "ˆ¼", ThickSpace: "Ÿ€Š", ThinSpace: "€‰", thinsp: "€‰", thkap: "‰ˆ", thksim: "ˆ¼", THORN: "Ãž", thorn: "Ã¾", tilde: "Ëœ", Tilde: "ˆ¼", TildeEqual: "‰ƒ", TildeFullEqual: "‰…", TildeTilde: "‰ˆ", timesbar: "¨±", timesb: "Š ", times: "Ã—", timesd: "¨°", tint: "ˆ­", toea: "¤¨", topbot: "Œ¶", topcir: "«±", top: "Š¤", Topf: "ð•‹", topf: "ð•¥", topfork: "«š", tosa: "¤©", tprime: "€´", trade: "„¢", TRADE: "„¢", triangle: "–µ", triangledown: "–¿", triangleleft: "—ƒ", trianglelefteq: "Š´", triangleq: "‰œ", triangleright: "–¹", trianglerighteq: "Šµ", tridot: "—¬", trie: "‰œ", triminus: "¨º", TripleDot: "ƒ›", triplus: "¨¹", trisb: "§", tritime: "¨»", trpezium: "¢", Tscr: "ð’¯", tscr: "ð“‰", TScy: "Ð¦", tscy: "Ñ†", TSHcy: "Ð‹", tshcy: "Ñ›", Tstrok: "Å¦", tstrok: "Å§", twixt: "‰¬", twoheadleftarrow: "†ž", twoheadrightarrow: "† ", Uacute: "Ãš", uacute: "Ãº", uarr: "†‘", Uarr: "†Ÿ", uArr: "‡‘", Uarrocir: "¥‰", Ubrcy: "ÐŽ", ubrcy: "Ñž", Ubreve: "Å¬", ubreve: "Å­", Ucirc: "Ã›", ucirc: "Ã»", Ucy: "Ð£", ucy: "Ñƒ", udarr: "‡…", Udblac: "Å°", udblac: "Å±", udhar: "¥®", ufisht: "¥¾", Ufr: "ð”˜", ufr: "ð”²", Ugrave: "Ã™", ugrave: "Ã¹", uHar: "¥£", uharl: "†¿", uharr: "†¾", uhblk: "–€", ulcorn: "Œœ", ulcorner: "Œœ", ulcrop: "Œ", ultri: "—¸", Umacr: "Åª", umacr: "Å«", uml: "¨", UnderBar: "_", UnderBrace: "Ÿ", UnderBracket: "Žµ", UnderParenthesis: "", Union: "‹ƒ", UnionPlus: "ŠŽ", Uogon: "Å²", uogon: "Å³", Uopf: "ð•Œ", uopf: "ð•¦", UpArrowBar: "¤’", uparrow: "†‘", UpArrow: "†‘", Uparrow: "‡‘", UpArrowDownArrow: "‡…", updownarrow: "†•", UpDownArrow: "†•", Updownarrow: "‡•", UpEquilibrium: "¥®", upharpoonleft: "†¿", upharpoonright: "†¾", uplus: "ŠŽ", UpperLeftArrow: "†–", UpperRightArrow: "†—", upsi: "Ï…", Upsi: "Ï’", upsih: "Ï’", Upsilon: "Î¥", upsilon: "Ï…", UpTeeArrow: "†¥", UpTee: "Š¥", upuparrows: "‡ˆ", urcorn: "Œ", urcorner: "Œ", urcrop: "ŒŽ", Uring: "Å®", uring: "Å¯", urtri: "—¹", Uscr: "ð’°", uscr: "ð“Š", utdot: "‹°", Utilde: "Å¨", utilde: "Å©", utri: "–µ", utrif: "–´", uuarr: "‡ˆ", Uuml: "Ãœ", uuml: "Ã¼", uwangle: "¦§", vangrt: "¦œ", varepsilon: "Ïµ", varkappa: "Ï°", varnothing: "ˆ…", varphi: "Ï•", varpi: "Ï–", varpropto: "ˆ", varr: "†•", vArr: "‡•", varrho: "Ï±", varsigma: "Ï‚", varsubsetneq: "ŠŠï¸€", varsubsetneqq: "«‹ï¸€", varsupsetneq: "Š‹ï¸€", varsupsetneqq: "«Œï¸€", vartheta: "Ï‘", vartriangleleft: "Š²", vartriangleright: "Š³", vBar: "«¨", Vbar: "««", vBarv: "«©", Vcy: "Ð’", vcy: "Ð²", vdash: "Š¢", vDash: "Š¨", Vdash: "Š©", VDash: "Š«", Vdashl: "«¦", veebar: "Š»", vee: "ˆ¨", Vee: "‹", veeeq: "‰š", vellip: "‹®", verbar: "|", Verbar: "€–", vert: "|", Vert: "€–", VerticalBar: "ˆ£", VerticalLine: "|", VerticalSeparator: "˜", VerticalTilde: "‰€", VeryThinSpace: "€Š", Vfr: "ð”™", vfr: "ð”³", vltri: "Š²", vnsub: "Š‚ƒ’", vnsup: "Šƒƒ’", Vopf: "ð•", vopf: "ð•§", vprop: "ˆ", vrtri: "Š³", Vscr: "ð’±", vscr: "ð“‹", vsubnE: "«‹ï¸€", vsubne: "ŠŠï¸€", vsupnE: "«Œï¸€", vsupne: "Š‹ï¸€", Vvdash: "Šª", vzigzag: "¦š", Wcirc: "Å´", wcirc: "Åµ", wedbar: "©Ÿ", wedge: "ˆ§", Wedge: "‹€", wedgeq: "‰™", weierp: "„˜", Wfr: "ð”š", wfr: "ð”´", Wopf: "ð•Ž", wopf: "ð•¨", wp: "„˜", wr: "‰€", wreath: "‰€", Wscr: "ð’²", wscr: "ð“Œ", xcap: "‹‚", xcirc: "—¯", xcup: "‹ƒ", xdtri: "–½", Xfr: "ð”›", xfr: "ð”µ", xharr: "Ÿ·", xhArr: "Ÿº", Xi: "Îž", xi: "Î¾", xlarr: "Ÿµ", xlArr: "Ÿ¸", xmap: "Ÿ¼", xnis: "‹»", xodot: "¨€", Xopf: "ð•", xopf: "ð•©", xoplus: "¨", xotime: "¨‚", xrarr: "Ÿ¶", xrArr: "Ÿ¹", Xscr: "ð’³", xscr: "ð“", xsqcup: "¨†", xuplus: "¨„", xutri: "–³", xvee: "‹", xwedge: "‹€", Yacute: "Ã", yacute: "Ã½", YAcy: "Ð¯", yacy: "Ñ", Ycirc: "Å¶", ycirc: "Å·", Ycy: "Ð«", ycy: "Ñ‹", yen: "¥", Yfr: "ð”œ", yfr: "ð”¶", YIcy: "Ð‡", yicy: "Ñ—", Yopf: "ð•", yopf: "ð•ª", Yscr: "ð’´", yscr: "ð“Ž", YUcy: "Ð®", yucy: "ÑŽ", yuml: "Ã¿", Yuml: "Å¸", Zacute: "Å¹", zacute: "Åº", Zcaron: "Å½", zcaron: "Å¾", Zcy: "Ð—", zcy: "Ð·", Zdot: "Å»", zdot: "Å¼", zeetrf: "„¨", ZeroWidthSpace: "€‹", Zeta: "Î–", zeta: "Î¶", zfr: "ð”·", Zfr: "„¨", ZHcy: "Ð–", zhcy: "Ð¶", zigrarr: "‡", zopf: "ð•«", Zopf: "„¤", Zscr: "ð’µ", zscr: "ð“", zwj: "\u200d", zwnj: "\u200c"
 };
 
 var HEXCHARCODE = /^#[xX]([A-Fa-f0-9]+)$/;
@@ -12046,7 +12046,7 @@ ${p3}`
   );
 }
 function bulletsToAsterisks(text) {
-  return text.replace(/(^|\n)â€¢( +)/g, "$1*$2");
+  return text.replace(/(^|\n)€¢( +)/g, "$1*$2");
 }
 function markdownConverter(text) {
   return converter.makeHtml(
