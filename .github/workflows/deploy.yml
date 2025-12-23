@@ -18,6 +18,10 @@ jobs:
           role-to-assume: arn:aws:iam::596504523308:role/github-actions-kmdastur-deploy
           aws-region: ap-south-1
 
+      # DEBUG (remove after first success)
+      - name: Debug AWS identity
+        run: aws sts get-caller-identity
+
       # IMPORTANT: change SYNC_DIR to your *static output folder*
       # If your site files are at repo root, keep "."
       # If they are in a folder (e.g. "dist", "build", "public"), set it accordingly.
