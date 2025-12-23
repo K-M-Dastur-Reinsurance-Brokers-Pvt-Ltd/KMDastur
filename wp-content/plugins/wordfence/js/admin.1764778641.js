@@ -1,4 +1,4 @@
-(function($) {
+﻿(function($) {
 	var sprintf,
 		__;
 
@@ -3343,7 +3343,7 @@
 							self.colorboxModal((self.isSmallScreen ? '300px' : '400px'), __('Rule Update Failed'), __('No rules were updated. Please verify your website can reach the Wordfence servers.'));
 						}
 						else {
-							self.colorboxModal((self.isSmallScreen ? '300px' : '400px'), __('Rule Update Failed'), __('No rules were updated. Please verify you have permissions to write to the /KMDastur/wp-content/wflogs directory.'));
+							self.colorboxModal((self.isSmallScreen ? '300px' : '400px'), __('Rule Update Failed'), __('No rules were updated. Please verify you have permissions to write to the /wp-content/wflogs directory.'));
 						}
 					}
 					if (typeof onSuccess === 'function') {
