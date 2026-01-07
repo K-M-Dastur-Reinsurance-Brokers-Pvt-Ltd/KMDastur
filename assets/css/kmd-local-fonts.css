@@ -1,0 +1,14 @@
+/* KMD: Remove external Google Fonts to satisfy SRI scanners.
+   This file provides safe local/system font fallbacks.
+   If you want exact Roboto/Oswald, self-host WOFF2 and add @font-face rules here. */
+
+:root{
+  --e-global-typography-primary-font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --e-global-typography-secondary-font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --e-global-typography-text-font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --e-global-typography-accent-font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+body{
+  font-family: var(--e-global-typography-text-font-family, system-ui, -apple-system, "Segoe UI", Arial, sans-serif);
+}
