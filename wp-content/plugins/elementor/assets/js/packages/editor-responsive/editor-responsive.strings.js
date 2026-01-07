@@ -1,1 +1,0 @@
-﻿__( 'Desktop', 'elementor' );

@@ -1,3 +1,0 @@
-/wp-content/uploads/KMD_CSR%20Policy_website.pdf
-/wp-includes/css/classic-themes.min.css
-/wp-includes/js/wp-emoji-loader.min.js
